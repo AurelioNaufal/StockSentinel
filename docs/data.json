@@ -1,47 +1,47 @@
 {
-  "last_updated": "2026-01-19T08:58:07.604519",
+  "last_updated": "2026-01-19T09:20:06.898801",
   "total_assets": 44,
   "assets": [
     {
       "ticker": "BBCA.JK",
-      "current_price": 8025.0,
-      "rsi": 45.57,
-      "macd": -38.63,
-      "macd_signal": -43.0,
-      "sma_20": 8072.5,
-      "sma_50": 8212.91,
-      "atr": 132.94,
+      "current_price": 8125.0,
+      "rsi": 50.63,
+      "macd": -30.65,
+      "macd_signal": -41.4,
+      "sma_20": 8077.5,
+      "sma_50": 8214.91,
+      "atr": 134.73,
       "dividend_yield": 378.0,
-      "volume": 134195300,
+      "volume": 172094100,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$8025.0",
-      "take_profit": "$8827.5",
-      "stop_loss": "$7623.75",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 58.449181917s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 58\n}\n]",
+      "entry_zone": "$8125.0",
+      "take_profit": "$8937.5",
+      "stop_loss": "$7718.75",
       "dividend_analysis": "378.0%",
       "news": [],
-      "last_updated": "2026-01-19T08:53:56.431976"
+      "last_updated": "2026-01-19T09:16:01.572993"
     },
     {
       "ticker": "BBRI.JK",
-      "current_price": 3830.0,
-      "rsi": 70.89,
-      "macd": 37.48,
-      "macd_signal": 17.87,
-      "sma_20": 3679.66,
-      "sma_50": 3673.28,
+      "current_price": 3840.0,
+      "rsi": 71.64,
+      "macd": 38.27,
+      "macd_signal": 18.03,
+      "sma_20": 3680.16,
+      "sma_50": 3673.48,
       "atr": 65.03,
       "dividend_yield": 904.0,
-      "volume": 340462300,
+      "volume": 359430600,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$3830.0",
-      "take_profit": "$4213.0",
-      "stop_loss": "$3638.5",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 51.994742172s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 51\n}\n]",
+      "entry_zone": "$3840.0",
+      "take_profit": "$4224.0",
+      "stop_loss": "$3648.0",
       "dividend_analysis": "904.0%",
       "news": [
         {
@@ -55,26 +55,26 @@
           "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:03.330043"
+      "last_updated": "2026-01-19T09:16:08.015585"
     },
     {
       "ticker": "BMRI.JK",
-      "current_price": 5050.0,
-      "rsi": 63.66,
-      "macd": 16.24,
-      "macd_signal": 13.95,
-      "sma_20": 4924.93,
-      "sma_50": 4846.17,
+      "current_price": 5000.0,
+      "rsi": 60.62,
+      "macd": 12.25,
+      "macd_signal": 13.15,
+      "sma_20": 4922.43,
+      "sma_50": 4845.17,
       "atr": 103.56,
       "dividend_yield": 200.0,
-      "volume": 178117900,
+      "volume": 197599400,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$5050.0",
-      "take_profit": "$5555.0",
-      "stop_loss": "$4797.5",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 45.568864065s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 45\n}\n]",
+      "entry_zone": "$5000.0",
+      "take_profit": "$5500.0",
+      "stop_loss": "$4750.0",
       "dividend_analysis": "200.0%",
       "news": [
         {
@@ -83,26 +83,26 @@
           "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:10.105159"
+      "last_updated": "2026-01-19T09:16:14.444788"
     },
     {
       "ticker": "TLKM.JK",
-      "current_price": 3590.0,
-      "rsi": 53.89,
-      "macd": 21.62,
-      "macd_signal": 5.26,
-      "sma_20": 3515.5,
-      "sma_50": 3551.4,
+      "current_price": 3620.0,
+      "rsi": 56.49,
+      "macd": 24.01,
+      "macd_signal": 5.73,
+      "sma_20": 3517.0,
+      "sma_50": 3552.0,
       "atr": 93.65,
       "dividend_yield": 581.0,
-      "volume": 127726000,
+      "volume": 147123400,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$3590.0",
-      "take_profit": "$3949.0",
-      "stop_loss": "$3410.5",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 39.143880213s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 39\n}\n]",
+      "entry_zone": "$3620.0",
+      "take_profit": "$3982.0",
+      "stop_loss": "$3439.0",
       "dividend_analysis": "581.0%",
       "news": [
         {
@@ -116,26 +116,26 @@
           "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:16.791131"
+      "last_updated": "2026-01-19T09:16:20.865610"
     },
     {
       "ticker": "ASII.JK",
-      "current_price": 7375.0,
-      "rsi": 69.26,
-      "macd": 168.44,
-      "macd_signal": 126.16,
-      "sma_20": 6843.75,
-      "sma_50": 6651.5,
+      "current_price": 7400.0,
+      "rsi": 69.78,
+      "macd": 170.43,
+      "macd_signal": 126.56,
+      "sma_20": 6845.0,
+      "sma_50": 6652.0,
       "atr": 196.67,
       "dividend_yield": 576.0,
-      "volume": 45136500,
+      "volume": 51589600,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$7375.0",
-      "take_profit": "$8112.5",
-      "stop_loss": "$7006.25",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 33.616522385s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 33\n}\n]",
+      "entry_zone": "$7400.0",
+      "take_profit": "$8140.0",
+      "stop_loss": "$7030.0",
       "dividend_analysis": "576.0%",
       "news": [
         {
@@ -154,26 +154,26 @@
           "snippet": "Access detailed historical stock prices, including daily closing prices, for ASII. Analyze past performance trends, track price movements, and explore historical data to inform your investment decisions."
         }
       ],
-      "last_updated": "2026-01-19T08:54:22.538795"
+      "last_updated": "2026-01-19T09:16:26.392434"
     },
     {
       "ticker": "UNVR.JK",
-      "current_price": 2310.0,
-      "rsi": 26.59,
-      "macd": -28.72,
-      "macd_signal": 0.54,
-      "sma_20": 2593.5,
-      "sma_50": 2560.52,
+      "current_price": 2330.0,
+      "rsi": 27.52,
+      "macd": -27.13,
+      "macd_signal": 0.86,
+      "sma_20": 2594.5,
+      "sma_50": 2560.92,
       "atr": 77.26,
       "dividend_yield": 547.0,
-      "volume": 52281700,
+      "volume": 55825800,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$2310.0",
-      "take_profit": "$2541.0",
-      "stop_loss": "$2194.5",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 27.985515457s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 27\n}\n]",
+      "entry_zone": "$2330.0",
+      "take_profit": "$2563.0",
+      "stop_loss": "$2213.5",
       "dividend_analysis": "547.0%",
       "news": [
         {
@@ -187,12 +187,12 @@
           "snippet": "Univar delivered record annual revenue growth of $11.5 billion +20.3% (YoY) in FY 2022, up from $9.5 billion in the year ending in December 2021. Univar's customers are spread across a diverse range of markets, including healthcare, nutrition ..."
         },
         {
-          "title": "Univar Solutions (UNVR) Stock Rallied in Q4 on Strong Operational Results",
-          "url": "https://www.insidermonkey.com/blog/univar-solutions-unvr-stock-rallied-in-q4-on-strong-operational-results-1134618/",
-          "snippet": "Meridian Funds, managed by ArrowMark Partners, released its \"Meridian Contrarian Fund\" fourth quarter 2022 investor letter. A copy of the same can be downloaded here. In the fourth quarter, the fund returned 8.78% net compared to a 7.43% return for ..."
+          "title": "UNVR vs. APD: Which Stock Is the Better Value Option?",
+          "url": "https://www.nasdaq.com/articles/unvr-vs.-apd:-which-stock-is-the-better-value-option-2021-08-05",
+          "snippet": "Investors looking for stocks in the Chemical - Diversified sector might want to consider either Univar (UNVR) or Air Products and Chemicals (APD). But which of these two companies is the best option for those looking for undervalued stocks? Let's take a ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:28.372500"
+      "last_updated": "2026-01-19T09:16:32.023586"
     },
     {
       "ticker": "ICBP.JK",
@@ -204,11 +204,11 @@
       "sma_50": 8259.0,
       "atr": 127.88,
       "dividend_yield": 311.0,
-      "volume": 9014400,
+      "volume": 9434200,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 21.603043857s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 21\n}\n]",
       "entry_zone": "$8100.0",
       "take_profit": "$8910.0",
       "stop_loss": "$7695.0",
@@ -225,26 +225,26 @@
           "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:35.058212"
+      "last_updated": "2026-01-19T09:16:38.406960"
     },
     {
       "ticker": "INDF.JK",
-      "current_price": 6775.0,
-      "rsi": 48.1,
-      "macd": -66.77,
-      "macd_signal": -82.09,
-      "sma_20": 6761.25,
-      "sma_50": 6945.0,
+      "current_price": 6825.0,
+      "rsi": 50.58,
+      "macd": -62.78,
+      "macd_signal": -81.29,
+      "sma_20": 6763.75,
+      "sma_50": 6946.0,
       "atr": 131.22,
       "dividend_yield": 415.0,
-      "volume": 9463400,
+      "volume": 10606400,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$6775.0",
-      "take_profit": "$7452.5",
-      "stop_loss": "$6436.25",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 15.061553605s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 15\n}\n]",
+      "entry_zone": "$6825.0",
+      "take_profit": "$7507.5",
+      "stop_loss": "$6483.75",
       "dividend_analysis": "415.0%",
       "news": [
         {
@@ -258,31 +258,31 @@
           "snippet": "U.S. President Donald announced a trade agreement with Indonesia that would see Washington lower its tariff rates to 19% from a threatened 32%. July 7, 2025 Indonesia's top negotiator to visit US ahead of tariff deadline, official says Indonesia will send ..."
         },
         {
-          "title": "Nifty India Financials ETF (INDF)",
-          "url": "https://www.nasdaq.com/market-activity/etf/indf/press-releases",
-          "snippet": "Nasdaq provides press releases highlighting valuable information sent out by companies. Here you can find the company's latest financial figures, contact information, and source version of the press release to stay ahead of the market for value generation."
+          "title": "Nifty India Financials ETF (ARCA:INDF), Top Holdings",
+          "url": "https://www.benzinga.com/quote/INDF/holdings",
+          "snippet": "The INDF ETF is currently trading at $39.16, which represents a -1.15% change. Over the past 52 weeks, the ETF has traded as high as $40.00 and as low as $33.67. The expense ratio of INDF is 0.75%. This represents the annual fee that all funds or ETFs ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:41.835902"
+      "last_updated": "2026-01-19T09:16:44.949162"
     },
     {
       "ticker": "KLBF.JK",
-      "current_price": 1210.0,
-      "rsi": 49.95,
-      "macd": 0.24,
-      "macd_signal": -1.65,
-      "sma_20": 1210.75,
-      "sma_50": 1211.0,
+      "current_price": 1215.0,
+      "rsi": 51.06,
+      "macd": 0.64,
+      "macd_signal": -1.57,
+      "sma_20": 1211.0,
+      "sma_50": 1211.1,
       "atr": 34.86,
       "dividend_yield": 299.0,
-      "volume": 47331800,
+      "volume": 58924100,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$1210.0",
-      "take_profit": "$1331.0",
-      "stop_loss": "$1149.5",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 8.538927663s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 8\n}\n]",
+      "entry_zone": "$1215.0",
+      "take_profit": "$1336.5",
+      "stop_loss": "$1154.25",
       "dividend_analysis": "299.0%",
       "news": [
         {
@@ -291,7 +291,7 @@
           "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:48.505719"
+      "last_updated": "2026-01-19T09:16:51.472959"
     },
     {
       "ticker": "GGRM.JK",
@@ -303,39 +303,39 @@
       "sma_50": 14623.0,
       "atr": 606.17,
       "dividend_yield": 332.0,
-      "volume": 1178700,
+      "volume": 1217500,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 3.077198625s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 3\n}\n]",
       "entry_zone": "$15800.0",
       "take_profit": "$17380.0",
       "stop_loss": "$15010.0",
       "dividend_analysis": "332.0%",
       "news": [],
-      "last_updated": "2026-01-19T08:54:54.306097"
+      "last_updated": "2026-01-19T09:16:56.934432"
     },
     {
       "ticker": "BBTN.JK",
-      "current_price": 1225.0,
-      "rsi": 67.58,
-      "macd": 8.93,
-      "macd_signal": 1.14,
-      "sma_20": 1171.5,
-      "sma_50": 1176.6,
+      "current_price": 1220.0,
+      "rsi": 66.5,
+      "macd": 8.53,
+      "macd_signal": 1.06,
+      "sma_20": 1171.25,
+      "sma_50": 1176.5,
       "atr": 27.76,
       "dividend_yield": 439.0,
-      "volume": 47166800,
+      "volume": 50893100,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$1225.0",
-      "take_profit": "$1347.5",
-      "stop_loss": "$1163.75",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 57.605582817s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 57\n}\n]",
+      "entry_zone": "$1220.0",
+      "take_profit": "$1342.0",
+      "stop_loss": "$1159.0",
       "dividend_analysis": "439.0%",
       "news": [],
-      "last_updated": "2026-01-19T08:54:59.993593"
+      "last_updated": "2026-01-19T09:17:02.405122"
     },
     {
       "ticker": "ACES.JK",
@@ -347,11 +347,11 @@
       "sma_50": 420.04,
       "atr": 5.79,
       "dividend_yield": 822.0,
-      "volume": 25691400,
+      "volume": 27504300,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 51.090525139s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 51\n}\n]",
       "entry_zone": "$416.0",
       "take_profit": "$457.6",
       "stop_loss": "$395.2",
@@ -361,28 +361,33 @@
           "title": "Acea S.p.A.",
           "url": "https://www.marketwatch.com/investing/stock/ace/financials/cash-flow?countrycode=it",
           "snippet": "Acea S.p.A. Annual cash flow by MarketWatch. View ACE net cash flow, operating cash flow, operating expenses and cash dividends."
+        },
+        {
+          "title": "ALPS Clean Energy ETF : ACES",
+          "url": "https://247wallst.com/companies/ACES/",
+          "snippet": "ALPS Clean Energy ETF (NYSEARCA:ACES) has surged 30% year-to-date through, nearly doubling the S&P 500's 16% gain. But context matters:\u2026"
         }
       ],
-      "last_updated": "2026-01-19T08:55:06.633471"
+      "last_updated": "2026-01-19T09:17:08.919455"
     },
     {
       "ticker": "ADRO.JK",
-      "current_price": 2150.0,
-      "rsi": 69.54,
-      "macd": 127.82,
-      "macd_signal": 94.29,
-      "sma_20": 1933.28,
-      "sma_50": 1808.53,
+      "current_price": 2170.0,
+      "rsi": 72.0,
+      "macd": 129.41,
+      "macd_signal": 94.61,
+      "sma_20": 1934.28,
+      "sma_50": 1808.93,
       "atr": 92.49,
       "dividend_yield": 1398.0,
-      "volume": 160670700,
+      "volume": 167284800,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$2150.0",
-      "take_profit": "$2365.0",
-      "stop_loss": "$2042.5",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 44.740760338s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 44\n}\n]",
+      "entry_zone": "$2170.0",
+      "take_profit": "$2387.0",
+      "stop_loss": "$2061.5",
       "dividend_analysis": "1398.0%",
       "news": [
         {
@@ -391,7 +396,7 @@
           "snippet": "Looking for high-potential stocks? Just follow the big players within the hedge fund industry. Why should you do so? Let's take a brief look at what statistics have to say about hedge funds' stock picking abilities to illustrate. The Standard and Poor ..."
         }
       ],
-      "last_updated": "2026-01-19T08:55:13.193408"
+      "last_updated": "2026-01-19T09:17:15.268964"
     },
     {
       "ticker": "ANTM.JK",
@@ -403,36 +408,36 @@
       "sma_50": 3164.2,
       "atr": 178.61,
       "dividend_yield": 375.0,
-      "volume": 174769500,
+      "volume": 187157900,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 39.247470164s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 39\n}\n]",
       "entry_zone": "$4000.0",
       "take_profit": "$4400.0",
       "stop_loss": "$3800.0",
       "dividend_analysis": "375.0%",
       "news": [],
-      "last_updated": "2026-01-19T08:55:18.930510"
+      "last_updated": "2026-01-19T09:17:20.763838"
     },
     {
       "ticker": "INCO.JK",
-      "current_price": 6275.0,
-      "rsi": 70.92,
-      "macd": 570.03,
-      "macd_signal": 509.58,
-      "sma_20": 5528.75,
-      "sma_50": 4617.3,
-      "atr": 393.5,
+      "current_price": 6400.0,
+      "rsi": 73.97,
+      "macd": 580.0,
+      "macd_signal": 511.57,
+      "sma_20": 5535.0,
+      "sma_50": 4619.8,
+      "atr": 397.08,
       "dividend_yield": 84.0,
-      "volume": 40666100,
+      "volume": 44554100,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$6275.0",
-      "take_profit": "$6902.5",
-      "stop_loss": "$5961.25",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 33.636770268s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 33\n}\n]",
+      "entry_zone": "$6400.0",
+      "take_profit": "$7040.0",
+      "stop_loss": "$6080.0",
       "dividend_analysis": "84.0%",
       "news": [
         {
@@ -451,7 +456,7 @@
           "snippet": "NEW YORK | Phelps Dodge Corp. is buying Canadian mining companies Inco Ltd. and Falconbridge Ltd. for about $40 billion in the hope that global demand will continue to support surging metals prices. The deal could resolve what had been a four-way bidding ..."
         }
       ],
-      "last_updated": "2026-01-19T08:55:24.649891"
+      "last_updated": "2026-01-19T09:17:26.379551"
     },
     {
       "ticker": "AAPL",
@@ -467,7 +472,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 28.047263738s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 28\n}\n]",
       "entry_zone": "$255.53",
       "take_profit": "$281.08",
       "stop_loss": "$242.75",
@@ -484,12 +489,12 @@
           "snippet": "This increase propelled the shares to more than 32x forward earnings\u2014a premium valuation that hinges on Apple's success in its upcoming major platform transition."
         },
         {
-          "title": "Apple (AAPL) Stock Predictions: What Investors Should Expect in 2026 and Beyond",
-          "url": "https://www.fool.com/investing/how-to-invest/stocks/apple-stock-forecast/",
-          "snippet": "Apple stock delivered an underwhelming performance in 2025. Shares of the consumer technology product maker rose 8.6% on the year, underperforming the 16.4% gain by the S&P 500. While most technology stocks had a strong year, Apple trailed its peers due to its much lower capital spending on artificial intelligence (AI)."
+          "title": "Why Are Apple Shares Trending Monday?",
+          "url": "https://www.benzinga.com/trading-ideas/movers/26/01/49709999/why-are-apple-shares-trending-monday",
+          "snippet": "Apple Inc. (NASDAQ: AAPL) stock trended on Monday after Raymond James reinstated a Market Perform rating on the company. What To Know: According to Investing.com, Raymond James resumed coverage of Apple with a Market Perform rating,"
         }
       ],
-      "last_updated": "2026-01-19T08:55:30.383673"
+      "last_updated": "2026-01-19T09:17:31.962157"
     },
     {
       "ticker": "MSFT",
@@ -505,13 +510,29 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 22.521168665s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 22\n}\n]",
       "entry_zone": "$459.86",
       "take_profit": "$505.85",
       "stop_loss": "$436.87",
       "dividend_analysis": "79.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:55:35.069284"
+      "news": [
+        {
+          "title": "Goldman Sachs revamps Microsoft stock price target before earnings",
+          "url": "https://www.msn.com/en-us/money/savingandinvesting/goldman-sachs-revamps-microsoft-stock-price-target-before-earnings/ar-AA1UpBrt",
+          "snippet": "That form's a big part of why, in Goldman's upside scenario, Microsoft may deliver more than $35 in earnings per share by fiscal 2030 (north of 20% EPS growth), trumping the mid-teens expansion expected from most mega-cap players."
+        },
+        {
+          "title": "How Microsoft Stock Can Jump To $600?",
+          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/15/how-microsoft-stock-can-jump-to-600/",
+          "snippet": "If historical patterns are accurate, forthcoming catalysts may push Microsoft stock to new impressive peaks, furthering its legacy of"
+        },
+        {
+          "title": "Is Microsoft Stock Getting Risky Now?",
+          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/08/is-microsoft-stock-getting-risky-now/",
+          "snippet": "Microsoft (MSFT) is encountering challenges. Even the largest companies are not impervious. Stock prices can plummet unexpectedly - erasing months or"
+        }
+      ],
+      "last_updated": "2026-01-19T09:17:37.490623"
     },
     {
       "ticker": "GOOGL",
@@ -527,7 +548,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 17.045645183s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 17\n}\n]",
       "entry_zone": "$330.0",
       "take_profit": "$363.0",
       "stop_loss": "$313.5",
@@ -539,17 +560,17 @@
           "snippet": "Alphabet ( GOOG 0.85%) ( GOOGL 0.80%) was the top-performing \" Magnificent Seven \" stock of 2025, and also outpaced many other big tech stocks. It had multiple catalysts driving it higher, but some of those won't be applicable in 2026."
         },
         {
-          "title": "How Can Google Stock Fall?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/06/how-can-google-stock-fall/",
-          "snippet": "Its stock dropped by over 30% within less than 2 months in 2022, resulting in billions in lost market value and eliminating significant gains in a single correction."
-        },
-        {
           "title": "Google Stock Surged 65% In 2025\u2014Can It Continue In 2026?",
           "url": "https://www.forbes.com/sites/greatspeculations/2026/01/12/google-stock-surged-65-in-2025--can-it-continue-in-2026/",
           "snippet": "Valuation expansion was responsible for 82% of the gain\u2014the price-to-sales ratio escalated from 5.7x to 10.3x."
+        },
+        {
+          "title": "How Can Google Stock Fall?",
+          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/06/how-can-google-stock-fall/",
+          "snippet": "Its stock dropped by over 30% within less than 2 months in 2022, resulting in billions in lost market value and eliminating significant gains in a single correction."
         }
       ],
-      "last_updated": "2026-01-19T08:55:40.689023"
+      "last_updated": "2026-01-19T09:17:42.965384"
     },
     {
       "ticker": "AMZN",
@@ -565,7 +586,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 11.641108037s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 11\n}\n]",
       "entry_zone": "$239.12",
       "take_profit": "$263.03",
       "stop_loss": "$227.16",
@@ -587,7 +608,7 @@
           "snippet": "A P/E ratio of 36.54 indicates that its valuation is high relative to its 10.87% LTM revenue growth, suggesting limited potential"
         }
       ],
-      "last_updated": "2026-01-19T08:55:46.386842"
+      "last_updated": "2026-01-19T09:17:48.369019"
     },
     {
       "ticker": "NVDA",
@@ -603,7 +624,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 6.152432764s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 6\n}\n]",
       "entry_zone": "$186.23",
       "take_profit": "$204.85",
       "stop_loss": "$176.92",
@@ -625,7 +646,7 @@
           "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the best stocks to buy in 2026 for beginners. On January 16, Jefferies lifted the price target on NVIDIA Corporation (NASDAQ:NVDA) to $275 from $250 and reiterated a Buy rating,"
         }
       ],
-      "last_updated": "2026-01-19T08:55:52.152622"
+      "last_updated": "2026-01-19T09:17:53.857049"
     },
     {
       "ticker": "TSLA",
@@ -641,21 +662,21 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 723.040548ms. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n}\n]",
       "entry_zone": "$437.5",
       "take_profit": "$481.25",
       "stop_loss": "$415.62",
       "dividend_analysis": "N/A",
       "news": [
         {
-          "title": "TSLA vs. BYDDY: What's the Better Long-Term Play?",
-          "url": "https://www.fool.com/investing/2026/01/19/tsla-vs-byddy-whats-the-better-long-term-play/",
-          "snippet": "Tesla's stock is extraordinarily expensive. Its trailing price-to-earnings ratio is currently over 300. Tesla also has a massive market cap of $1.4 trillion. The premium investors pay for Tesla has a lot to do with the belief that CEO Elon Musk will deliver on innovative promises in the coming decades."
-        },
-        {
           "title": "Can Tesla Stock Fall To $300?",
           "url": "https://www.forbes.com/sites/greatspeculations/2026/01/14/can-tesla-stock-fall-to-300/",
           "snippet": "TSLA stock plummeted 73.6% from a peak of $409.97 on 4 November 2021 to $108.10 on 3 January 2023, compared to a peak-to-trough decline of 25.4% for the S&P 500. Thereafter, the stock surged to a high of $489.88 on 16 December 2025, and presently trades at $447.20"
+        },
+        {
+          "title": "TSLA vs. BYDDY: What's the Better Long-Term Play?",
+          "url": "https://www.fool.com/investing/2026/01/19/tsla-vs-byddy-whats-the-better-long-term-play/",
+          "snippet": "Tesla's stock is extraordinarily expensive. Its trailing price-to-earnings ratio is currently over 300. Tesla also has a massive market cap of $1.4 trillion. The premium investors pay for Tesla has a lot to do with the belief that CEO Elon Musk will deliver on innovative promises in the coming decades."
         },
         {
           "title": "Where Will Tesla Stock Be in 3 Years?",
@@ -663,7 +684,7 @@
           "snippet": "On the surface, shares of Elon Musk's EV titan Tesla (NASDAQ:TSLA) look quite expensive, especially after gaining more than 41% in the past six months. Undoubtedly, 300 times trailing price-to-earnings (P/E) is a high price to pay for an electric vehicle firm,"
         }
       ],
-      "last_updated": "2026-01-19T08:55:57.815709"
+      "last_updated": "2026-01-19T09:17:59.287812"
     },
     {
       "ticker": "META",
@@ -679,7 +700,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 55.346954849s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 55\n}\n]",
       "entry_zone": "$620.25",
       "take_profit": "$682.28",
       "stop_loss": "$589.24",
@@ -701,7 +722,7 @@
           "snippet": "We recently published 9 Stocks Jim Cramer Talked About . Meta Platforms, Inc. (NASDAQ:META) is one of the stocks on Jim Cramer talked about."
         }
       ],
-      "last_updated": "2026-01-19T08:56:03.466117"
+      "last_updated": "2026-01-19T09:18:04.664710"
     },
     {
       "ticker": "JPM",
@@ -717,21 +738,21 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 49.803200489s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 49\n}\n]",
       "entry_zone": "$312.47",
       "take_profit": "$343.72",
       "stop_loss": "$296.85",
       "dividend_analysis": "192.0%",
       "news": [
         {
-          "title": "JPMorgan Chase is about to take over the Apple Card business from Goldman Sachs. Here's what investors need to know.",
-          "url": "https://www.msn.com/en-us/money/savingandinvesting/jpmorgan-chase-is-about-to-take-over-the-apple-card-business-from-goldman-sachs-here-s-what-investors-need-to-know/ar-AA1UsCFg",
-          "snippet": "It has been surprising to see how much Goldman Sachs has struggled in consumer banking. Apple Card provides JPMorgan Chase access to a high-value customer cohort that it can cross-sell products and services to."
+          "title": "JPM stock today jumps even after JPMorgan earnings miss \u2014 here's what investors are focusing on",
+          "url": "https://www.msn.com/en-in/money/markets/jpm-stock-today-jumps-even-after-jpmorgan-earnings-miss-here-s-what-investors-are-focusing-on/ar-AA1U84je",
+          "snippet": "JPMorgan Chase shares saw a rise in pre-market trading. This occurred even as the bank reported a dip in investment-banking fees for the fourth quarter. However, strong trading results and an optimistic outlook for net interest income for the upcoming year impressed investors."
         },
         {
-          "title": "Why investors kept banking on JPMorgan Chase stock in 2025",
-          "url": "https://www.msn.com/en-us/money/topstocks/why-investors-kept-banking-on-jpmorgan-chase-stock-in-2025/ar-AA1UdsNR",
-          "snippet": "JPMorgan Chase wasn't the stock price appreciation champ out of the four (Citigroup's nearly 66% gain took the crown), but in numerous ways, it had the most impactful 2025. After all, a company doesn't experience a rise in its stock price by over 34% without being busy and successful. Here's a look at what made JPMorgan Chase a winner that year."
+          "title": "Why Analysts Are Closely Watching JPMorgan Chase & Co. (JPM)",
+          "url": "https://www.msn.com/en-us/money/topstocks/why-analysts-are-closely-watching-jpmorgan-chase-co-jpm/ar-AA1Un13y",
+          "snippet": "JPMorgan Chase & Co. (NYSE:JPM) is among the most profitable US stocks to buy. On January 14, CICC began coverage on JPMorgan Chase & Co."
         },
         {
           "title": "JPMorgan Chase: RWA Optimization Catalyzes Capital Return Velocity And High Confidence $405 Target",
@@ -739,7 +760,7 @@
           "snippet": "JPM's RWA normalization post-Apple Card acquisition could free $9-$10 billion in CET1 capital, supporting buybacks or high-yield lending, with upside to 2026/2027 ROCE. Technical and valuation models converge on a 2026 price target of $366-$405, reflecting confidence in sustained ROTCE and potential multiple expansion."
         }
       ],
-      "last_updated": "2026-01-19T08:56:09.208346"
+      "last_updated": "2026-01-19T09:18:10.208521"
     },
     {
       "ticker": "V",
@@ -755,13 +776,13 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 45.417439791s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 45\n}\n]",
       "entry_zone": "$328.3",
       "take_profit": "$361.13",
       "stop_loss": "$311.88",
       "dividend_analysis": "82.0%",
       "news": [],
-      "last_updated": "2026-01-19T08:56:13.845187"
+      "last_updated": "2026-01-19T09:18:14.591997"
     },
     {
       "ticker": "WMT",
@@ -777,7 +798,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 39.906028313s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 39\n}\n]",
       "entry_zone": "$119.7",
       "take_profit": "$131.67",
       "stop_loss": "$113.72",
@@ -794,12 +815,12 @@
           "snippet": "Walmart Inc (NASDAQ:WMT) shares are up on Tuesday following the announcement that the company will join the Nasdaq-100 index."
         },
         {
-          "title": "SA analyst upgrades/downgrades: BA, WMT, NOC, SNOW",
-          "url": "https://www.msn.com/en-us/money/topstocks/sa-analyst-upgradesdowngrades-ba-wmt-noc-snow/ar-AA1Ud3Qj",
-          "snippet": "Recent analyst actions include Snowflake (SNOW) receiving a rare double upgrade from Gary Alexander, who sees the recent pullback as an excellent entry point. Northrop Grumman (NOC) also earned an upgrade on prospects for substantially increased defense funding under a potential $1."
+          "title": "The Newest Stock in the Nasdaq-100 Soared 549,000% Since Its IPO, and It's Still a Buy Right Now, According to Wall Street (Hint: Not Strictly a Tech Company)",
+          "url": "https://www.fool.com/investing/2026/01/15/the-newest-stock-in-the-nasdaq-100-has-soared-5490/",
+          "snippet": "Shares of this household name outperformed the broader market indexes in 2025, and that could be more to come."
         }
       ],
-      "last_updated": "2026-01-19T08:56:19.654138"
+      "last_updated": "2026-01-19T09:18:20.104582"
     },
     {
       "ticker": "JNJ",
@@ -815,29 +836,13 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 35.396160403s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 35\n}\n]",
       "entry_zone": "$218.66",
       "take_profit": "$240.53",
       "stop_loss": "$207.73",
       "dividend_analysis": "238.0%",
-      "news": [
-        {
-          "title": "Here's what lifted Johnson & Johnson (JNJ) in Q4",
-          "url": "https://www.msn.com/en-us/money/top-stocks/here-s-what-lifted-johnson-johnson-jnj-in-q4/ar-AA1U7YHn",
-          "snippet": "Mar Vista Investment Partners, LLC, an investment management company, released its \"Mar Vista U.S. Quality Strategy\" fourth-quarter 2025 investor letter. A copy of the letter can be downloaded here. US equities experienced a strong momentum in 2025 and marked their second consecutive year of double-digit gains."
-        },
-        {
-          "title": "Here is what to know beyond why Johnson & Johnson (JNJ) is a trending stock",
-          "url": "https://www.msn.com/en-us/money/markets/here-is-what-to-know-beyond-why-johnson-johnson-jnj-is-a-trending-stock/ar-AA1Tm7v3",
-          "snippet": "Johnson & Johnson (JNJ) has recently been on Zacks.com's list of the most searched stocks. Therefore, you might want to consider some of the key factors that could influence the stock's performance in the near future."
-        },
-        {
-          "title": "JNJ vs. AZN: Which Drug Stock Comes Out on Top for Investors?",
-          "url": "https://finance.yahoo.com/news/jnj-vs-azn-drug-stock-165100469.html",
-          "snippet": "J&J's diversified pharma and MedTech strength stacks up against AstraZeneca's oncology-led growth as investors weigh stability versus faster expansion."
-        }
-      ],
-      "last_updated": "2026-01-19T08:56:25.485774"
+      "news": [],
+      "last_updated": "2026-01-19T09:18:24.614902"
     },
     {
       "ticker": "PG",
@@ -853,13 +858,29 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 29.692398609s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 29\n}\n]",
       "entry_zone": "$144.53",
       "take_profit": "$158.98",
       "stop_loss": "$137.3",
       "dividend_analysis": "292.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:56:30.248375"
+      "news": [
+        {
+          "title": "Procter & Gamble CEO could see major wealth boost from stock incentives",
+          "url": "https://www.msn.com/en-us/money/companies/procter-gamble-ceo-could-see-major-wealth-boost-from-stock-incentives/ar-AA1UdZLy",
+          "snippet": "Procter & Gamble has given its new CEO, Shailesh Jejurikar, a powerful performance incentive to improve the company's results: stock and options."
+        },
+        {
+          "title": "Procter & Gamble (PG) stock dips while market gains: Key facts",
+          "url": "https://www.msn.com/en-us/money/top-stocks/procter-gamble-pg-stock-dips-while-market-gains-key-facts/ar-AA1TDdKh",
+          "snippet": "Procter & Gamble (PG) closed the most recent trading day at $140.37, moving -1% from the previous trading session. The stock fell short of the S&P 500, which registered a gain of 0.64% for the day. Meanwhile,"
+        },
+        {
+          "title": "Here's why PG&E (PCG) is a strong growth stock",
+          "url": "https://www.msn.com/en-us/money/topstocks/here-s-why-pg-e-pcg-is-a-strong-growth-stock/ar-AA1UhWJY",
+          "snippet": "For new and old investors, taking full advantage of the stock market and investing with confidence are common goals. Zacks Premium provides lots of different ways to do both. Featuring daily updates of the Zacks Rank and Zacks Industry Rank,"
+        }
+      ],
+      "last_updated": "2026-01-19T09:18:30.318743"
     },
     {
       "ticker": "MA",
@@ -875,7 +896,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 24.15906503s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 24\n}\n]",
       "entry_zone": "$539.49",
       "take_profit": "$593.44",
       "stop_loss": "$512.52",
@@ -897,7 +918,7 @@
           "snippet": "Bretton Capital Management, an investment management company, released \"Bretton Fund\" fourth quarter 2024 investor letter. A copy of the letter can be downloaded here. The market is experiencing a period of high returns, with two consecutive years of ..."
         }
       ],
-      "last_updated": "2026-01-19T08:56:35.946361"
+      "last_updated": "2026-01-19T09:18:35.859877"
     },
     {
       "ticker": "HD",
@@ -913,7 +934,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 18.638216923s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 18\n}\n]",
       "entry_zone": "$380.17",
       "take_profit": "$418.19",
       "stop_loss": "$361.16",
@@ -935,7 +956,7 @@
           "snippet": "In a display of almost inspiring pessimism, new reports suggested that home improvement giant Home Depot ($HD) had quite a bit to look forward to"
         }
       ],
-      "last_updated": "2026-01-19T08:56:41.721128"
+      "last_updated": "2026-01-19T09:18:41.372835"
     },
     {
       "ticker": "BAC",
@@ -951,21 +972,21 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 13.095190842s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 13\n}\n]",
       "entry_zone": "$52.97",
       "take_profit": "$58.27",
       "stop_loss": "$50.32",
       "dividend_analysis": "211.0%",
       "news": [
         {
-          "title": "Assessing Bank of America (BAC) Valuation After Recent Choppy Share Price Performance",
-          "url": "https://finance.yahoo.com/news/assessing-bank-america-bac-valuation-070827531.html",
-          "snippet": "Why Bank of America Stock Is on Investor Watch Bank of America (BAC) is back on many investors' screens after recent share price moves. The stock closed at $52.97 and has shown mixed performance over the past week,"
-        },
-        {
           "title": "Bank of America Q4 beat estimates, but here's why BAC stock may stay in red",
           "url": "https://www.msn.com/en-us/money/savingandinvesting/bank-of-america-q4-beat-estimates-but-here-s-why-bac-stock-may-stay-in-red/ar-AA1UfuMv",
           "snippet": "Bank of America (NYSE: BAC stock) delivered a solid beat on earnings and revenue for the fourth quarter, reporting diluted earnings of $0.98 per share, surpassing the consensus of $0.95-$0.98. The bank posted a revenue of $28."
+        },
+        {
+          "title": "Assessing Bank of America (BAC) Valuation After Recent Choppy Share Price Performance",
+          "url": "https://finance.yahoo.com/news/assessing-bank-america-bac-valuation-070827531.html",
+          "snippet": "Why Bank of America Stock Is on Investor Watch Bank of America (BAC) is back on many investors' screens after recent share price moves. The stock closed at $52.97 and has shown mixed performance over the past week,"
         },
         {
           "title": "Why Bank of America (BAC) is a great dividend stock right now",
@@ -973,7 +994,7 @@
           "snippet": "Whether it's through stocks, bonds, ETFs, or other types of securities, all investors love seeing their portfolios score big returns. But when you're an income investor, your primary focus is generating consistent cash flow from each of your liquid investments."
         }
       ],
-      "last_updated": "2026-01-19T08:56:47.459647"
+      "last_updated": "2026-01-19T09:18:46.916163"
     },
     {
       "ticker": "DIS",
@@ -989,13 +1010,29 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 7.480853051s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 7\n}\n]",
       "entry_zone": "$111.2",
       "take_profit": "$122.32",
       "stop_loss": "$105.64",
       "dividend_analysis": "135.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:56:52.198584"
+      "news": [
+        {
+          "title": "The Walt Disney Company (DIS) is a trending stock: Facts to know before betting on it",
+          "url": "https://www.msn.com/en-us/money/topstocks/the-walt-disney-company-dis-is-a-trending-stock-facts-to-know-before-betting-on-it/ar-AA1TKN0b",
+          "snippet": "Walt Disney (DIS) has been one of the most searched-for stocks on Zacks.com lately. So, you might want to look at some of the facts that could shape the stock's performance in the near term. Over the past month,"
+        },
+        {
+          "title": "3 Reasons to Avoid DIS and 1 Stock to Buy Instead",
+          "url": "https://finance.yahoo.com/news/3-reasons-avoid-dis-1-040249987.html",
+          "snippet": "Over the last six months, Disney's shares have sunk to $114.05, producing a disappointing 7.4% loss - a stark contrast to the S&P 500's 10.1% gain. This might have investors contemplating their next move."
+        },
+        {
+          "title": "Is this blue-chip icon the best cheap stock you can buy for 2026?",
+          "url": "https://www.msn.com/en-us/money/top-stocks/is-this-blue-chip-icon-the-best-cheap-stock-you-can-buy-for-2026/ar-AA1TGi36",
+          "snippet": "Walt Disney (DIS) stock has been an underperformer, having remained sideways in the past 12 months. One factor that has contributed to the time correction is mixed results. In the last two quarterly numbers,"
+        }
+      ],
+      "last_updated": "2026-01-19T09:18:52.528906"
     },
     {
       "ticker": "NFLX",
@@ -1011,7 +1048,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 1.922111896s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 1\n}\n]",
       "entry_zone": "$88.0",
       "take_profit": "$96.8",
       "stop_loss": "$83.6",
@@ -1033,7 +1070,7 @@
           "snippet": "Down 28% before Q4 earnings Jan 20. Analysts expect $0.55 EPS, $11.97B revenue. Warner Bros. deal weighs on shares trading at cheap valuations."
         }
       ],
-      "last_updated": "2026-01-19T08:56:57.816904"
+      "last_updated": "2026-01-19T09:18:58.089451"
     },
     {
       "ticker": "CSCO",
@@ -1049,7 +1086,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 56.408078167s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 56\n}\n]",
       "entry_zone": "$75.19",
       "take_profit": "$82.71",
       "stop_loss": "$71.43",
@@ -1066,12 +1103,12 @@
           "snippet": "Margin pressures persist as Cisco adapts to AI-driven competition. Click here to read why I recommend buying CSCO stock."
         },
         {
-          "title": "Cisco Systems (CSCO) registers a bigger fall than the market: Important facts to note",
-          "url": "https://www.msn.com/en-us/money/topstocks/cisco-systems-csco-registers-a-bigger-fall-than-the-market-important-facts-to-note/ar-AA1Ueztw",
-          "snippet": "In the latest trading session, Cisco Systems (CSCO) closed at $74.40, marking a -1.41% move from the previous day. This change lagged the S&P 500's 0.53% loss on the day. Elsewhere, the Dow saw a downswing of 0."
+          "title": "DELL vs. CSCO: Which AI Infrastructure Stock Is the Better Buy Now?",
+          "url": "https://finance.yahoo.com/news/dell-vs-csco-ai-infrastructure-155500445.html",
+          "snippet": "Dell Technologies leads in AI server demand, but Cisco Systems' networking strength and earnings momentum position it as the stronger AI infrastructure stock."
         }
       ],
-      "last_updated": "2026-01-19T08:57:03.458869"
+      "last_updated": "2026-01-19T09:19:03.603710"
     },
     {
       "ticker": "PFE",
@@ -1087,13 +1124,29 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 50.779953405s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 50\n}\n]",
       "entry_zone": "$25.65",
       "take_profit": "$28.22",
       "stop_loss": "$24.37",
       "dividend_analysis": "671.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:57:08.196226"
+      "news": [
+        {
+          "title": "The Best Dividend Stocks to Buy in 2026 and Hold Forever -- Including Pfizer (PFE) and United Parcel Service (UPS)",
+          "url": "https://www.msn.com/en-us/money/topstocks/the-best-dividend-stocks-to-buy-in-2026-and-hold-forever-including-pfizer-pfe-and-united-parcel-service-ups/ar-AA1Upb01",
+          "snippet": "Any believers in UPS who buy now can enjoy a generous dividend payment every quarter while waiting for a turnaround. Given the significant dividend yields for each of these companies, and their chances to keep growing, they seem like some of the best dividend stocks to consider."
+        },
+        {
+          "title": "Pfizer: Rebound Has Just Started",
+          "url": "https://seekingalpha.com/article/4860544-pfizer-rebound-has-just-started",
+          "snippet": "Pfizer has outperformed the S&P 500 since my previous call, driven by improving fundamentals and renewed share price momentum. Learn more about PFE stock now."
+        },
+        {
+          "title": "PFE Market Cap Falls More Than $7B in a Month: How to Play the Stock",
+          "url": "https://www.msn.com/en-us/money/topstocks/pfe-market-cap-falls-more-than-7b-in-a-month-how-to-play-the-stock/ar-AA1Ucpsz",
+          "snippet": "Pfizer shares fall nearly 5% in a month after weak 2026 guidance, sparking debate over buying the dip or staying cautious."
+        }
+      ],
+      "last_updated": "2026-01-19T09:19:09.230896"
     },
     {
       "ticker": "KO",
@@ -1109,7 +1162,7 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 45.200824347s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 45\n}\n]",
       "entry_zone": "$70.44",
       "take_profit": "$77.48",
       "stop_loss": "$66.92",
@@ -1126,31 +1179,31 @@
           "snippet": "With the broader stock market indexes near all-time highs, investors may be seeking defensive options for their portfolios as we begin 2026. Coca-Cola KO and Pepsi PEP are two defensive stocks that are usually of interest and tend to perform well during market corrections,"
         },
         {
-          "title": "Best Stock to Buy Right Now: Uber vs. Coca-Cola",
-          "url": "https://www.msn.com/en-us/money/savingandinvesting/best-stock-to-buy-right-now-uber-vs-coca-cola/ar-AA1Upt1q",
-          "snippet": "Both Uber and Coca-Cola are high-quality companies. But the one that investors decide to buy will depend on their preferences. If you care about generating a steady and growing stream of income, then Coca-Cola is the top choice. It helps that shares trade at a reasonable forward price-to-earnings (P/E) ratio of 21.7."
+          "title": "Coca-Cola Trades Below 200-Day SMA: Opportunity or Warning Sign?",
+          "url": "https://finance.yahoo.com/news/coca-cola-trades-below-200-172300233.html",
+          "snippet": "KO slips below its 200-day SMA as volumes weaken, raising questions about momentum, valuation and near-term upside."
         }
       ],
-      "last_updated": "2026-01-19T08:57:13.974738"
+      "last_updated": "2026-01-19T09:19:14.811246"
     },
     {
       "ticker": "BTC-USD",
-      "current_price": 93203.52,
-      "rsi": 54.97,
-      "macd": 1455.01,
-      "macd_signal": 1360.23,
-      "sma_20": 92316.72,
-      "sma_50": 90310.95,
+      "current_price": 93035.71,
+      "rsi": 54.31,
+      "macd": 1441.63,
+      "macd_signal": 1357.55,
+      "sma_20": 92308.33,
+      "sma_50": 90307.59,
       "atr": 2188.86,
       "dividend_yield": 0,
-      "volume": 36074663936,
+      "volume": 36718039040,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$93203.52",
-      "take_profit": "$102523.87",
-      "stop_loss": "$88543.34",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 39.570706842s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 39\n}\n]",
+      "entry_zone": "$93035.71",
+      "take_profit": "$102339.28",
+      "stop_loss": "$88383.92",
       "dividend_analysis": "N/A",
       "news": [
         {
@@ -1169,26 +1222,26 @@
           "snippet": "Bitcoin slipped below $92,000 as Trump's tariff threats rattled risk assets, invalidating a bullish $100K setup. Technical patterns and on-chain data now point to rising downside risk if $90K fails."
         }
       ],
-      "last_updated": "2026-01-19T08:57:19.753496"
+      "last_updated": "2026-01-19T09:19:20.442929"
     },
     {
       "ticker": "ETH-USD",
-      "current_price": 3214.12,
-      "rsi": 54.48,
-      "macd": 68.68,
-      "macd_signal": 63.65,
-      "sma_20": 3181.1,
-      "sma_50": 3084.66,
+      "current_price": 3209.78,
+      "rsi": 54.13,
+      "macd": 68.33,
+      "macd_signal": 63.58,
+      "sma_20": 3180.88,
+      "sma_50": 3084.57,
       "atr": 103.63,
       "dividend_yield": 0,
-      "volume": 26221713408,
+      "volume": 26284316672,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$3214.12",
-      "take_profit": "$3535.53",
-      "stop_loss": "$3053.41",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 34.133784279s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 34\n}\n]",
+      "entry_zone": "$3209.78",
+      "take_profit": "$3530.76",
+      "stop_loss": "$3049.29",
       "dividend_analysis": "N/A",
       "news": [
         {
@@ -1207,26 +1260,26 @@
           "snippet": "Tech Stocks Eye Third Day Of Losses, Walmart Sinks: What's Moving Markets Thursday? Technology stocks on the Nasdaq 100 were poised for a third consecutive day of losses Thursday, as investors continued to adopt a risk-off stance ahead of Federal Reserve ..."
         }
       ],
-      "last_updated": "2026-01-19T08:57:25.445765"
+      "last_updated": "2026-01-19T09:19:25.878523"
     },
     {
       "ticker": "BNB-USD",
-      "current_price": 926.22,
-      "rsi": 57.87,
-      "macd": 18.15,
-      "macd_signal": 16.41,
-      "sma_20": 908.76,
-      "sma_50": 884.09,
+      "current_price": 925.19,
+      "rsi": 57.48,
+      "macd": 18.07,
+      "macd_signal": 16.4,
+      "sma_20": 908.71,
+      "sma_50": 884.07,
       "atr": 22.57,
       "dividend_yield": 0,
-      "volume": 2739663104,
+      "volume": 2783618816,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$926.22",
-      "take_profit": "$1018.84",
-      "stop_loss": "$879.91",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 28.494854919s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 28\n}\n]",
+      "entry_zone": "$925.19",
+      "take_profit": "$1017.71",
+      "stop_loss": "$878.93",
       "dividend_analysis": "N/A",
       "news": [
         {
@@ -1235,33 +1288,33 @@
           "snippet": "BNB recovered above $970 over the last 24-hour period after briefly falling to $953 during a volatile stretch that saw the token lose as much as 2.3% before it started recovering. The move comes amid mounting selling pressure driven by both technical ..."
         },
         {
-          "title": "What's Going On With Airbnb Stock Today?",
-          "url": "https://www.benzinga.com/trading-ideas/movers/25/05/45415824/whats-going-on-with-airbnb-stock-today",
-          "snippet": "Airbnb stock is in the spotlight after the company launched new Services, Experiences, and a redesigned app to expand beyond home rentals. Airbnb shares have rebounded more than 30% off the April lows. Up Next: Wall Street trader's 35-0 strategy goes ..."
-        },
-        {
           "title": "Osprey BNB Chain Trust: Overpriced And Illiquid",
           "url": "https://seekingalpha.com/article/4749416-osprey-bnb-chain-trust-overpriced-and-illiquid",
           "snippet": "Osprey BNB Chain Trust offers unique exposure to Binance Coin, but trades at a significant premium to its net asset value (NAV). BNB shows strong network metrics with high daily active addresses and trading volumes, but its valuation is high at 500x ..."
+        },
+        {
+          "title": "What's Going On With Airbnb Stock Today?",
+          "url": "https://www.benzinga.com/trading-ideas/movers/25/05/45415824/whats-going-on-with-airbnb-stock-today",
+          "snippet": "Airbnb stock is in the spotlight after the company launched new Services, Experiences, and a redesigned app to expand beyond home rentals. Airbnb shares have rebounded more than 30% off the April lows. Up Next: Wall Street trader's 35-0 strategy goes ..."
         }
       ],
-      "last_updated": "2026-01-19T08:57:31.198432"
+      "last_updated": "2026-01-19T09:19:31.516349"
     },
     {
       "ticker": "XRP-USD",
       "current_price": 1.98,
-      "rsi": 44.54,
+      "rsi": 44.35,
       "macd": 0.01,
       "macd_signal": 0.03,
       "sma_20": 2.08,
       "sma_50": 2.01,
       "atr": 0.08,
       "dividend_yield": 0,
-      "volume": 3586326272,
+      "volume": 3611164672,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 22.908996192s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 22\n}\n]",
       "entry_zone": "$1.98",
       "take_profit": "$2.18",
       "stop_loss": "$1.88",
@@ -1273,33 +1326,33 @@
           "snippet": "Understandably, consensus sentiment on XRP is not very high right now. According to data from CoinCodex, the average price prediction for XRP in 2026 is just $2.20. That price target essentially assumes that XRP will end the year up 10%. That's OK, but certainly not worth the risk and volatility of investing in the cryptocurrency asset class."
         },
         {
+          "title": "XRP treasury Evernorth prepares for IPO: 'The timing couldn't be better'",
+          "url": "https://finance.yahoo.com/news/xrp-treasury-evernorth-prepares-ipo-224906891.html",
+          "snippet": "Evernorth Holdings is preparing to go public through a SPAC merger under the ticker XRPN. The Ripple-backed treasury holds 388 million XRP tokens worth about $812 million. CEO Asheesh Birla cited the US' crypto-friendly regulatory environment."
+        },
+        {
           "title": "Why the $100 XRP question resurfaced",
           "url": "https://www.msn.com/en-us/money/other/can-xrp-ever-hit-100/ar-AA1UeNgb",
           "snippet": "XRP ( XRP 0.35%) has gained over 16.2% so far in 2026, and was trading near $2.14 as of Jan. 14, 2026. After a strong start to the year, some investors are debating whether XRP could ever realistically reach the ambitious $100 price."
-        },
-        {
-          "title": "XRP (XRP/USD) Crypto Price, News and Market Data",
-          "url": "https://www.benzinga.com/quote/XRP-USD?nid=46621043",
-          "snippet": "Bitcoin, Ethereum, XRP In Fine Shape, Analyst Says: 'People Are Freaking Out Just Because It's Going Sideways' A recent minor dip across major cryptocurrencies did little to discourage one of the industry's most prominent analysts, who remains optimistic ..."
         }
       ],
-      "last_updated": "2026-01-19T08:57:37.007394"
+      "last_updated": "2026-01-19T09:19:37.102068"
     },
     {
       "ticker": "ADA-USD",
       "current_price": 0.37,
-      "rsi": 42.78,
+      "rsi": 42.96,
       "macd": 0.0,
       "macd_signal": 0.0,
       "sma_20": 0.39,
       "sma_50": 0.39,
       "atr": 0.02,
       "dividend_yield": 0,
-      "volume": 919792192,
+      "volume": 938720960,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 17.282835688s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 17\n}\n]",
       "entry_zone": "$0.37",
       "take_profit": "$0.41",
       "stop_loss": "$0.35",
@@ -1321,23 +1374,23 @@
           "snippet": "Cardano has surged 200% recently, driven by improvements in scalability, smart contracts, and the introduction of the Voltaire era and Hydra. ADA's decentralization and technical advancements, such as the Chang Hard Fork and Halo 2, set it apart from ..."
         }
       ],
-      "last_updated": "2026-01-19T08:57:42.760189"
+      "last_updated": "2026-01-19T09:19:42.727625"
     },
     {
       "ticker": "DOGE-USD",
       "current_price": 0.13,
-      "rsi": 40.14,
+      "rsi": 40.05,
       "macd": -0.0,
       "macd_signal": 0.0,
       "sma_20": 0.14,
       "sma_50": 0.14,
       "atr": 0.01,
       "dividend_yield": 0,
-      "volume": 1911690752,
+      "volume": 1927606400,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 11.888998369s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 11\n}\n]",
       "entry_zone": "$0.13",
       "take_profit": "$0.14",
       "stop_loss": "$0.12",
@@ -1349,36 +1402,36 @@
           "snippet": "Dogecoin Price Tumbles 15% In A Week, But This Analyst Says $1.25 Target Could Still Be In Play A widely followed chartist predicted a bullish breakout for Dogecoin (CRYPTO: DOGE) on Tuesday, painting bold targets at $0.6533 and even $1.25, despite the ..."
         },
         {
-          "title": "Dogecoin jumps nearly 9% as buyers push price out of recent downtrend",
-          "url": "https://finance.yahoo.com/news/dogecoin-jumps-nearly-9-buyers-065936323.html?fr=yhssrp_catchall",
-          "snippet": "The rally in meme coins like Dogecoin and Pepe reflects renewed speculative interest as broader crypto markets remain mixed."
-        },
-        {
           "title": "CleanCore raises $175M for dogecoin treasury in private placement; stock plunges",
           "url": "https://seekingalpha.com/news/4491313-cleancore-raises-175m-for-dogecoin-treasury-in-private-placement-stock-plunges",
           "snippet": "CleanCore Solutions (NYSE:ZONE) is raising $175M through a private placement to establish a dogecoin (DOGE-USD) treasury, with over 80 investors joining a deal backed by the Dogecoin Foundation and House of Doge, it said on Tuesday. Shares of the cleaning ..."
+        },
+        {
+          "title": "CleanCore stock surges after disclosing 285.4M dogecoin purchase",
+          "url": "https://seekingalpha.com/news/4493159-cleancore-stock-surges-after-disclosing-2854m-dogecoin-purchase",
+          "snippet": "CleanCore Solutions (NYSE:ZONE) shares spiked 53% in Monday after-hours trading after the company disclosed that it bought 285.4M dogecoin (DOGE-USD) for about $68M through its new treasury strategy. It also set a new target: to buy up 1B of the DOGE ..."
         }
       ],
-      "last_updated": "2026-01-19T08:57:48.427520"
+      "last_updated": "2026-01-19T09:19:48.121553"
     },
     {
       "ticker": "SOL-USD",
-      "current_price": 133.8,
-      "rsi": 46.76,
-      "macd": 2.83,
-      "macd_signal": 3.22,
-      "sma_20": 137.46,
+      "current_price": 133.69,
+      "rsi": 46.63,
+      "macd": 2.82,
+      "macd_signal": 3.21,
+      "sma_20": 137.45,
       "sma_50": 132.5,
       "atr": 5.24,
       "dividend_yield": 0,
-      "volume": 5138077184,
+      "volume": 5180387328,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$133.8",
-      "take_profit": "$147.18",
-      "stop_loss": "$127.11",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 5.2669379s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 5\n}\n]",
+      "entry_zone": "$133.69",
+      "take_profit": "$147.06",
+      "stop_loss": "$127.01",
       "dividend_analysis": "N/A",
       "news": [
         {
@@ -1392,28 +1445,28 @@
           "snippet": "With real-time exchange rates, you can easily convert SOL into US Dollars (USD) and vice versa, which helps simplify your Solana trading experience. Our calculator is user-friendly and versatile, making it a valuable asset for both beginners and ..."
         },
         {
-          "title": "GSOL Is Still Overpriced Relative To Solana",
-          "url": "https://seekingalpha.com/article/4737845-gsol-is-still-overpriced-relative-to-solana",
-          "snippet": "The election of President Trump has sparked a resurgence in digital assets, with Bitcoin and Ethereum rallying over 25% and meme coins nearly 100%. Solana is a major beneficiary in the meme coin bull market, thanks to its fast, inexpensive L1 blockchain ..."
+          "title": "Solana soars as DeFi amasses 999,999 SOL tokens on its balance sheet",
+          "url": "https://www.aol.com/finance/solona-soars-defi-amasses-999-212400986.html",
+          "snippet": "The price of solana (SOL-USD) soared Monday as a Florida real estate data company announced that it had acquired nearly 1 million units of the world's sixth-largest cryptocurrency, yet another sign that a strategy of adding digital assets to corporate ..."
         }
       ],
-      "last_updated": "2026-01-19T08:57:55.125105"
+      "last_updated": "2026-01-19T09:19:54.742888"
     },
     {
       "ticker": "DOT-USD",
       "current_price": 1.99,
-      "rsi": 45.55,
+      "rsi": 45.2,
       "macd": 0.03,
       "macd_signal": 0.04,
       "sma_20": 2.11,
       "sma_50": 2.02,
       "atr": 0.12,
       "dividend_yield": 0,
-      "volume": 238551424,
+      "volume": 238591136,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 58.6940534s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 58\n}\n]",
       "entry_zone": "$1.99",
       "take_profit": "$2.19",
       "stop_loss": "$1.89",
@@ -1435,26 +1488,26 @@
           "snippet": "We think it's time to go Long Solana and short Polkadot due to Solana's superior ecosystem fundamentals and underlying infrastructure. Solana's high transaction volume, low fees, and robust protocol development give it strong long-term prospects, while ..."
         }
       ],
-      "last_updated": "2026-01-19T08:58:01.926889"
+      "last_updated": "2026-01-19T09:20:01.319166"
     },
     {
       "ticker": "AVAX-USD",
-      "current_price": 12.8,
-      "rsi": 42.07,
+      "current_price": 12.79,
+      "rsi": 42.02,
       "macd": 0.07,
       "macd_signal": 0.21,
       "sma_20": 13.79,
       "sma_50": 13.25,
       "atr": 0.65,
       "dividend_yield": 0,
-      "volume": 438320864,
+      "volume": 440744032,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$12.8",
-      "take_profit": "$14.08",
-      "stop_loss": "$12.16",
+      "reasoning": "Analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-exp\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-exp\nPlease retry in 53.11481415s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\nviolations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count\"\n  quota_id: \"GenerateContentInputTokensPerModelPerMinute-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-2.0-flash-exp\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n}\n, retry_delay {\n  seconds: 53\n}\n]",
+      "entry_zone": "$12.79",
+      "take_profit": "$14.07",
+      "stop_loss": "$12.15",
       "dividend_analysis": "N/A",
       "news": [
         {
@@ -1473,7 +1526,7 @@
           "snippet": "AVAX's ecosystem growth is primarily off C-Chain, which doesn't drive AVAX token demand, making it difficult to justify a 'buy' rating. Despite a 25% year-over-year transaction increase, active addresses and staking rewards have not shown significant ..."
         }
       ],
-      "last_updated": "2026-01-19T08:58:07.604334"
+      "last_updated": "2026-01-19T09:20:06.898629"
     }
   ]
 }
