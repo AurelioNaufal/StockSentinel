@@ -3,7 +3,7 @@
 
 // Configuration
 const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE'; // ⚠️ For production, use a serverless proxy!
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash-exp:generateContent';
 const RATE_LIMIT_DELAY = 4000; // 4 seconds between API calls (15 RPM free tier)
 
 // Alpine.js App

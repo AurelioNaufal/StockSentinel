@@ -2,7 +2,7 @@
 # Copy this to config.py and customize as needed
 
 # Gemini API Configuration
-GEMINI_MODEL = 'gemini-1.5-flash'
+GEMINI_MODEL = 'gemini-2.0-flash-exp'
 GEMINI_RATE_LIMIT_DELAY = 4  # seconds between API calls
 
 # Data Sources
