@@ -1,0 +1,100 @@
+{
+  "last_updated": "2026-01-19T10:00:00",
+  "total_assets": 3,
+  "assets": [
+    {
+      "ticker": "AAPL",
+      "current_price": 185.50,
+      "rsi": 58.5,
+      "macd": 1.25,
+      "macd_signal": 0.85,
+      "sma_20": 182.30,
+      "sma_50": 178.60,
+      "atr": 3.45,
+      "dividend_yield": 0.52,
+      "volume": 52000000,
+      "recommendation": "Strong Buy",
+      "confidence_score": 85,
+      "time_horizon": "Position (Weeks-Months)",
+      "reasoning": "Strong technical indicators with RSI at healthy 58.5, MACD showing bullish crossover. Price above both 20 and 50-day SMAs indicating uptrend. Recent product launches and solid fundamentals support continued growth.",
+      "entry_zone": "$180-$185",
+      "take_profit": "$200",
+      "stop_loss": "$175",
+      "dividend_analysis": "Consistent dividend payer with 0.52% yield. Not a dividend play but adds to total return.",
+      "news": [
+        {
+          "title": "Apple announces new AI features",
+          "url": "https://example.com/news1",
+          "snippet": "Apple unveils groundbreaking AI integration across its ecosystem..."
+        },
+        {
+          "title": "iPhone sales exceed expectations",
+          "url": "https://example.com/news2",
+          "snippet": "Latest quarterly results show strong iPhone demand globally..."
+        }
+      ],
+      "last_updated": "2026-01-19T10:00:00"
+    },
+    {
+      "ticker": "MSFT",
+      "current_price": 420.75,
+      "rsi": 62.3,
+      "macd": 2.15,
+      "macd_signal": 1.85,
+      "sma_20": 415.20,
+      "sma_50": 405.80,
+      "atr": 8.90,
+      "dividend_yield": 0.75,
+      "volume": 28000000,
+      "recommendation": "Buy",
+      "confidence_score": 80,
+      "time_horizon": "Long-term (Months-Years)",
+      "reasoning": "Cloud computing dominance with Azure growth. AI integration through OpenAI partnership. Strong balance sheet and consistent revenue growth. Price consolidating above key support levels.",
+      "entry_zone": "$415-$425",
+      "take_profit": "$450",
+      "stop_loss": "$400",
+      "dividend_analysis": "Stable dividend grower with 0.75% yield. Excellent for long-term holders.",
+      "news": [
+        {
+          "title": "Microsoft Azure gains market share",
+          "url": "https://example.com/news3",
+          "snippet": "Cloud services revenue up 25% year-over-year..."
+        }
+      ],
+      "last_updated": "2026-01-19T10:00:00"
+    },
+    {
+      "ticker": "BTC-USD",
+      "current_price": 62500.00,
+      "rsi": 45.2,
+      "macd": -250.00,
+      "macd_signal": -180.00,
+      "sma_20": 63200.00,
+      "sma_50": 65000.00,
+      "atr": 2800.00,
+      "dividend_yield": 0.0,
+      "volume": 35000000000,
+      "recommendation": "Hold",
+      "confidence_score": 60,
+      "time_horizon": "Swing (Days-Weeks)",
+      "reasoning": "Bitcoin consolidating below key resistance. RSI neutral at 45, MACD showing bearish divergence. Waiting for breakout confirmation above $65k or support test at $60k. High volatility (ATR 2800) suggests cautious approach.",
+      "entry_zone": "$60000-$62000",
+      "take_profit": "$68000",
+      "stop_loss": "$58000",
+      "dividend_analysis": "N/A",
+      "news": [
+        {
+          "title": "Bitcoin ETF sees steady inflows",
+          "url": "https://example.com/news4",
+          "snippet": "Institutional adoption continues with ETF inflows..."
+        },
+        {
+          "title": "Crypto market consolidates",
+          "url": "https://example.com/news5",
+          "snippet": "Markets await Federal Reserve policy decision..."
+        }
+      ],
+      "last_updated": "2026-01-19T10:00:00"
+    }
+  ]
+}

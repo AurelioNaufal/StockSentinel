@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSentinel Interactive - AI-Powered Stock Analysis</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        [x-cloak] { display: none !important; }
+        
+        .recommendation-strong-buy { @apply bg-green-600 text-white; }
+        .recommendation-buy { @apply bg-green-500 text-white; }
+        .recommendation-hold { @apply bg-yellow-500 text-white; }
+        .recommendation-sell { @apply bg-red-500 text-white; }
+        .recommendation-strong-sell { @apply bg-red-700 text-white; }
+        
+        .card-hover {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen" x-data="stockApp()" x-init="init()">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold mb-2">📈 StockSentinel Interactive</h1>
+                    <p class="text-purple-100">AI-Powered Stock Analysis with Gemini 1.5 Flash</p>
+                </div>
+                <div class="mt-4 md:mt-0 text-sm text-purple-100">
+                    <p>Last Updated: <span x-text="lastUpdated"></span></p>
+                    <p>Total Assets: <span x-text="totalAssets"></span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Search Section -->
+    <section class="bg-white shadow-md border-b">
+        <div class="container mx-auto px-4 py-6">
+            <div class="max-w-2xl mx-auto">
+                <label class="block text-gray-700 font-semibold mb-2">
+                    🔍 Search Any Stock (Try: AAPL, BBCA.JK, BTC-USD)
+                </label>
+                <div class="flex gap-2">
+                    <input 
+                        type="text" 
+                        x-model="searchQuery"
+                        @keyup.enter="searchStock()"
+                        placeholder="Enter ticker symbol (e.g., AAPL, MSFT, BBCA.JK)..."
+                        class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    />
+                    <button 
+                        @click="searchStock()"
+                        :disabled="isSearching"
+                        class="px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <span x-show="!isSearching">Search</span>
+                        <span x-show="isSearching">Searching...</span>
+                    </button>
+                </div>
+                <p x-show="searchError" x-text="searchError" class="mt-2 text-red-600 text-sm"></p>
+                <p x-show="searchMessage" x-text="searchMessage" class="mt-2 text-blue-600 text-sm"></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Filter Tabs -->
+    <section class="bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap gap-2 py-4">
+                <button 
+                    @click="activeFilter = 'all'"
+                    :class="activeFilter === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
+                    class="px-4 py-2 rounded-lg font-semibold transition"
+                >
+                    All Stocks
+                </button>
+                <button 
+                    @click="activeFilter = 'strong-buy'"
+                    :class="activeFilter === 'strong-buy' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'"
+                    class="px-4 py-2 rounded-lg font-semibold transition"
+                >
+                    💎 Strong Buys
+                </button>
+                <button 
+                    @click="activeFilter = 'dividend'"
+                    :class="activeFilter === 'dividend' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'"
+                    class="px-4 py-2 rounded-lg font-semibold transition"
+                >
+                    💰 Dividend Gems
+                </button>
+                <button 
+                    @click="activeFilter = 'scalp'"
+                    :class="activeFilter === 'scalp' ? 'bg-orange-600 text-white' : 'bg-gray-200 text-gray-700'"
+                    class="px-4 py-2 rounded-lg font-semibold transition"
+                >
+                    ⚡ Scalp/Day Trade
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Loading State -->
+    <div x-show="isLoading" class="container mx-auto px-4 py-20 text-center">
+        <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-purple-600 border-t-transparent"></div>
+        <p class="mt-4 text-gray-600">Loading stock data...</p>
+    </div>
+    
+    <!-- Stock Grid -->
+    <main class="container mx-auto px-4 py-8" x-show="!isLoading" x-cloak>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <template x-for="stock in filteredStocks" :key="stock.ticker">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover cursor-pointer"
+                     @click="showDetails(stock)">
+                    
+                    <!-- Card Header -->
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold" x-text="stock.ticker"></h3>
+                                <p class="text-sm text-purple-100">Click for details</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold" x-text="formatPrice(stock.current_price)"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Body -->
+                    <div class="p-4">
+                        <!-- Recommendation Badge -->
+                        <div class="mb-3">
+                            <span 
+                                :class="getRecommendationClass(stock.recommendation)"
+                                class="px-3 py-1 rounded-full text-xs font-bold uppercase"
+                                x-text="stock.recommendation"
+                            ></span>
+                            <span class="ml-2 text-sm text-gray-600">
+                                <span x-text="stock.confidence_score"></span>% confidence
+                            </span>
+                        </div>
+                        
+                        <!-- Time Horizon -->
+                        <p class="text-sm mb-2">
+                            <span class="font-semibold">⏱️ Horizon:</span>
+                            <span x-text="stock.time_horizon"></span>
+                        </p>
+                        
+                        <!-- Technical Indicators -->
+                        <div class="grid grid-cols-2 gap-2 text-sm mb-3">
+                            <div>
+                                <span class="text-gray-600">RSI:</span>
+                                <span class="font-semibold" x-text="stock.rsi"></span>
+                            </div>
+                            <div>
+                                <span class="text-gray-600">Dividend:</span>
+                                <span class="font-semibold" x-text="stock.dividend_yield + '%'"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Entry/TP/SL -->
+                        <div class="border-t pt-3 text-xs space-y-1">
+                            <p><span class="text-gray-600">Entry:</span> <span class="font-semibold" x-text="stock.entry_zone"></span></p>
+                            <p><span class="text-green-600">TP:</span> <span class="font-semibold" x-text="stock.take_profit"></span></p>
+                            <p><span class="text-red-600">SL:</span> <span class="font-semibold" x-text="stock.stop_loss"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        
+        <!-- No Results -->
+        <div x-show="filteredStocks.length === 0" class="text-center py-20">
+            <p class="text-gray-600 text-lg">No stocks match the current filter.</p>
+        </div>
+    </main>
+    
+    <!-- Stock Detail Modal -->
+    <div x-show="selectedStock" 
+         x-cloak
+         @click.self="selectedStock = null"
+         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+        <div class="bg-white rounded-lg shadow-2xl max-w-3xl w-full max-h-screen overflow-y-auto" @click.stop>
+            <template x-if="selectedStock">
+                <div>
+                    <!-- Modal Header -->
+                    <div class="gradient-bg text-white px-6 py-4 flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold" x-text="selectedStock.ticker"></h2>
+                            <p class="text-purple-100" x-text="'$' + selectedStock.current_price"></p>
+                        </div>
+                        <button @click="selectedStock = null" class="text-white hover:text-gray-200 text-2xl">
+                            &times;
+                        </button>
+                    </div>
+                    
+                    <!-- Modal Body -->
+                    <div class="p-6 space-y-6">
+                        <!-- Recommendation -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">📊 Recommendation</h3>
+                            <div class="flex items-center gap-3">
+                                <span 
+                                    :class="getRecommendationClass(selectedStock.recommendation)"
+                                    class="px-4 py-2 rounded-lg text-sm font-bold uppercase"
+                                    x-text="selectedStock.recommendation"
+                                ></span>
+                                <span class="text-gray-600">
+                                    <span x-text="selectedStock.confidence_score"></span>% confidence
+                                </span>
+                            </div>
+                            <p class="mt-2 text-sm">
+                                <span class="font-semibold">Time Horizon:</span>
+                                <span x-text="selectedStock.time_horizon"></span>
+                            </p>
+                        </div>
+                        
+                        <!-- Reasoning -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">💡 Analysis</h3>
+                            <p class="text-gray-700" x-text="selectedStock.reasoning"></p>
+                        </div>
+                        
+                        <!-- Trading Levels -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">🎯 Trading Levels</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="border rounded-lg p-3">
+                                    <p class="text-sm text-gray-600 mb-1">Entry Zone</p>
+                                    <p class="font-bold text-lg" x-text="selectedStock.entry_zone"></p>
+                                </div>
+                                <div class="border border-green-300 bg-green-50 rounded-lg p-3">
+                                    <p class="text-sm text-green-700 mb-1">Take Profit</p>
+                                    <p class="font-bold text-lg text-green-700" x-text="selectedStock.take_profit"></p>
+                                </div>
+                                <div class="border border-red-300 bg-red-50 rounded-lg p-3">
+                                    <p class="text-sm text-red-700 mb-1">Stop Loss</p>
+                                    <p class="font-bold text-lg text-red-700" x-text="selectedStock.stop_loss"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Technical Indicators -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">📈 Technical Indicators</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <div class="bg-gray-50 rounded p-3">
+                                    <p class="text-xs text-gray-600">RSI</p>
+                                    <p class="font-bold" x-text="selectedStock.rsi"></p>
+                                </div>
+                                <div class="bg-gray-50 rounded p-3">
+                                    <p class="text-xs text-gray-600">MACD</p>
+                                    <p class="font-bold" x-text="selectedStock.macd"></p>
+                                </div>
+                                <div class="bg-gray-50 rounded p-3">
+                                    <p class="text-xs text-gray-600">SMA 20</p>
+                                    <p class="font-bold" x-text="formatPrice(selectedStock.sma_20)"></p>
+                                </div>
+                                <div class="bg-gray-50 rounded p-3">
+                                    <p class="text-xs text-gray-600">SMA 50</p>
+                                    <p class="font-bold" x-text="formatPrice(selectedStock.sma_50)"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dividend -->
+                        <div x-show="selectedStock.dividend_yield > 0">
+                            <h3 class="font-bold text-lg mb-2">💰 Dividend Analysis</h3>
+                            <p class="text-gray-700">
+                                <span class="font-semibold">Yield: </span>
+                                <span x-text="selectedStock.dividend_yield + '%'"></span>
+                            </p>
+                            <p class="text-sm text-gray-600 mt-1" x-text="selectedStock.dividend_analysis"></p>
+                        </div>
+                        
+                        <!-- News -->
+                        <div x-show="selectedStock.news && selectedStock.news.length > 0">
+                            <h3 class="font-bold text-lg mb-2">📰 Recent News</h3>
+                            <div class="space-y-2">
+                                <template x-for="article in selectedStock.news" :key="article.url">
+                                    <a :href="article.url" 
+                                       target="_blank"
+                                       class="block p-3 border rounded hover:bg-gray-50 transition">
+                                        <p class="font-semibold text-sm text-purple-600" x-text="article.title"></p>
+                                        <p class="text-xs text-gray-600 mt-1" x-text="article.snippet"></p>
+                                    </a>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modal Footer -->
+                    <div class="px-6 py-4 bg-gray-50 border-t flex justify-end">
+                        <button 
+                            @click="selectedStock = null"
+                            class="px-6 py-2 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">
+                Powered by <span class="font-bold">Google Gemini 1.5 Flash</span> | 
+                Data from <span class="font-bold">Yahoo Finance</span> | 
+                Hosted on <span class="font-bold">GitHub Pages</span>
+            </p>
+            <p class="text-xs text-gray-400 mt-2">
+                ⚠️ Disclaimer: This is for educational purposes only. Not financial advice. Always do your own research.
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Load Script -->
+    <script src="script.js"></script>
+</body>
+</html>
