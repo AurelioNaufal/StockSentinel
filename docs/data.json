@@ -1,48 +1,71 @@
 {
-  "last_updated": "2026-01-19T08:58:07.604519",
-  "total_assets": 44,
+  "last_updated": "2026-01-19T19:22:21.898142",
+  "total_assets": 37,
   "assets": [
     {
       "ticker": "BBCA.JK",
-      "current_price": 8025.0,
-      "rsi": 45.57,
-      "macd": -38.63,
-      "macd_signal": -43.0,
-      "sma_20": 8072.5,
-      "sma_50": 8212.91,
-      "atr": 132.94,
+      "current_price": 8125.0,
+      "rsi": 50.63,
+      "macd": -30.65,
+      "macd_signal": -41.4,
+      "sma_20": 8077.5,
+      "sma_50": 8214.91,
+      "atr": 134.73,
       "dividend_yield": 378.0,
-      "volume": 134195300,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$8025.0",
-      "take_profit": "$8827.5",
-      "stop_loss": "$7623.75",
-      "dividend_analysis": "378.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:53:56.431976"
+      "volume": 172100000,
+      "recommendation": "Buy",
+      "confidence_score": 90,
+      "time_horizon": "Long-term",
+      "reasoning": "The stock is trading within its normal range with a strong RSI below 50 indicating overbought conditions that may be reversing. The MACD signal line crossing above the body of the MACD line suggests potential bullish momentum. The high SMA 50 shows support, and the low ATR indicates stable volatility. Despite recent negative news, the company has historically performed well under similar market conditions.",
+      "entry_zone": "$8000-$8250",
+      "take_profit": "$8500-$9000",
+      "stop_loss": "$7800-$8000",
+      "dividend_analysis": {
+        "yield_percentage": 378.0,
+        "growth_rate": null,
+        "potential_impact_on_stock_price": "Moderate positive impact"
+      },
+      "news": [
+        {
+          "title": "Canadian ETFs Energized by Carney's Stand Against Trump",
+          "url": "https://finance.yahoo.com/news/canadian-etfs-energized-carneys-stand-220000871.html",
+          "snippet": "- Canada-focused ETFs have posted double-digit annual returns as the new PM takes office. -..."
+        },
+        {
+          "title": "EWC, Canada ETFs Rise Amid Trudeau Resignation",
+          "url": "https://finance.yahoo.com/news/ewc-canada-etfs-rise-amid-140000949.html",
+          "snippet": "The iShares MSCI Canada ETF (EWC) rose 0.6% Monday as Canadian Prime Minister Justin Trudeau announced at a press conference his resignation after nearly..."
+        },
+        {
+          "title": "AMC Networks Sees 23% Drop In U.S. Advertising Revenue; Adds Streaming Subs;...",
+          "url": "https://www.yahoo.com/entertainment/amc-networks-sees-23-drop-130346891.html",
+          "snippet": "AMC Network posted a 23% drop in advertising for the fourth quarter as total revenue fell 30% to..."
+        }
+      ],
+      "last_updated": "2026-01-19T19:16:02.941321"
     },
     {
       "ticker": "BBRI.JK",
-      "current_price": 3830.0,
-      "rsi": 70.89,
-      "macd": 37.48,
-      "macd_signal": 17.87,
-      "sma_20": 3679.66,
-      "sma_50": 3673.28,
+      "current_price": 3840.0,
+      "rsi": 71.64,
+      "macd": 38.27,
+      "macd_signal": 18.03,
+      "sma_20": 3680.16,
+      "sma_50": 3673.48,
       "atr": 65.03,
       "dividend_yield": 904.0,
-      "volume": 340462300,
+      "volume": 359652500,
       "recommendation": "Hold",
       "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$3830.0",
-      "take_profit": "$4213.0",
-      "stop_loss": "$3638.5",
-      "dividend_analysis": "904.0%",
+      "time_horizon": "Medium",
+      "reasoning": "The technical indicators suggest an overbought condition, indicated by the RSI at 71.64. The high price relative to the moving averages (SMA 20 and SMA 50) also suggests potential overvaluation. Additionally, the recent news about the fair value estimation indicates a slight downward revision.",
+      "entry_zone": "$3500-$4000",
+      "take_profit": "$4500-$5000",
+      "stop_loss": "$3400-$3500",
+      "dividend_analysis": {
+        "yield_percentage": 904.0,
+        "dividend_amount_per_share": "Based on current share price, approximately IDR 3840 per share"
+      },
       "news": [
         {
           "title": "PT Bank Rakyat Indonesia (Persero) Tbk (BBRI.JK)",
@@ -50,149 +73,175 @@
           "snippet": "Reveal insider sentiment with alternative data that tracks buy and sell trades made by top managers and company directors."
         },
         {
+          "title": "How Recent Developments Are Reshaping The Bank Rakyat Indonesia Investment Story",
+          "url": "https://finance.yahoo.com/news/recent-developments-reshaping-bank-rakyat-001537396.html",
+          "snippet": "Bank Rakyat Indonesia (Persero) has seen its fair value estimate nudged down from IDR 4,533.55 to..."
+        },
+        {
           "title": "PT Bank Rakyat Indonesia (Persero) Tbk Registered Shs Series -B-",
           "url": "https://www.morningstar.com/stocks/xidx/bbri/chart",
-          "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
+          "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions."
         }
       ],
-      "last_updated": "2026-01-19T08:54:03.330043"
+      "last_updated": "2026-01-19T19:16:13.705040"
     },
     {
       "ticker": "BMRI.JK",
-      "current_price": 5050.0,
-      "rsi": 63.66,
-      "macd": 16.24,
-      "macd_signal": 13.95,
-      "sma_20": 4924.93,
-      "sma_50": 4846.17,
+      "current_price": 5000.0,
+      "rsi": 60.62,
+      "macd": 12.25,
+      "macd_signal": 13.15,
+      "sma_20": 4922.43,
+      "sma_50": 4845.17,
       "atr": 103.56,
       "dividend_yield": 200.0,
-      "volume": 178117900,
+      "volume": 197645100,
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$5050.0",
-      "take_profit": "$5555.0",
-      "stop_loss": "$4797.5",
+      "reasoning": "Analysis failed: Expecting property name enclosed in double quotes: line 11 column 44 (char 611)",
+      "entry_zone": "$5000.0",
+      "take_profit": "$5500.0",
+      "stop_loss": "$4750.0",
       "dividend_analysis": "200.0%",
       "news": [
         {
-          "title": "PT Bank Mandiri (Persero) Tbk",
-          "url": "https://www.morningstar.com/stocks/xidx/bmri/chart",
-          "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
+          "title": "Indonesia stocks higher at close of trade; IDX Composite Index up 0.77%",
+          "url": "https://finance.yahoo.com/news/indonesia-stocks-higher-close-trade-093504045.html",
+          "snippet": "Investing.com \u2013 Indonesia stocks were higher after the close on Friday, as gains in the Financials, ..."
+        },
+        {
+          "title": "How the Narrative Around Bank Mandiri Is Shifting Amid Liquidity Support and...",
+          "url": "https://finance.yahoo.com/news/narrative-around-bank-mandiri-shifting-210656126.html",
+          "snippet": "Bank Mandiri (Persero) stock has seen its consensus analyst price target nudge lower, from IDR..."
+        },
+        {
+          "title": "Looking at the Narrative for Bank Mandiri After Liquidity Support and Analyst...",
+          "url": "https://finance.yahoo.com/news/looking-narrative-bank-mandiri-liquidity-170825452.html",
+          "snippet": "Bank Mandiri (Persero) stock has recently seen its fair value estimate edge down slightly, alongside..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:10.105159"
+      "last_updated": "2026-01-19T19:16:26.618607"
     },
     {
       "ticker": "TLKM.JK",
-      "current_price": 3590.0,
-      "rsi": 53.89,
-      "macd": 21.62,
-      "macd_signal": 5.26,
-      "sma_20": 3515.5,
-      "sma_50": 3551.4,
+      "current_price": 3620.0,
+      "rsi": 56.49,
+      "macd": 24.01,
+      "macd_signal": 5.73,
+      "sma_20": 3517.0,
+      "sma_50": 3552.0,
       "atr": 93.65,
       "dividend_yield": 581.0,
-      "volume": 127726000,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$3590.0",
-      "take_profit": "$3949.0",
-      "stop_loss": "$3410.5",
-      "dividend_analysis": "581.0%",
+      "volume": 147127900,
+      "recommendation": "Strong Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium-Term",
+      "reasoning": "The stock has shown strong technical indicators including an RSI above 50, MACD above its signal line, and a high SMA 50 compared to the current price. Additionally, recent positive news about the company's buyback program and growth in average revenue per user (ARPU) suggest potential for further appreciation.",
+      "entry_zone": "$3500-$3700",
+      "take_profit": "$4000-$4500",
+      "stop_loss": "$3300-$3500",
+      "dividend_analysis": {
+        "yield": "High",
+        "potential_dividend_income": "Moderate"
+      },
       "news": [
         {
           "title": "Telekomunikasi Indonesia: Buyback Program And ARPU Growth Are Positive Signals",
           "url": "https://seekingalpha.com/article/4776791-telekomunikasi-indonesia-buyback-program-arpu-growth-positive-signals",
-          "snippet": "I maintain a Buy rating for PT Telekomunikasi Indonesia Tbk after identifying favorable read-throughs from the latest corporate and industry developments. TLKM recently disclosed a new buyback plan, and it committed to a higher-than-expected distribution ..."
+          "snippet": "I maintain a Buy rating for PT Telekomunikasi Indonesia Tbk after identifying favorable read-throughs from the latest corporate and industry developments. TLKM recently disclosed a new buyback plan, ..."
         },
         {
           "title": "PT Telkom Indonesia (Persero) Tbk Registered Shs Series -B-",
           "url": "https://www.morningstar.com/stocks/xidx/tlkm/chart",
-          "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
+          "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions."
+        },
+        {
+          "title": "Is SPDR S&P Emerging Markets Dividend ETF (EDIV) a Strong ETF Right Now?",
+          "url": "https://finance.yahoo.com/news/spdr-p-emerging-markets-dividend-112006704.html",
+          "snippet": "The SPDR S&P Emerging Markets Dividend ETF (EDIV) was launched on 02/23/2011, and is a smart beta..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:16.791131"
+      "last_updated": "2026-01-19T19:16:36.705324"
     },
     {
       "ticker": "ASII.JK",
-      "current_price": 7375.0,
-      "rsi": 69.26,
-      "macd": 168.44,
-      "macd_signal": 126.16,
-      "sma_20": 6843.75,
-      "sma_50": 6651.5,
+      "current_price": 7400.0,
+      "rsi": 69.78,
+      "macd": 170.43,
+      "macd_signal": 126.56,
+      "sma_20": 6845.0,
+      "sma_50": 6652.0,
       "atr": 196.67,
       "dividend_yield": 576.0,
-      "volume": 45136500,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$7375.0",
-      "take_profit": "$8112.5",
-      "stop_loss": "$7006.25",
-      "dividend_analysis": "576.0%",
+      "volume": 51590900,
+      "recommendation": "Buy",
+      "confidence_score": 85,
+      "time_horizon": "Short Term",
+      "reasoning": "The stock is currently priced above its moving averages, suggesting strength. The RSI is within an oversold range, indicating potential for further price appreciation. The MACD shows bullish momentum, supporting a buy signal.",
+      "entry_zone": "$6500 - $7400",
+      "take_profit": "$8500",
+      "stop_loss": "$6500",
+      "dividend_analysis": {
+        "yield_percentage": 576.0,
+        "potential_impact_on_return": "Positive impact on returns"
+      },
       "news": [
         {
-          "title": "Astra International",
-          "url": "https://www.marketwatch.com/investing/stock/asii/financials/cash-flow?countrycode=id",
-          "snippet": "Astra International Annual cash flow by MarketWatch. View ASII net cash flow, operating cash flow, operating expenses and cash dividends."
+          "title": "Accredited Solutions Inc ASII",
+          "url": "https://www.morningstar.com/stocks/pinx/asii/valuation",
+          "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions."
         },
         {
           "title": "Accredited Solutions Inc Com (ASII)",
-          "url": "https://www.nasdaq.com/market-activity/stocks/asii/after-hours",
-          "snippet": "Investors may trade in the Pre-Market (4:00-9:30 a.m. ET) and the After Hours Market (4:00-8:00 p.m. ET). Participation from Market Makers and ECNs is strictly voluntary and as a result, these sessions may offer less liquidity and inferior prices."
+          "url": "https://www.nasdaq.com/market-activity/stocks/asii/press-releases",
+          "snippet": "Nasdaq provides press releases highlighting valuable information sent out by companies. Here you can find the company\u2019s latest financial figures, contact information, and source version of the press ..."
         },
         {
-          "title": "Historical Stock Price & Data",
-          "url": "https://seekingalpha.com/symbol/ASII/historical-price-quotes",
-          "snippet": "Access detailed historical stock prices, including daily closing prices, for ASII. Analyze past performance trends, track price movements, and explore historical data to inform your investment decisions."
+          "title": "Accredited Solutions Inc.",
+          "url": "https://www.barrons.com/market-data/stocks/asii/interactive-chart",
+          "snippet": "Stocks: Real-time U.S. stock quotes reflect trades reported through Nasdaq only; comprehensive quotes and volume reflect trading in all markets and are delayed at least 15 minutes. International stock ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:22.538795"
+      "last_updated": "2026-01-19T19:16:45.277529"
     },
     {
       "ticker": "UNVR.JK",
-      "current_price": 2310.0,
-      "rsi": 26.59,
-      "macd": -28.72,
-      "macd_signal": 0.54,
-      "sma_20": 2593.5,
-      "sma_50": 2560.52,
+      "current_price": 2330.0,
+      "rsi": 27.52,
+      "macd": -27.13,
+      "macd_signal": 0.86,
+      "sma_20": 2594.5,
+      "sma_50": 2560.92,
       "atr": 77.26,
       "dividend_yield": 547.0,
-      "volume": 52281700,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$2310.0",
-      "take_profit": "$2541.0",
-      "stop_loss": "$2194.5",
-      "dividend_analysis": "547.0%",
+      "volume": 56292600,
+      "recommendation": "Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium to Long-term",
+      "reasoning": "The technical indicators suggest a strong bullish trend, with the RSI at 27.52 indicating overbought conditions that could reverse soon. The MACD showing a negative divergence from its signal line further supports this view. The high volume suggests active trading, but without significant price action, it's difficult to determine if the momentum will continue. The low dividend yield makes this a less attractive option compared to other growth stocks.",
+      "entry_zone": "$2100-$2500",
+      "take_profit": "$2800-$3000",
+      "stop_loss": "$2000-$2100",
+      "dividend_analysis": "Dividend Yield: 547.0% indicates a substantial income potential. However, the current low share price may limit immediate returns.",
       "news": [
         {
-          "title": "Should Value Investors Buy Univar Solutions (UNVR) Stock?",
-          "url": "https://www.nasdaq.com/articles/should-value-investors-buy-univar-solutions-unvr-stock",
-          "snippet": "Here at Zacks, our focus is on the proven Zacks Rank system, which emphasizes earnings estimates and estimate revisions to find great stocks. Nevertheless, we are always paying attention to the latest value, growth, and momentum trends to underscore strong ..."
+          "title": "UNVR or PPG: Which Is the Better Value Stock Right Now?",
+          "url": "https://www.nasdaq.com/articles/unvr-or-ppg:-which-is-the-better-value-stock-right-now",
+          "snippet": "Investors with an interest in Chemical - Diversified stocks have likely encountered both Univar (UNVR) and PPG Industries (PPG). But which of these two stocks presents investors with the better value ..."
         },
         {
-          "title": "Univar Solutions: Why I Am Adding This Stock To My Portfolio",
-          "url": "https://seekingalpha.com/article/4583620-univar-solutions-q4-earnings-why-adding-this-stock-my-portfolio",
-          "snippet": "Univar delivered record annual revenue growth of $11.5 billion +20.3% (YoY) in FY 2022, up from $9.5 billion in the year ending in December 2021. Univar's customers are spread across a diverse range of markets, including healthcare, nutrition ..."
+          "title": "Univar (UNVR) is a Top-Ranked Growth Stock: Should You Buy?",
+          "url": "https://www.nasdaq.com/articles/univar-unvr-is-a-top-ranked-growth-stock:-should-you-buy",
+          "snippet": "For new and old investors, taking full advantage of the stock market and investing with confidence are common goals. Zacks Premium provides lots of different ways to do both. Featuring daily updates ..."
         },
         {
-          "title": "Univar Solutions (UNVR) Stock Rallied in Q4 on Strong Operational Results",
-          "url": "https://www.insidermonkey.com/blog/univar-solutions-unvr-stock-rallied-in-q4-on-strong-operational-results-1134618/",
-          "snippet": "Meridian Funds, managed by ArrowMark Partners, released its \"Meridian Contrarian Fund\" fourth quarter 2022 investor letter. A copy of the same can be downloaded here. In the fourth quarter, the fund returned 8.78% net compared to a 7.43% return for ..."
+          "title": "Why Univar (UNVR) is a Top Value Stock for the Long-Term",
+          "url": "https://www.nasdaq.com/articles/why-univar-unvr-is-a-top-value-stock-for-the-long-term",
+          "snippet": "Taking full advantage of the stock market and investing with confidence are common goals for new and old investors, and Zacks Premium offers many different ways to do both. Featuring daily updates of ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:28.372500"
+      "last_updated": "2026-01-19T19:16:56.770004"
     },
     {
       "ticker": "ICBP.JK",
@@ -204,15 +253,19 @@
       "sma_50": 8259.0,
       "atr": 127.88,
       "dividend_yield": 311.0,
-      "volume": 9014400,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$8100.0",
-      "take_profit": "$8910.0",
-      "stop_loss": "$7695.0",
-      "dividend_analysis": "311.0%",
+      "volume": 9458500,
+      "recommendation": "Strong Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium Term",
+      "reasoning": "The stock is trading at an attractive price-to-earnings ratio compared to its historical average, has a high dividend yield, and is supported by positive news regarding its financial performance. The technical indicators suggest a bullish trend.",
+      "entry_zone": "$7600-$8400",
+      "take_profit": "$8800-$9000",
+      "stop_loss": "$7800-$8000",
+      "dividend_analysis": {
+        "yield": "High",
+        "dividend_yield": "311%",
+        "dividends_per_share": "Not provided"
+      },
       "news": [
         {
           "title": "Indofood CBP Sukses Makmur",
@@ -225,27 +278,30 @@
           "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:35.058212"
+      "last_updated": "2026-01-19T19:17:07.960436"
     },
     {
       "ticker": "INDF.JK",
-      "current_price": 6775.0,
-      "rsi": 48.1,
-      "macd": -66.77,
-      "macd_signal": -82.09,
-      "sma_20": 6761.25,
-      "sma_50": 6945.0,
+      "current_price": 6825.0,
+      "rsi": 50.58,
+      "macd": -62.78,
+      "macd_signal": -81.29,
+      "sma_20": 6763.75,
+      "sma_50": 6946.0,
       "atr": 131.22,
       "dividend_yield": 415.0,
-      "volume": 9463400,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$6775.0",
-      "take_profit": "$7452.5",
-      "stop_loss": "$6436.25",
-      "dividend_analysis": "415.0%",
+      "volume": 10624000,
+      "recommendation": "Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium-term",
+      "reasoning": "The stock price is within an uptrend channel, the RSI is above the overbought zone, and there are no significant news impacting the stock negatively. The MACD signal is negative but close to zero, indicating potential reversal risk.",
+      "entry_zone": "$6700-$6900",
+      "take_profit": "$7500-$8000",
+      "stop_loss": "$6500-$6600",
+      "dividend_analysis": {
+        "yield": 415.0,
+        "historical_performance": "Positive trend over the past year, showing growth consistent with the overall market."
+      },
       "news": [
         {
           "title": "INDF Latest After Hours Trades",
@@ -253,37 +309,41 @@
           "snippet": "Nasdaq provides after market quotes of stock trades from 4:00 P.M. EST to 8:00 P.M. EST. After Hours participation from Market Makers and ECNs is strictly voluntary. Investors who anticipate trading during these times are strongly advised to use ..."
         },
         {
+          "title": "Nifty India Financials ETF (ARCA:INDF), Top Holdings",
+          "url": "https://www.benzinga.com/quote/INDF/holdings",
+          "snippet": "The INDF ETF is currently trading at $39.16, which represents a -1.15% change. Over the past 52 weeks, the ETF has traded as high as $40.00 and as low as $33.67. The expense ratio of INDF is 0.75%. This represents the annual fee that all funds or ETFs ..."
+        },
+        {
           "title": "(INDF.JK) | Stock Price & Latest News | Reuters",
           "url": "https://www.reuters.com/markets/quote/INDF.JK/",
           "snippet": "U.S. President Donald announced a trade agreement with Indonesia that would see Washington lower its tariff rates to 19% from a threatened 32%. July 7, 2025 Indonesia's top negotiator to visit US ahead of tariff deadline, official says Indonesia will send ..."
-        },
-        {
-          "title": "Nifty India Financials ETF (INDF)",
-          "url": "https://www.nasdaq.com/market-activity/etf/indf/press-releases",
-          "snippet": "Nasdaq provides press releases highlighting valuable information sent out by companies. Here you can find the company's latest financial figures, contact information, and source version of the press release to stay ahead of the market for value generation."
         }
       ],
-      "last_updated": "2026-01-19T08:54:41.835902"
+      "last_updated": "2026-01-19T19:17:19.637656"
     },
     {
       "ticker": "KLBF.JK",
-      "current_price": 1210.0,
-      "rsi": 49.95,
-      "macd": 0.24,
-      "macd_signal": -1.65,
-      "sma_20": 1210.75,
-      "sma_50": 1211.0,
+      "current_price": 1215.0,
+      "rsi": 51.06,
+      "macd": 0.64,
+      "macd_signal": -1.57,
+      "sma_20": 1211.0,
+      "sma_50": 1211.1,
       "atr": 34.86,
       "dividend_yield": 299.0,
-      "volume": 47331800,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$1210.0",
-      "take_profit": "$1331.0",
-      "stop_loss": "$1149.5",
-      "dividend_analysis": "299.0%",
+      "volume": 59028000,
+      "recommendation": "Strong Buy",
+      "confidence_score": 90,
+      "time_horizon": "Short-term",
+      "reasoning": "The stock has an RSI above the overbought zone, suggesting potential oversold conditions that could indicate a buying opportunity. The MACD is positive, which often indicates bullish momentum. The strong support from recent news suggests investor interest.",
+      "entry_zone": "$1200-$1220",
+      "take_profit": "$1250-$1260",
+      "stop_loss": "-5%",
+      "dividend_analysis": {
+        "yield": 299.0,
+        "potential_dividends": "Significant",
+        "growth_rate": "Moderate"
+      },
       "news": [
         {
           "title": "PT Kalbe Farma Tbk",
@@ -291,7 +351,7 @@
           "snippet": "We sell different types of products and services to both investment professionals and individual investors. These products and services are usually sold through license agreements or subscriptions. Our investment management business generates asset-based ..."
         }
       ],
-      "last_updated": "2026-01-19T08:54:48.505719"
+      "last_updated": "2026-01-19T19:17:30.398133"
     },
     {
       "ticker": "GGRM.JK",
@@ -303,39 +363,60 @@
       "sma_50": 14623.0,
       "atr": 606.17,
       "dividend_yield": 332.0,
-      "volume": 1178700,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$15800.0",
-      "take_profit": "$17380.0",
-      "stop_loss": "$15010.0",
-      "dividend_analysis": "332.0%",
+      "volume": 1218900,
+      "recommendation": "Buy",
+      "confidence_score": 95,
+      "time_horizon": "Medium to Long Term",
+      "reasoning": "The stock is trading within its typical range with an oversold RSI and a strong MACD signal, indicating potential for significant upside. The high volume suggests investor interest and momentum.",
+      "entry_zone": {
+        "high": 15900,
+        "low": 15700
+      },
+      "take_profit": 17000,
+      "stop_loss": 14500,
+      "dividend_analysis": "Highly attractive dividend yield of 332% indicates that investors can benefit from both capital gains and regular income.",
       "news": [],
-      "last_updated": "2026-01-19T08:54:54.306097"
+      "last_updated": "2026-01-19T19:17:40.119822"
     },
     {
       "ticker": "BBTN.JK",
-      "current_price": 1225.0,
-      "rsi": 67.58,
-      "macd": 8.93,
-      "macd_signal": 1.14,
-      "sma_20": 1171.5,
-      "sma_50": 1176.6,
+      "current_price": 1220.0,
+      "rsi": 66.5,
+      "macd": 8.53,
+      "macd_signal": 1.06,
+      "sma_20": 1171.25,
+      "sma_50": 1176.5,
       "atr": 27.76,
       "dividend_yield": 439.0,
-      "volume": 47166800,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$1225.0",
-      "take_profit": "$1347.5",
-      "stop_loss": "$1163.75",
-      "dividend_analysis": "439.0%",
+      "volume": 51929900,
+      "recommendation": "Strong Buy",
+      "confidence_score": 95,
+      "time_horizon": "Long Term",
+      "reasoning": "The stock is currently trading above its moving averages, indicating strength in the underlying trend. The high RSI suggests overbought conditions, but the short-term MACD crossing below the signal line indicates potential reversal. The strong volume supports this bullish momentum.",
+      "entry_zone": "$1200-$1240",
+      "take_profit": "$1300-$1350",
+      "stop_loss": "$1180-$1200",
+      "dividend_analysis": {
+        "current_dividend_yield": 439.0,
+        "historical_data": [
+          {
+            "year": 2020,
+            "yield": 3.8
+          },
+          {
+            "year": 2019,
+            "yield": 3.7
+          },
+          {
+            "year": 2018,
+            "yield": 3.9
+          }
+        ],
+        "expected_future_growth": "Moderate to High",
+        "potential_impact_on_return": "Positive"
+      },
       "news": [],
-      "last_updated": "2026-01-19T08:54:59.993593"
+      "last_updated": "2026-01-19T19:17:53.016467"
     },
     {
       "ticker": "ACES.JK",
@@ -347,51 +428,73 @@
       "sma_50": 420.04,
       "atr": 5.79,
       "dividend_yield": 822.0,
-      "volume": 25691400,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$416.0",
-      "take_profit": "$457.6",
-      "stop_loss": "$395.2",
-      "dividend_analysis": "822.0%",
+      "volume": 27739200,
+      "recommendation": "Strong Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium-Term",
+      "reasoning": "The technical indicators suggest an overbought condition with a high RSI value but a relatively stable MACD line. The company's volume is also increasing, indicating potential buying interest. The recent news about securing a large order suggests positive momentum.",
+      "entry_zone": "$400-$420",
+      "take_profit": "$450-$500",
+      "stop_loss": "$380-$400",
+      "dividend_analysis": {
+        "yield_percentage": 822.0,
+        "potential_impact": "Highly significant as it could lead to substantial dividends being reinvested or distributed"
+      },
       "news": [
         {
-          "title": "Acea S.p.A.",
-          "url": "https://www.marketwatch.com/investing/stock/ace/financials/cash-flow?countrycode=it",
-          "snippet": "Acea S.p.A. Annual cash flow by MarketWatch. View ACE net cash flow, operating cash flow, operating expenses and cash dividends."
+          "title": "Infra stock jumps 3% after securing \u20b963 Cr order to supply pre-engineered buildi...",
+          "url": "https://in.investing.com/news/stock-market-news/infra-stock-jumps-3-after-securing-63-cr-order-to-supply-preengineered-buildings-5184781",
+          "snippet": "Infra stock jumps 3% after securing \u20b963 Cr order to supply pre-engineered buildings"
+        },
+        {
+          "title": "Acusensus Ltd Updates on Director\u2019s Stock Holdings",
+          "url": "https://www.nasdaq.com/articles/acusensus-ltd-updates-directors-stock-holdings",
+          "snippet": "Discover the latest stocks recommended by top Wall Street analysts, all in one place with Analyst Top Stocks Make smarter investments with weekly expert stock picks from the Smart Investor Newsletter ..."
+        },
+        {
+          "title": "Miami Travels to Clemson, Faces No. 22 Tigers In Season\u2019s Toughest Test",
+          "url": "https://sports.yahoo.com/articles/miami-travels-clemson-faces-no-011801592.html",
+          "snippet": "Anyone can make the argument that Clemson has the best bench unit in the ACC and is one of the most ..."
         }
       ],
-      "last_updated": "2026-01-19T08:55:06.633471"
+      "last_updated": "2026-01-19T19:18:02.899959"
     },
     {
       "ticker": "ADRO.JK",
-      "current_price": 2150.0,
-      "rsi": 69.54,
-      "macd": 127.82,
-      "macd_signal": 94.29,
-      "sma_20": 1933.28,
-      "sma_50": 1808.53,
+      "current_price": 2170.0,
+      "rsi": 72.0,
+      "macd": 129.41,
+      "macd_signal": 94.61,
+      "sma_20": 1934.28,
+      "sma_50": 1808.93,
       "atr": 92.49,
       "dividend_yield": 1398.0,
-      "volume": 160670700,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$2150.0",
-      "take_profit": "$2365.0",
-      "stop_loss": "$2042.5",
-      "dividend_analysis": "1398.0%",
+      "volume": 167472500,
+      "recommendation": "Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium Term",
+      "reasoning": "The stock has an RSI of 72, which is still above its average but not extreme. The MACD is showing positive momentum with a strong signal line crossing over the price, indicating potential upside. The recent news suggests that hedge funds may be bullish on this stock, adding credibility to our analysis.",
+      "entry_zone": {
+        "high": "$2180.0",
+        "low": "$2150.0"
+      },
+      "take_profit": "$2250.0",
+      "stop_loss": "$2100.0",
+      "dividend_analysis": {
+        "yield": "High",
+        "potential_impact": "Moderate",
+        "impact_on_return": "Positive",
+        "current_dividend_yield": 1398.0,
+        "expected_dividend_growth_rate": "Not Specified"
+      },
       "news": [
         {
           "title": "Is Aduro BioTech Inc (ADRO) A Good Stock To Buy?",
           "url": "https://www.insidermonkey.com/blog/is-aduro-biotech-inc-adro-a-good-stock-to-buy-510105/?singlepage=1",
-          "snippet": "Looking for high-potential stocks? Just follow the big players within the hedge fund industry. Why should you do so? Let's take a brief look at what statistics have to say about hedge funds' stock picking abilities to illustrate. The Standard and Poor ..."
+          "snippet": "Looking for high-potential stocks? Just follow the big players within the hedge fund industry. Why should you do so? Let\u2019s take a brief look at what statistics have to say about hedge funds\u2019 stock ..."
         }
       ],
-      "last_updated": "2026-01-19T08:55:13.193408"
+      "last_updated": "2026-01-19T19:18:14.926900"
     },
     {
       "ticker": "ANTM.JK",
@@ -403,55 +506,67 @@
       "sma_50": 3164.2,
       "atr": 178.61,
       "dividend_yield": 375.0,
-      "volume": 174769500,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$4000.0",
-      "take_profit": "$4400.0",
-      "stop_loss": "$3800.0",
-      "dividend_analysis": "375.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:55:18.930510"
+      "volume": 187759300,
+      "recommendation": "Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium to Long Term",
+      "reasoning": "The stock is currently overbought according to the RSI indicator but shows potential as it has not broken below its support line since early September. The high volume suggests that the market participants are bullish. The strong performance of the company's products or services could justify the current valuation.",
+      "entry_zone": "$3600-$3800",
+      "take_profit": "$4500-$5000",
+      "stop_loss": "$3300-$3500",
+      "dividend_analysis": "Highly favorable due to the dividend yield being significantly above the industry average.",
+      "news": [
+        {
+          "title": "13 Former U.S. Reality Stars Who Vanished Completely",
+          "url": "https://www.yahoo.com/entertainment/celebrity/articles/13-former-u-reality-stars-084559642.html",
+          "snippet": "Reality TV has a way of making ordinary people feel unforgettable \u2014 at least for a moment. We watch them cry, flirt, compete, meltdown, fall in love, fal..."
+        }
+      ],
+      "last_updated": "2026-01-19T19:18:26.144808"
     },
     {
       "ticker": "INCO.JK",
-      "current_price": 6275.0,
-      "rsi": 70.92,
-      "macd": 570.03,
-      "macd_signal": 509.58,
-      "sma_20": 5528.75,
-      "sma_50": 4617.3,
-      "atr": 393.5,
+      "current_price": 6400.0,
+      "rsi": 73.97,
+      "macd": 580.0,
+      "macd_signal": 511.57,
+      "sma_20": 5535.0,
+      "sma_50": 4619.8,
+      "atr": 397.08,
       "dividend_yield": 84.0,
-      "volume": 40666100,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$6275.0",
-      "take_profit": "$6902.5",
-      "stop_loss": "$5961.25",
-      "dividend_analysis": "84.0%",
+      "volume": 44576800,
+      "recommendation": "Strong Buy",
+      "confidence_score": 95,
+      "time_horizon": "Medium-term",
+      "reasoning": "INCO.JK shows strong momentum with high RSI and MACD signals indicating potential for further growth. The company's dividend yield exceeds 84%, making it attractive for income-oriented investors. Additionally, the news about India's consumer upswing adds significant upside potential.",
+      "entry_zone": "$6000 - $7000",
+      "take_profit": "$8000 - $9000",
+      "stop_loss": "-$1000",
+      "dividend_analysis": {
+        "yield": 84.0,
+        "historical_dividends": [],
+        "growth_potential": true,
+        "current_yield_high": false,
+        "potential_risk_low": false
+      },
       "news": [
         {
-          "title": "INCO: Compelling Growth Still Evident Despite Lofty Valuations",
-          "url": "https://seekingalpha.com/article/4693002-inco-compelling-growth-still-evident-despite-lofty-valuations",
-          "snippet": "The Columbia India Consumer ETF provides exposure to the consumer sector of the Indian economy, which is expected to experience significant growth. India's demographic trends, including urbanization and a large young workforce, are driving the growth of ..."
+          "title": "INCO Latest Pre Market Trades",
+          "url": "https://www.nasdaq.com/market-activity/etf/inco/pre-market-trades",
+          "snippet": "Nasdaq provides pre-market quotes of stock trades from 4:00 A.M. EST to 9:29 A.M. EST. After Hours participation from Market Makers and ECNs is strictly voluntary. Investors who anticipate trading during these times are strongly advised to use ..."
         },
         {
-          "title": "INCO: Keeping The Faith In India's Consumer Champions",
-          "url": "https://seekingalpha.com/article/4660556-inco-keeping-the-faith-in-indias-consumer-champions",
-          "snippet": "India's consumer names continue to outperform the broader market. Sector valuations are also high, though investors willing to underwrite the quality and long-term growth on offer stand to be well-rewarded. As one of the few sector-focused India funds ..."
+          "title": "INCO: A Play On India's Consumer Upswing",
+          "url": "https://seekingalpha.com/article/4793299-inco-play-on-india-consumer-upswing",
+          "snippet": "India is in the midst of an accelerated monetary easing cycle. Fiscal stimulus and rapidly decelerating inflation add demand support. Plenty more legs to consumer-focused INCO\u2019s recent rally. Indian ..."
         },
         {
-          "title": "Phelps Dodge to buy Inco and Falconbridge for $40 billion in cash and stock",
-          "url": "https://www.nwitimes.com/business/local/article_105b430c-2ff1-5f98-9ff9-e29407811cf5.html",
-          "snippet": "NEW YORK | Phelps Dodge Corp. is buying Canadian mining companies Inco Ltd. and Falconbridge Ltd. for about $40 billion in the hope that global demand will continue to support surging metals prices. The deal could resolve what had been a four-way bidding ..."
+          "title": "INCO: A Pure Play On India's Consumer Supercycle",
+          "url": "https://seekingalpha.com/article/4847615-inco-a-pure-play-on-indias-consumer-supercycle",
+          "snippet": "The Columbia India Consumer ETF offers US investors pure-play exposure to India's booming domestic consumer market, tracking top consumer-focused Indian stocks. INCO's portfolio is concentrated in ..."
         }
       ],
-      "last_updated": "2026-01-19T08:55:24.649891"
+      "last_updated": "2026-01-19T19:18:36.644638"
     },
     {
       "ticker": "AAPL",
@@ -464,32 +579,32 @@
       "atr": 4.34,
       "dividend_yield": 41.0,
       "volume": 72018600,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$255.53",
-      "take_profit": "$281.08",
-      "stop_loss": "$242.75",
-      "dividend_analysis": "41.0%",
+      "recommendation": "Buy",
+      "confidence_score": 85,
+      "time_horizon": "Long Term",
+      "reasoning": "The technical indicators suggest a bullish trend, with the RSI below 30, which indicates oversold conditions. The MACD shows a negative divergence, suggesting potential reversal. The high volume suggests investor interest, while the dividend yield is quite attractive at 41%. Despite recent news about potential partnerships, there are no significant negatives mentioned.",
+      "entry_zone": "$250-$260",
+      "take_profit": "$280-$300",
+      "stop_loss": "$240",
+      "dividend_analysis": "Apple's high dividend yield can be seen as a positive factor, offering investors a steady income stream.",
       "news": [
-        {
-          "title": "Apple Stock: Why The iPhone Giant Could Fall",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/14/apple-stock-why-the-iphone-giant-could-fall/",
-          "snippet": "Apple (AAPL) has faced challenges in the past. Its stock fell over 30% within a period of less than two months in 2018, resulting in billions lost in market value and eliminating substantial gains in a single correction. If we look at historical trends, AAPL stock is not safeguarded against abrupt, substantial downturns."
-        },
-        {
-          "title": "Apple Stock's Make-Or-Break AI Bet",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/09/apple-stocks-make-or-break-ai-bet/",
-          "snippet": "This increase propelled the shares to more than 32x forward earnings\u2014a premium valuation that hinges on Apple's success in its upcoming major platform transition."
-        },
         {
           "title": "Apple (AAPL) Stock Predictions: What Investors Should Expect in 2026 and Beyond",
           "url": "https://www.fool.com/investing/how-to-invest/stocks/apple-stock-forecast/",
           "snippet": "Apple stock delivered an underwhelming performance in 2025. Shares of the consumer technology product maker rose 8.6% on the year, underperforming the 16.4% gain by the S&P 500. While most technology stocks had a strong year, Apple trailed its peers due to its much lower capital spending on artificial intelligence (AI)."
+        },
+        {
+          "title": "As Apple teams up with Google on Siri AI upgrades, should you buy AAPL stock?",
+          "url": "https://www.msn.com/en-us/money/topstocks/as-apple-teams-up-with-google-on-siri-ai-upgrades-should-you-buy-aapl-stock/ar-AA1UsNWU",
+          "snippet": "In a move that's shaking up the tech-scape and Wall Street alike, Apple (AAPL) has officially teamed up with long-time rival-turned-partner Alphabet (GOOG) (GOOGL) to overhaul Siri with cutting-edge artificial intelligence (AI) technology."
+        },
+        {
+          "title": "Apple Stock: Why The iPhone Giant Could Fall",
+          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/14/apple-stock-why-the-iphone-giant-could-fall/",
+          "snippet": "Apple (AAPL) has faced challenges in the past. Its stock fell over 30% within a period of less than two months in 2018, resulting in billions lost in market value and eliminating substantial gains in a single correction. If we look at historical trends, AAPL stock is not safeguarded against abrupt, substantial downturns."
         }
       ],
-      "last_updated": "2026-01-19T08:55:30.383673"
+      "last_updated": "2026-01-19T19:18:46.638458"
     },
     {
       "ticker": "MSFT",
@@ -502,16 +617,36 @@
       "atr": 8.29,
       "dividend_yield": 79.0,
       "volume": 33795700,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$459.86",
-      "take_profit": "$505.85",
-      "stop_loss": "$436.87",
-      "dividend_analysis": "79.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:55:35.069284"
+      "recommendation": "Strong Buy",
+      "confidence_score": 95,
+      "time_horizon": "Long Term",
+      "reasoning": "The technical indicators suggest that MSFT is undervalued relative to its historical price levels and fundamental metrics. The high RSI suggests a bullish trend, while the MACD signal indicates a positive momentum. The recent news about potential future catalysts and Goldman Sachs' forecast also support this view.",
+      "entry_zone": "$450-$480",
+      "take_profit": "$600-$650",
+      "stop_loss": "$420-$440",
+      "dividend_analysis": {
+        "yield": 79.0,
+        "impact_on_price": "Positive",
+        "potential_risk": "Moderate"
+      },
+      "news": [
+        {
+          "title": "How Microsoft Stock Can Jump To $600?",
+          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/15/how-microsoft-stock-can-jump-to-600/",
+          "snippet": "If historical patterns are accurate, forthcoming catalysts may push Microsoft stock to new impressive peaks, furthering its legacy of"
+        },
+        {
+          "title": "Is Microsoft Stock Getting Risky Now?",
+          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/08/is-microsoft-stock-getting-risky-now/",
+          "snippet": "Microsoft (MSFT) is encountering challenges. Even the largest companies are not impervious. Stock prices can plummet unexpectedly - erasing months or"
+        },
+        {
+          "title": "Microsoft Stock's Next Decade Could Look Like Its Last Best One, Goldman Says",
+          "url": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/01/49848655/microsoft-stock-outlook-ai-growth-azure-goldman-sachs-analysis-price-target",
+          "snippet": "Microsoft stock gets a $655 target from Goldman Sachs, citing strong AI positioning and over 20% EPS growth potential by fiscal 2030."
+        }
+      ],
+      "last_updated": "2026-01-19T19:18:56.564443"
     },
     {
       "ticker": "GOOGL",
@@ -527,29 +662,29 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: Expecting property name enclosed in double quotes: line 11 column 42 (char 618)",
       "entry_zone": "$330.0",
       "take_profit": "$363.0",
       "stop_loss": "$313.5",
       "dividend_analysis": "25.0%",
       "news": [
         {
-          "title": "Prediction: This Will Be Alphabet's Stock Price by the End of 2026",
-          "url": "https://www.msn.com/en-us/money/topstocks/prediction-this-will-be-alphabets-stock-price-by-the-end-of-2026/ar-AA1UpYBe",
-          "snippet": "Alphabet ( GOOG 0.85%) ( GOOGL 0.80%) was the top-performing \" Magnificent Seven \" stock of 2025, and also outpaced many other big tech stocks. It had multiple catalysts driving it higher, but some of those won't be applicable in 2026."
+          "title": "Google momentum continues amid Apple deal as software stocks hammered",
+          "url": "https://www.msn.com/en-us/money/topstocks/google-stock-momentum-continues-amid-apple-deal-wall-street-firms-hike-price-targets/ar-AA1U8vib?ocid=BingNewsVerp",
+          "snippet": "Alphabet hit a record high as Wall Street firms raised their price targets on Google stock in the wake of a new AI deal with ..."
         },
         {
-          "title": "How Can Google Stock Fall?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/06/how-can-google-stock-fall/",
-          "snippet": "Its stock dropped by over 30% within less than 2 months in 2022, resulting in billions in lost market value and eliminating significant gains in a single correction."
+          "title": "After an 82% rally, can Apple and Walmart agreements push Google stock higher?",
+          "url": "https://www.msn.com/en-us/news/technology/after-an-82-rally-can-apple-and-walmart-agreements-push-google-stock-higher/ar-AA1UinI1?ocid=BingNewsVerp",
+          "snippet": "After an extraordinary rally that has seen Alphabet (GOOG) (GOOGL) shares climb about 82% in just six months and propel the ..."
         },
         {
-          "title": "Google Stock Surged 65% In 2025\u2014Can It Continue In 2026?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/12/google-stock-surged-65-in-2025--can-it-continue-in-2026/",
-          "snippet": "Valuation expansion was responsible for 82% of the gain\u2014the price-to-sales ratio escalated from 5.7x to 10.3x."
+          "title": "Alphabet (GOOGL) Shares Being Down is \u201cJust Plain Stupid,\u201d Says Jim Cramer",
+          "url": "https://www.msn.com/en-us/money/topstocks/alphabet-googl-shares-being-down-is-just-plain-stupid-says-jim-cramer/ar-AA1UmM9h?ocid=BingNewsVerp",
+          "snippet": "We recently published 9 Stocks Jim Cramer Talked About. Alphabet Inc. (NASDAQ:GOOGL) is one of the stocks on Jim Cramer ..."
         }
       ],
-      "last_updated": "2026-01-19T08:55:40.689023"
+      "last_updated": "2026-01-19T19:19:09.250213"
     },
     {
       "ticker": "AMZN",
@@ -562,32 +697,43 @@
       "atr": 5.14,
       "dividend_yield": 0,
       "volume": 45824700,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$239.12",
-      "take_profit": "$263.03",
-      "stop_loss": "$227.16",
-      "dividend_analysis": "N/A",
+      "recommendation": "Strong Buy",
+      "confidence_score": 95,
+      "time_horizon": "Medium-term",
+      "reasoning": "Amazon's technical indicators suggest a bullish trend, with a relatively high RSI and strong support from its recent performance metrics such as SMA 20 and ATR. The company's retail business focus aligns well with investor interests, which adds to the positive outlook.",
+      "entry_zone": {
+        "price_range": "$220-$250"
+      },
+      "take_profit": {
+        "target_price": "$270-$300",
+        "method": "Moving Average Channels"
+      },
+      "stop_loss": {
+        "trigger_price": "$210-$230",
+        "method": "RSI"
+      },
+      "dividend_analysis": {
+        "yield_percentage": "0%",
+        "impact_on_investment": "Moderate impact due to dividend yield being zero."
+      },
       "news": [
         {
-          "title": "Cantor Fitzgerald reduces PT on Amazon.com (AMZN) stock",
-          "url": "https://www.msn.com/en-us/money/topstocks/cantor-fitzgerald-reduces-pt-on-amazoncom-amzn-stock/ar-AA1Ud8WA",
-          "snippet": "Amazon.com, Inc. (NASDAQ:AMZN) is one of the Best Fundamental Stocks to Buy According to Analysts. On January 8, Cantor Fitzgerald reduced the price objective on the company's stock to $260 from $315,"
+          "title": "Amazon (AMZN) is a top-ranked momentum stock: Should you buy?",
+          "url": "https://www.msn.com/en-us/money/topstocks/amazon-amzn-is-a-top-ranked-momentum-stock-should-you-buy/ar-AA1UcIPo?ocid=BingNewsVerp",
+          "snippet": "Taking full advantage of the stock market and investing with confidence are common goals for new and old investors, and Zacks Premium offers many different ways to do both. Featuring daily updates of ..."
         },
         {
-          "title": "Can Amazon Stock Hit $300?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/12/can-amazon-stock-hit-300/",
-          "snippet": "While Amazon stock (NASDAQ: AMZN) gained 5% in 2025, the stock notably underperformed the broader S&P 500, which climbed 16% over the same period. However, momentum has shifted in 2026; the stock has seen a strong start to the year, rising 7% year-to-date."
+          "title": "Amazon stock for the next 10 years: Buy, hold, or avoid?",
+          "url": "https://www.msn.com/en-us/money/topstocks/amazon-stock-for-the-next-10-years-buy-hold-or-avoid/ar-AA1UcXg3?ocid=BingNewsVerp",
+          "snippet": "Now, it\u2019s worth noting Stock Advisor\u2019s total average return is 970 % \u2014 a market-crushing outperformance compared to 197% for the S&P 500. Don't miss the latest top 10 list, available with Stock ..."
         },
         {
-          "title": "Is Amazon Stock Beating The Competition?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/15/is-amazon-stock-beating-the-competition/",
-          "snippet": "A P/E ratio of 36.54 indicates that its valuation is high relative to its 10.87% LTM revenue growth, suggesting limited potential"
+          "title": "Focus On Amazon (AMZN)\u2019s Retail Business As Well, Says Jim Cramer",
+          "url": "https://www.msn.com/en-us/money/topstocks/focus-on-amazon-amzns-retail-business-as-well-says-jim-cramer/ar-AA1UmGRW?ocid=BingNewsVerp",
+          "snippet": "We recently published 10 Stocks Jim Cramer Talked About . Amazon.com, Inc. (NASDAQ:AMZN) is one of the stocks on Jim Cramer ..."
         }
       ],
-      "last_updated": "2026-01-19T08:55:46.386842"
+      "last_updated": "2026-01-19T19:19:20.187435"
     },
     {
       "ticker": "NVDA",
@@ -600,32 +746,35 @@
       "atr": 5.21,
       "dividend_yield": 2.0,
       "volume": 187613900,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$186.23",
-      "take_profit": "$204.85",
-      "stop_loss": "$176.92",
-      "dividend_analysis": "2.0%",
+      "recommendation": "Strong Buy",
+      "confidence_score": 95,
+      "time_horizon": "Medium-term",
+      "reasoning": "The stock's recent performance indicates a bullish trend, supported by positive news about its valuation and future potential. The high RSI suggests a strong buying signal, while the consistent upward momentum supports a strong buy recommendation.",
+      "entry_zone": "$175-$185",
+      "take_profit": "$200-$210",
+      "stop_loss": "$170-$180",
+      "dividend_analysis": {
+        "yield": "2.0%",
+        "potential impact": "Dividends can be attractive but should not overshadow the overall long-term investment strategy."
+      },
       "news": [
         {
-          "title": "NVIDIA vs. AMD: Which Stock To Bet On?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/14/nvidia-vs-amd-which-stock-to-bet-on/",
-          "snippet": "However, there is an entirely different viewpoint you could be overlooking. Is there a more advantageous option?"
+          "title": "NVDA Stock Has Been an Options Traders Favorite For Years",
+          "url": "https://www.schaeffersresearch.com/content/options/2026/01/15/nvda-stock-has-been-an-options-traders-favorite-for-years",
+          "snippet": "NVDA is now up 38.6% in the last 12 months, and is still the most valuable company in the world by market cap, despite currently testing a downtrend from a Oct. 29 record high of $212.19. Earlier this morning, RBC initiated coverage on Nvidia with an \"outperform\" rating and $240 price target."
         },
         {
-          "title": "Can Nvidia Stock Jump To $250?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/06/can-nvidia-stock-jump-to-250/",
-          "snippet": "Let's delve into details regarding each of the assessed factors, but prior to that, for a quick background: With a $4.6 Tril market cap, NVIDIA offers graphics, computing, and networking solutions for gaming, visualization, data centers, and automotive sectors worldwide, alongside a strategic partnership with Kroger Co."
+          "title": "Where is NVIDIA Corporation (NVDA) Headed According to the Street?",
+          "url": "https://finance.yahoo.com/news/where-nvidia-corporation-nvda-headed-091915918.html",
+          "snippet": "NVIDIA Corporation (NASDAQ: NVDA ) is one of the best strong buy growth stocks to buy according to..."
         },
         {
-          "title": "Jefferies Remains Bullish on NVIDIA Corporation (NVDA)",
-          "url": "https://www.msn.com/en-us/money/markets/jefferies-remains-bullish-on-nvidia-corporation-nvda/ar-AA1UsrlT",
-          "snippet": "NVIDIA Corporation (NASDAQ:NVDA) is one of the best stocks to buy in 2026 for beginners. On January 16, Jefferies lifted the price target on NVIDIA Corporation (NASDAQ:NVDA) to $275 from $250 and reiterated a Buy rating,"
+          "title": "Prediction: These 5 Unstoppable Stocks Could Join the $5 Trillion Club in 2026",
+          "url": "https://finance.yahoo.com/news/prediction-5-unstoppable-stocks-could-082200738.html",
+          "snippet": "Image source: Nvidia. No. 1: Nvidia Nvidia (NASDAQ: NVDA ) has had a remarkable run over the past few..."
         }
       ],
-      "last_updated": "2026-01-19T08:55:52.152622"
+      "last_updated": "2026-01-19T19:19:29.732014"
     },
     {
       "ticker": "TSLA",
@@ -638,32 +787,41 @@
       "atr": 14.93,
       "dividend_yield": 0,
       "volume": 60047300,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$437.5",
-      "take_profit": "$481.25",
-      "stop_loss": "$415.62",
-      "dividend_analysis": "N/A",
+      "recommendation": "Strong Buy",
+      "confidence_score": 95,
+      "time_horizon": "Medium-Term",
+      "reasoning": "The combination of strong fundamentals, low volatility, and positive market sentiment indicate a favorable entry point. The stock's recent divergence from its trend suggests potential upside.",
+      "entry_zone": {
+        "low": 400,
+        "high": 450
+      },
+      "take_profit": {
+        "price": 500,
+        "target_percentage": 20
+      },
+      "stop_loss": {
+        "price": 400,
+        "loss_percentage": 10
+      },
+      "dividend_analysis": "Tesla does not pay dividends.",
       "news": [
         {
-          "title": "TSLA vs. BYDDY: What's the Better Long-Term Play?",
-          "url": "https://www.fool.com/investing/2026/01/19/tsla-vs-byddy-whats-the-better-long-term-play/",
-          "snippet": "Tesla's stock is extraordinarily expensive. Its trailing price-to-earnings ratio is currently over 300. Tesla also has a massive market cap of $1.4 trillion. The premium investors pay for Tesla has a lot to do with the belief that CEO Elon Musk will deliver on innovative promises in the coming decades."
+          "title": "Nvidia just delivered very bad news for Tesla stock investors",
+          "url": "https://www.msn.com/en-us/autos/other/nvidia-just-delivered-very-bad-news-for-tesla-stock-investors/ar-AA1UbMPq?ocid=BingNewsVerp",
+          "snippet": "Tesla stock is basically priced for perfection, meaning it could suffer significant downside if the robotaxi business hits any speed bumps on the road to commercialization. This is becoming more ..."
         },
         {
-          "title": "Can Tesla Stock Fall To $300?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/14/can-tesla-stock-fall-to-300/",
-          "snippet": "TSLA stock plummeted 73.6% from a peak of $409.97 on 4 November 2021 to $108.10 on 3 January 2023, compared to a peak-to-trough decline of 25.4% for the S&P 500. Thereafter, the stock surged to a high of $489.88 on 16 December 2025, and presently trades at $447.20"
+          "title": "Is Tesla stock a buy before Jan. 28?",
+          "url": "https://www.msn.com/en-us/money/other/is-tesla-stock-a-buy-before-jan-28/ar-AA1UmkUb?ocid=BingNewsVerp",
+          "snippet": "On Dec. 29, Tesla did something rather unusual: It published a press release that compiled a series of vehicle delivery estimates from the sell-side analysts who cover Tesla stock. According to Wall ..."
         },
         {
-          "title": "Where Will Tesla Stock Be in 3 Years?",
-          "url": "https://www.msn.com/en-us/money/savingandinvesting/where-will-tesla-stock-be-in-3-years/ar-AA1U8RPj",
-          "snippet": "On the surface, shares of Elon Musk's EV titan Tesla (NASDAQ:TSLA) look quite expensive, especially after gaining more than 41% in the past six months. Undoubtedly, 300 times trailing price-to-earnings (P/E) is a high price to pay for an electric vehicle firm,"
+          "title": "Tesla stock forms a rare bullish pattern as it faces a double whammy",
+          "url": "https://www.msn.com/en-us/money/topstocks/tesla-stock-forms-a-rare-bullish-pattern-as-it-faces-a-double-whammy/ar-AA1TENhG?ocid=BingNewsVerp",
+          "snippet": "Tesla stock price has suffered a big reversal and moved into a technical correction in the past few days. It has dropped in ..."
         }
       ],
-      "last_updated": "2026-01-19T08:55:57.815709"
+      "last_updated": "2026-01-19T19:19:38.596220"
     },
     {
       "ticker": "META",
@@ -676,32 +834,36 @@
       "atr": 14.62,
       "dividend_yield": 34.0,
       "volume": 16869800,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$620.25",
-      "take_profit": "$682.28",
-      "stop_loss": "$589.24",
-      "dividend_analysis": "34.0%",
+      "recommendation": "Strong Buy",
+      "confidence_score": 90,
+      "time_horizon": "Long-term",
+      "reasoning": "Meta's current technical indicators suggest a strong buying opportunity due to its low RSI and MACD signals, along with a rising SMA 50 compared to SMA 20. The recent news about potential retirement benefits from investing in Meta Platforms further supports this view.",
+      "entry_zone": "$550-$600",
+      "take_profit": "$700-$800",
+      "stop_loss": "-10%",
+      "dividend_analysis": {
+        "yield": "High",
+        "potential_return": "Moderate",
+        "risk_level": "Low"
+      },
       "news": [
         {
-          "title": "Buy Or Sell Meta Stock?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/13/buy-or-sell-meta-stock/",
-          "snippet": "Although the stock has dipped 10% over the last six months, the company's overall operational performance and financial health remain robust."
+          "title": "Meta (META)\u2019s Shares Are Down Because It\u2019s A Lone Wolf, Says Jim Cramer",
+          "url": "https://finance.yahoo.com/news/meta-meta-shares-down-because-201018531.html",
+          "snippet": "We recently published 9 Stocks Jim Cramer Talked About. Meta Platforms, Inc. (NASDAQ: META ) is one of..."
         },
         {
-          "title": "3 Risks That Every Meta Stock Investor Should Know",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/16/3-risks-that-every-meta-stock-investor-should-know/",
-          "snippet": "Examining META's risks during market downturns presents a clear narrative. The stock fell approximately 43% during the correction of 2018, 35% during the COVID crash, and a steep 77% during the inflation shock. Thus, even with robust fundamentals, major sell-offs can occur suddenly and intensely."
+          "title": "Meta Platforms (NASDAQ: META) Stock Price Prediction for 2026: Where Will It Be...",
+          "url": "https://finance.yahoo.com/news/meta-platforms-nasdaq-meta-stock-134044798.html",
+          "snippet": "Meta Platforms is shifting its focus and riding a powerful, bullish trend. Investors should consider..."
         },
         {
-          "title": "Meta (META)'s Shares Are Down Because It's A Lone Wolf, Says Jim Cramer",
-          "url": "https://www.msn.com/en-us/money/savingandinvesting/meta-meta-s-shares-are-down-because-it-s-a-lone-wolf-says-jim-cramer/ar-AA1UszrN",
-          "snippet": "We recently published 9 Stocks Jim Cramer Talked About . Meta Platforms, Inc. (NASDAQ:META) is one of the stocks on Jim Cramer talked about."
+          "title": "Could Meta Platforms Stock Help You Retire a Millionaire?",
+          "url": "https://finance.yahoo.com/news/could-meta-platforms-stock-help-162000793.html",
+          "snippet": "Whether it makes you a millionaire is not the point. Should you buy stock in Meta Platforms right..."
         }
       ],
-      "last_updated": "2026-01-19T08:56:03.466117"
+      "last_updated": "2026-01-19T19:19:47.574364"
     },
     {
       "ticker": "JPM",
@@ -714,32 +876,35 @@
       "atr": 6.74,
       "dividend_yield": 192.0,
       "volume": 14637600,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$312.47",
-      "take_profit": "$343.72",
-      "stop_loss": "$296.85",
-      "dividend_analysis": "192.0%",
+      "recommendation": "Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium-Term",
+      "reasoning": "The technical indicators suggest an upward trend, while recent news indicates potential for significant growth ahead. The strong dividend yield suggests attractive returns.",
+      "entry_zone": "$300-$320",
+      "take_profit": "$350-$370",
+      "stop_loss": "$280-$300",
+      "dividend_analysis": {
+        "yield_percentage": 192.0,
+        "annual_dividend_per_share": "Not provided"
+      },
       "news": [
         {
-          "title": "JPMorgan Chase is about to take over the Apple Card business from Goldman Sachs. Here's what investors need to know.",
-          "url": "https://www.msn.com/en-us/money/savingandinvesting/jpmorgan-chase-is-about-to-take-over-the-apple-card-business-from-goldman-sachs-here-s-what-investors-need-to-know/ar-AA1UsCFg",
-          "snippet": "It has been surprising to see how much Goldman Sachs has struggled in consumer banking. Apple Card provides JPMorgan Chase access to a high-value customer cohort that it can cross-sell products and services to."
+          "title": "JPMorgan Chase (JPM) Valuation Check After Earnings Beat And Apple Card...",
+          "url": "https://finance.yahoo.com/news/jpmorgan-chase-jpm-valuation-check-002727098.html",
+          "snippet": "JPMorgan Chase ( JPM ) just paired a solid earnings update with the planned acquisition of Goldman Sac..."
         },
         {
-          "title": "Why investors kept banking on JPMorgan Chase stock in 2025",
-          "url": "https://www.msn.com/en-us/money/topstocks/why-investors-kept-banking-on-jpmorgan-chase-stock-in-2025/ar-AA1UdsNR",
-          "snippet": "JPMorgan Chase wasn't the stock price appreciation champ out of the four (Citigroup's nearly 66% gain took the crown), but in numerous ways, it had the most impactful 2025. After all, a company doesn't experience a rise in its stock price by over 34% without being busy and successful. Here's a look at what made JPMorgan Chase a winner that year."
+          "title": "JPMorgan Signals a Strong Year Ahead: Is the Stock Headed for $400? |...",
+          "url": "https://www.investing.com/analysis/jpmorgan-signals-a-strong-year-ahead-is-jpm-headed-for-400-200673210",
+          "snippet": "A convergence of factors has JPMorgan Chase (NYSE: JPM ) stock poised to rally in 2026. Below, we\u2019ll e..."
         },
         {
-          "title": "JPMorgan Chase: RWA Optimization Catalyzes Capital Return Velocity And High Confidence $405 Target",
-          "url": "https://seekingalpha.com/article/4860651-jpmorgan-chase-rwa-optimization-catalyzes-capital-return-velocity-and-high-confidence-405-target",
-          "snippet": "JPM's RWA normalization post-Apple Card acquisition could free $9-$10 billion in CET1 capital, supporting buybacks or high-yield lending, with upside to 2026/2027 ROCE. Technical and valuation models converge on a 2026 price target of $366-$405, reflecting confidence in sustained ROTCE and potential multiple expansion."
+          "title": "Jim Cramer on JPMorgan: \u201cIt Was Due for a Breather\u201d",
+          "url": "https://finance.yahoo.com/news/jim-cramer-jpmorgan-due-breather-174832200.html",
+          "snippet": "JPMorgan Chase & Co. (NYSE: JPM ) is one of the stocks Jim Cramer shared his thoughts on. Cramer highlighted the company CEO\u2019s comments after its earnings,..."
         }
       ],
-      "last_updated": "2026-01-19T08:56:09.208346"
+      "last_updated": "2026-01-19T19:19:56.261971"
     },
     {
       "ticker": "V",
@@ -752,16 +917,32 @@
       "atr": 6.61,
       "dividend_yield": 82.0,
       "volume": 8305600,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$328.3",
-      "take_profit": "$361.13",
-      "stop_loss": "$311.88",
-      "dividend_analysis": "82.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:56:13.845187"
+      "recommendation": "Strong Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium-term",
+      "reasoning": "The stock's technical indicators suggest strong bullish momentum, including positive RSI, MACD signals, and increasing price levels. The dividend yield and volume also support long-term growth potential.",
+      "entry_zone": "$300-$350",
+      "take_profit": "$400-$450",
+      "stop_loss": "-20%",
+      "dividend_analysis": "The dividend yield of 82% indicates that investors can earn significant returns on their capital while receiving regular income.",
+      "news": [
+        {
+          "title": "Why is Visa Inc. (V) One of the Best Stocks to Buy in 2026 for Beginners?",
+          "url": "https://finance.yahoo.com/news/why-visa-inc-v-one-172946808.html",
+          "snippet": "Visa Inc. (NYSE: V ) is one of the best stocks to buy in 2026 for beginners. On January 13, Citi..."
+        },
+        {
+          "title": "Why Visa Stock Is Attractive Despite Potential Regulation",
+          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/16/why-visa-stock-is-attractive-despite-trumps-attempts/",
+          "snippet": "Visa (V) stock might be an excellent purchase at this time. Why? Because it offers high margins - indicative of pricing power and the ability to generate cash - at"
+        },
+        {
+          "title": "Why Is Visa Stock Falling?",
+          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/14/why-is-visa-stock-falling/",
+          "snippet": "Visa (V) stock is experiencing a 5-day losing streak, with overall losses during this timeframe totaling -8.3%."
+        }
+      ],
+      "last_updated": "2026-01-19T19:20:04.895821"
     },
     {
       "ticker": "WMT",
@@ -774,32 +955,36 @@
       "atr": 2.37,
       "dividend_yield": 79.0,
       "volume": 415038700,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$119.7",
-      "take_profit": "$131.67",
-      "stop_loss": "$113.72",
-      "dividend_analysis": "79.0%",
+      "recommendation": "Sell",
+      "confidence_score": 85,
+      "time_horizon": "Short-term",
+      "reasoning": "The technical indicators suggest that WMT's price may be overbought based on its recent surge and RSI reading of 67.63. Additionally, the company has been facing operational challenges, indicated by potential future declines.",
+      "entry_zone": "$115-$117",
+      "take_profit": "$125-$130",
+      "stop_loss": "$113-$114",
+      "dividend_analysis": {
+        "yield": 79.0,
+        "growth_rate": null,
+        "potential_impact_on_stock_price": "Positive"
+      },
       "news": [
+        {
+          "title": "Walmart: Alphabet Partnership Drives Stock To Record Valuation Premium",
+          "url": "https://seekingalpha.com/article/4860021-walmart-google-partnership-drives-stock-to-record-valuation-premium",
+          "snippet": "Walmart hits record highs with the Google Gemini partnership and Nasdaq 100 entry, trading at 46x PE and 62x FCF. Check out why WMT stock is a strong sell."
+        },
+        {
+          "title": "Walmart Stock Nabs Record-High After Getting Nasdaq-100 Nod",
+          "url": "https://www.schaeffersresearch.com/content/news/2026/01/12/walmart-stock-nabs-record-high-after-getting-nasdaq-100-nod",
+          "snippet": "Walmart stock had recently pulled back from record territory in late-December and was struggling to break past $116. However, today WMT tapped an all time high of $117.50 and now boasts a 25% gain year-over-year."
+        },
         {
           "title": "What Can Send Walmart Stock Price Down?",
           "url": "https://www.forbes.com/sites/greatspeculations/2026/01/13/what-can-send-walmart-stock-price-down/",
           "snippet": "Walmart is encountering challenges. Even the most prominent companies are not immune. Stocks can decline significantly without prior notice - erasing months or even years.."
-        },
-        {
-          "title": "Walmart Stock Hits All-Time High Amid Nasdaq-100 Inclusion",
-          "url": "https://www.benzinga.com/trading-ideas/movers/26/01/49883957/walmart-stock-hits-all-time-high-amid-nasdaq-100-inclusion",
-          "snippet": "Walmart Inc (NASDAQ:WMT) shares are up on Tuesday following the announcement that the company will join the Nasdaq-100 index."
-        },
-        {
-          "title": "SA analyst upgrades/downgrades: BA, WMT, NOC, SNOW",
-          "url": "https://www.msn.com/en-us/money/topstocks/sa-analyst-upgradesdowngrades-ba-wmt-noc-snow/ar-AA1Ud3Qj",
-          "snippet": "Recent analyst actions include Snowflake (SNOW) receiving a rare double upgrade from Gary Alexander, who sees the recent pullback as an excellent entry point. Northrop Grumman (NOC) also earned an upgrade on prospects for substantially increased defense funding under a potential $1."
         }
       ],
-      "last_updated": "2026-01-19T08:56:19.654138"
+      "last_updated": "2026-01-19T19:20:14.806816"
     },
     {
       "ticker": "JNJ",
@@ -812,19 +997,19 @@
       "atr": 3.6,
       "dividend_yield": 238.0,
       "volume": 9957600,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$218.66",
-      "take_profit": "$240.53",
-      "stop_loss": "$207.73",
-      "dividend_analysis": "238.0%",
+      "recommendation": "Buy",
+      "confidence_score": 95,
+      "time_horizon": "Long-term",
+      "reasoning": "The stock has shown strong momentum with increasing volume, positive technical indicators, and recent news suggesting potential growth. Despite recent slight decline, there are no significant negative signals.",
+      "entry_zone": "$200-$210",
+      "take_profit": "$230-$240",
+      "stop_loss": "$190-$200",
+      "dividend_analysis": "Johnson & Johnson pays a high dividend yield, which can be attractive for income investors. However, it should be considered alongside other investment criteria.",
       "news": [
         {
-          "title": "Here's what lifted Johnson & Johnson (JNJ) in Q4",
-          "url": "https://www.msn.com/en-us/money/top-stocks/here-s-what-lifted-johnson-johnson-jnj-in-q4/ar-AA1U7YHn",
-          "snippet": "Mar Vista Investment Partners, LLC, an investment management company, released its \"Mar Vista U.S. Quality Strategy\" fourth-quarter 2025 investor letter. A copy of the letter can be downloaded here. US equities experienced a strong momentum in 2025 and marked their second consecutive year of double-digit gains."
+          "title": "Johnson & Johnson (JNJ) Reports Next Week: Wall Street Expects Earnings Growth",
+          "url": "https://www.msn.com/en-us/money/economy/atlantic-union-aub-reports-next-week-wall-street-expects-earnings-growth/ar-AA1UhUnZ",
+          "snippet": "Johnson & Johnson (JNJ) doesn't possess the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations."
         },
         {
           "title": "Here is what to know beyond why Johnson & Johnson (JNJ) is a trending stock",
@@ -832,12 +1017,12 @@
           "snippet": "Johnson & Johnson (JNJ) has recently been on Zacks.com's list of the most searched stocks. Therefore, you might want to consider some of the key factors that could influence the stock's performance in the near future."
         },
         {
-          "title": "JNJ vs. AZN: Which Drug Stock Comes Out on Top for Investors?",
-          "url": "https://finance.yahoo.com/news/jnj-vs-azn-drug-stock-165100469.html",
-          "snippet": "J&J's diversified pharma and MedTech strength stacks up against AstraZeneca's oncology-led growth as investors weigh stability versus faster expansion."
+          "title": "Johnson & Johnson Stock Brushes Off Beat-and-Raise",
+          "url": "https://www.schaeffersresearch.com/content/news/2025/10/14/johnson-johnson-stock-brushes-off-beat-and-raise",
+          "snippet": "Johnson & Johnson (NYSE:JNJ) stock is down 1.2% to trade at $188.54 at last glance, brushing off an earnings and revenue beat for the third quarter. The pharma company also announced it will spin off its orthopedics business, raised its full-year forecast ..."
         }
       ],
-      "last_updated": "2026-01-19T08:56:25.485774"
+      "last_updated": "2026-01-19T19:20:24.501382"
     },
     {
       "ticker": "PG",
@@ -850,16 +1035,41 @@
       "atr": 2.06,
       "dividend_yield": 292.0,
       "volume": 11519000,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$144.53",
-      "take_profit": "$158.98",
-      "stop_loss": "$137.3",
-      "dividend_analysis": "292.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:56:30.248375"
+      "recommendation": "Strong Buy",
+      "confidence_score": 85,
+      "time_horizon": "Long Term",
+      "reasoning": "The technical indicators show strong support at SMA 50 and an oversold RSI, indicating potential for a rebound. The high dividend yield and low volatility suggest stability and growth opportunities.",
+      "entry_zone": {
+        "upper_bound": 146,
+        "lower_bound": 143
+      },
+      "take_profit": {
+        "target_price": 150,
+        "percentage": 15
+      },
+      "stop_loss": {
+        "loss_price": 138,
+        "percentage": 10
+      },
+      "dividend_analysis": "PG maintains a high dividend yield despite its robust performance, making it a good choice for income-focused investors.",
+      "news": [
+        {
+          "title": "Why PG&E (PCG) is a top momentum stock for the long term",
+          "url": "https://www.msn.com/en-us/money/topstocks/why-pg-e-pcg-is-a-top-momentum-stock-for-the-long-term/ar-AA1U8zpw?ocid=BingNewsVerp",
+          "snippet": "Taking full advantage of the stock market and investing with confidence are common goals for new and old investors, and Zacks Premium offers many different ways to do both. The popular research ..."
+        },
+        {
+          "title": "Household Products Stocks Q3 Highlights: Procter & Gamble (NYSE:PG)",
+          "url": "https://finance.yahoo.com/news/household-products-stocks-q3-highlights-033200033.html",
+          "snippet": "Looking back on household products stocks\u2019 Q3 earnings, we examine this quarter\u2019s best and worst per..."
+        },
+        {
+          "title": "My Top Dividend Stock to Buy in January",
+          "url": "https://finance.yahoo.com/news/top-dividend-stock-buy-january-203500510.html",
+          "snippet": "My top dividend stock to buy this month is Procter & Gamble (NYSE: PG ), which has a trailing-12-month dividend yield of roughly 2.9%. Here's why I think..."
+        }
+      ],
+      "last_updated": "2026-01-19T19:20:36.648302"
     },
     {
       "ticker": "MA",
@@ -872,32 +1082,32 @@
       "atr": 11.15,
       "dividend_yield": 65.0,
       "volume": 3496200,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$539.49",
-      "take_profit": "$593.44",
-      "stop_loss": "$512.52",
-      "dividend_analysis": "65.0%",
+      "recommendation": "Buy",
+      "confidence_score": 90,
+      "time_horizon": "Long-Term",
+      "reasoning": "The stock has shown resilience despite recent news trends, maintaining an above-average moving average over key periods and having a high dividend yield. The positive momentum suggests it could be a good long-term buy.",
+      "entry_zone": "$500-$550",
+      "take_profit": "$600-$700",
+      "stop_loss": "$480-$500",
+      "dividend_analysis": "Highly attractive dividend yield; potential for capital appreciation.",
       "news": [
         {
-          "title": "What do analysts think about Mastercard Incorporated (MA)?",
-          "url": "https://www.msn.com/en-us/money/top-stocks/what-do-analysts-think-about-mastercard-incorporated-ma/ar-AA1Us4tq",
-          "snippet": "Mastercard Incorporated (NYSE:MA) is one of the best stocks to buy in 2026 for beginners. The stock has received several rating updates from analysts since the beginning of the year. On January 13, Citi reiterated a Buy rating on Mastercard Incorporated (NYSE:MA) and set a price target of $735."
+          "title": "Mastercard Up 11.6% YTD: Is It Worth Buying the Stock Right Now?",
+          "url": "https://finance.yahoo.com/news/mastercard-11-6-ytd-worth-173400432.html",
+          "snippet": "Mastercard Incorporated MA stock gained 11.6% in the year-to-date period compared with the industry\u2019..."
         },
         {
-          "title": "Why Mastercard (MA) stock is trading lower today",
-          "url": "https://www.msn.com/en-us/money/markets/why-mastercard-ma-stock-is-trading-lower-today/ar-AA1U8S0G",
-          "snippet": "What Happened? Shares of global payments technology company Mastercard (NYSE:MA) fell 5.2% in the morning session after a proposal to cap credit card interest rates at 10% for one year sparked investor concern."
+          "title": "Trump's Credit Card Cap Could Hurt Consumers, Mastercard Stock Tumbles",
+          "url": "https://www.benzinga.com/trading-ideas/movers/26/01/49888532/trumps-credit-card-cap-could-hurt-consumers-mastercard-stock-tumbles",
+          "snippet": "Mastercard Inc (NYSE:MA) shares are taking a dip on Tuesday as credit card stocks retreat following comments from JPMorgan ..."
         },
         {
-          "title": "Mastercard (MA) Stock Returned 24% in Q4",
-          "url": "https://www.insidermonkey.com/blog/mastercard-ma-stock-returned-24-in-q4-1456127/",
-          "snippet": "Bretton Capital Management, an investment management company, released \"Bretton Fund\" fourth quarter 2024 investor letter. A copy of the letter can be downloaded here. The market is experiencing a period of high returns, with two consecutive years of ..."
+          "title": "MA, TSM, BAC: 3 top-rated stocks scoring a 'perfect 10' for investors",
+          "url": "https://www.msn.com/en-us/money/top-stocks/ma-tsm-bac-3-top-rated-stocks-scoring-a-perfect-10-for-investors/ar-AA1Sb3I9?ocid=BingNewsVerp",
+          "snippet": "Amid global market volatility, TipRanks provides investors with powerful tools to navigate the markets. One of its standout features is the Smart Score, which ranks stocks from 1 to 10 based on their ..."
         }
       ],
-      "last_updated": "2026-01-19T08:56:35.946361"
+      "last_updated": "2026-01-19T19:20:45.548735"
     },
     {
       "ticker": "HD",
@@ -910,32 +1120,32 @@
       "atr": 8.08,
       "dividend_yield": 242.0,
       "volume": 3708000,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$380.17",
-      "take_profit": "$418.19",
-      "stop_loss": "$361.16",
-      "dividend_analysis": "242.0%",
+      "recommendation": "Strong Buy",
+      "confidence_score": 95,
+      "time_horizon": "Long-Term",
+      "reasoning": "The technical indicators suggest an overbought condition, which may lead to correction. However, given the strong historical performance and consistent dividend yield, it is advisable to maintain a long position.",
+      "entry_zone": "$350-$380",
+      "take_profit": "$400-$420",
+      "stop_loss": "$340-$360",
+      "dividend_analysis": "Home Depot offers attractive dividend yields due to its stable cash flow from dividends and share repurchases.",
       "news": [
         {
-          "title": "The Home Depot, Inc. (HD) is attracting investor attention: Here is what you should know",
-          "url": "https://www.msn.com/en-us/money/topstocks/the-home-depot-inc-hd-is-attracting-investor-attention-here-is-what-you-should-know/ar-AA1TdK5k",
-          "snippet": "Home Depot (HD) has been one of the most searched-for stocks on Zacks.com lately. So, you might want to look at some of the facts that could shape the stock's performance in the near term. Over the past month,"
+          "title": "If You'd Put $1,000 Into Home Depot Stock 20 Years Ago, Here's What You'd Have Today",
+          "url": "https://www.msn.com/en-us/money/top-stocks/if-you-d-put-1-000-into-home-depot-stock-20-years-ago-here-s-what-you-d-have-today/ar-AA1PJ9CM?ocid=BingNewsVerp",
+          "snippet": "Home Depot (HD) stock has been a terrific buy-and-hold bet for truly long-term shareholders. Thanks to a history of innovation and adaptation, the nation's largest home improvement retailer has ..."
         },
         {
-          "title": "Trump Housing Plan Sends Home Depot Stock Higher",
-          "url": "https://www.benzinga.com/trading-ideas/movers/26/01/49824630/trump-housing-plan-sends-home-depot-stock-higher",
-          "snippet": "Investors are betting that a new White House housing initiative will unlock fresh demand for home improvement spending."
+          "title": "These 3 blue chip dividend stocks are trading near their 52-week lows",
+          "url": "https://www.msn.com/en-us/money/other/these-3-blue-chip-dividend-stocks-are-trading-near-their-52-week-lows/ar-AA1Uj7eW?ocid=BingNewsVerp",
+          "snippet": "Shares of Costco have spiked recently, but as of Monday's close, the stock was trading around $945 and was still less than 12 ..."
         },
         {
-          "title": "Good news follows Home Depot stock (NYSE:HD) to close 2025, shares slip anyway",
-          "url": "https://www.msn.com/en-us/money/topstocks/good-news-follows-home-depot-stock-nyse-hd-to-close-2025-shares-slip-anyway/ar-AA1TmZny",
-          "snippet": "In a display of almost inspiring pessimism, new reports suggested that home improvement giant Home Depot ($HD) had quite a bit to look forward to"
+          "title": "New investors: 3 stocks to build your portfolio around in 2026",
+          "url": "https://www.msn.com/en-us/money/other/new-investors-3-stocks-to-build-your-portfolio-around-in-2026/ar-AA1TPhQS?ocid=BingNewsVerp",
+          "snippet": "American Express is a top financial stock to round out your portfolio. The company has been generating record numbers even ..."
         }
       ],
-      "last_updated": "2026-01-19T08:56:41.721128"
+      "last_updated": "2026-01-19T19:20:54.978859"
     },
     {
       "ticker": "BAC",
@@ -948,14 +1158,14 @@
       "atr": 1.1,
       "dividend_yield": 211.0,
       "volume": 52041900,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$52.97",
-      "take_profit": "$58.27",
-      "stop_loss": "$50.32",
-      "dividend_analysis": "211.0%",
+      "recommendation": "Buy",
+      "confidence_score": 90,
+      "time_horizon": "Short-term to Medium-term",
+      "reasoning": "Bank of America (BAC) shares have experienced recent volatility, but the technical indicators suggest a potential buying opportunity. The RSI reading is within a healthy range, the MACD line is above the signal line indicating bullish momentum, and the dividend yield is high. Despite recent positive news, the strong support around the current price level suggests that this could be a good entry point.",
+      "entry_zone": "$50-$55",
+      "take_profit": "$60-$65",
+      "stop_loss": "-$5-$0",
+      "dividend_analysis": "Highly recommended due to the significant dividend yield, which can provide a steady stream of income for long-term investors.",
       "news": [
         {
           "title": "Assessing Bank of America (BAC) Valuation After Recent Choppy Share Price Performance",
@@ -973,7 +1183,7 @@
           "snippet": "Whether it's through stocks, bonds, ETFs, or other types of securities, all investors love seeing their portfolios score big returns. But when you're an income investor, your primary focus is generating consistent cash flow from each of your liquid investments."
         }
       ],
-      "last_updated": "2026-01-19T08:56:47.459647"
+      "last_updated": "2026-01-19T19:21:06.005827"
     },
     {
       "ticker": "DIS",
@@ -986,16 +1196,35 @@
       "atr": 2.17,
       "dividend_yield": 135.0,
       "volume": 12022400,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$111.2",
-      "take_profit": "$122.32",
-      "stop_loss": "$105.64",
-      "dividend_analysis": "135.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:56:52.198584"
+      "recommendation": "Strong Buy",
+      "confidence_score": 90,
+      "time_horizon": "Long Term",
+      "reasoning": "The stock has shown stability with a rising trend, strong technical indicators like RSI and MACD crossing above their respective thresholds, and positive news about innovation. Despite recent underperformance, the company's market capitalization suggests significant potential for growth.",
+      "entry_zone": "$100-$120",
+      "take_profit": "$130-$140",
+      "stop_loss": "$95-$105",
+      "dividend_analysis": {
+        "current_dividend_yield": 135.0,
+        "historical_dividend_growth_rate": "Not provided"
+      },
+      "news": [
+        {
+          "title": "The Walt Disney Company (DIS) is a trending stock: Facts to know before betting on it",
+          "url": "https://www.msn.com/en-us/money/topstocks/the-walt-disney-company-dis-is-a-trending-stock-facts-to-know-before-betting-on-it/ar-AA1TKN0b",
+          "snippet": "Walt Disney (DIS) has been one of the most searched-for stocks on Zacks.com lately. So, you might want to look at some of the facts that could shape the stock's performance in the near term. Over the past month,"
+        },
+        {
+          "title": "Disney Stock Up 4.4% in a Year: Will Ad Innovation Fuel Further Gains?",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/DIS/pressreleases/37022251/disney-stock-up-44-in-a-year-will-ad-innovation-fuel-further-gains/",
+          "snippet": "Detailed price information for Walt Disney Company (DIS-N) from The Globe and Mail including charting and trades."
+        },
+        {
+          "title": "Is this blue-chip icon the best cheap stock you can buy for 2026?",
+          "url": "https://www.msn.com/en-us/money/top-stocks/is-this-blue-chip-icon-the-best-cheap-stock-you-can-buy-for-2026/ar-AA1TGi36",
+          "snippet": "Walt Disney (DIS) stock has been an underperformer, having remained sideways in the past 12 months. One factor that has contributed to the time correction is mixed results. In the last two quarterly numbers,"
+        }
+      ],
+      "last_updated": "2026-01-19T19:21:16.330987"
     },
     {
       "ticker": "NFLX",
@@ -1010,30 +1239,34 @@
       "volume": 47301500,
       "recommendation": "Hold",
       "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$88.0",
-      "take_profit": "$96.8",
-      "stop_loss": "$83.6",
-      "dividend_analysis": "N/A",
+      "time_horizon": "Medium to Long Term",
+      "reasoning": "The stock price shows signs of consolidation around its recent highs, with a moderate RSI and MACD signals suggesting it may not be ready for a significant move yet. The lack of significant news impacting the stock further weakens the case for a strong buy at this juncture.",
+      "entry_zone": "$78-$82",
+      "take_profit": "$100-$110",
+      "stop_loss": "$80-$85",
+      "dividend_analysis": {
+        "current_yield": "0%",
+        "annual_dividend_per_share": null,
+        "dividend_history": "None provided"
+      },
       "news": [
+        {
+          "title": "As Trump Casts Doubt on the Netflix-Warner Bros. Discovery Deal, How Should You Play NFLX Stock?",
+          "url": "https://finance.yahoo.com/news/trump-casts-doubt-netflix-warner-174600402.html",
+          "snippet": "President Donald Trump has recently made clear that he opposes Netflix's (NFLX) planned takeover of Warner Bros. Discovery (WBD), and his administration could potentially block the deal for a while, although the courts could eventually overrule the administration's decision."
+        },
         {
           "title": "Netflix Stock Testing Support \u2014 An Opportunity Or Trap?",
           "url": "https://www.forbes.com/sites/greatspeculations/2026/01/16/netflix-stock-testing-supportopportunity-or-trap/",
           "snippet": "Netflix (NFLX) stock deserves a spot on your watchlist - but whether this support test turns into an opportunity or a value trap depends on what comes next. The stock is.."
         },
         {
-          "title": "How Netflix Stock Can Rally Again?",
-          "url": "https://www.forbes.com/sites/greatspeculations/2026/01/14/how-netflix-stock-can-rally-again/",
-          "snippet": "NFLX has shown a trend of rapid rallies, with several occurrences of surging over 30% in a span of two months. Particularly, significant years such as 2012 and 2023"
-        },
-        {
-          "title": "Netflix (NFLX) Stock: Analysts Target 44% Upside Before Earnings Tuesday",
-          "url": "https://blockonomi.com/netflix-nflx-stock-analysts-target-44-upside-before-earnings-tuesday/",
-          "snippet": "Down 28% before Q4 earnings Jan 20. Analysts expect $0.55 EPS, $11.97B revenue. Warner Bros. deal weighs on shares trading at cheap valuations."
+          "title": "As Netflix Drops 33%, Is NFLX Stock Buy Ahead of Q4 Earnings?",
+          "url": "https://finance.yahoo.com/news/netflix-drops-33-nflx-stock-164507518.html",
+          "snippet": "Netflix on tv with remote by freestocks via Unsplash Netflix ( NFLX ) shares have been under notable..."
         }
       ],
-      "last_updated": "2026-01-19T08:56:57.816904"
+      "last_updated": "2026-01-19T19:21:26.694598"
     },
     {
       "ticker": "CSCO",
@@ -1046,32 +1279,35 @@
       "atr": 1.32,
       "dividend_yield": 218.0,
       "volume": 25630600,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$75.19",
-      "take_profit": "$82.71",
-      "stop_loss": "$71.43",
-      "dividend_analysis": "218.0%",
+      "recommendation": "Buy",
+      "confidence_score": 95,
+      "time_horizon": "Long-term",
+      "reasoning": "The technical indicators suggest a bullish trend with a strong buy signal. The RSI at 46.67 is within a normal range, MACD shows a positive divergence, and the price is above both SMAs. Recent insider sales could be due to internal decision-making processes.",
+      "entry_zone": "$70-$75",
+      "take_profit": "$80-$85",
+      "stop_loss": "-$10-$5",
+      "dividend_analysis": {
+        "yield_percentage": 218.0,
+        "impact_on_price_movement": "Moderate"
+      },
       "news": [
         {
-          "title": "Cisco Stock Rises 8% in 3 Months: Will the Rally Continue in 2026?",
-          "url": "https://finance.yahoo.com/news/cisco-stock-rises-8-3-145000882.html",
-          "snippet": "CSCO outpaces sector peers with a 7.7% gain on AI momentum, rising security demand, and bullish fiscal 2026 guidance."
+          "title": "Insider Sale: President and CPO of $CSCO Sells 899 Shares",
+          "url": "https://www.nasdaq.com/articles/insider-sale-president-and-cpo-csco-sells-899-shares",
+          "snippet": "$CSCO insiders have traded $CSCO stock on the open market 19 times in the past 6 months. Of those trades, 0 have been purchases and 19 have been sales. Members of ..."
         },
         {
-          "title": "Cisco: A Smooth Way To Enter The AI Infrastructure Industry",
-          "url": "https://seekingalpha.com/article/4860738-cisco-a-smooth-way-to-enter-the-ai-infrastructure-industry",
-          "snippet": "Margin pressures persist as Cisco adapts to AI-driven competition. Click here to read why I recommend buying CSCO stock."
+          "title": "Insider Sale: EVP of $CSCO Sells 8,526 Shares",
+          "url": "https://www.nasdaq.com/articles/insider-sale-evp-csco-sells-8526-shares",
+          "snippet": "Thimaya K. Subaiya, the EVP of $CSCO, sold 8,526 shares of the company on 06-17-2025 for an estimated $558,643. We received data on the trade from a recent SEC filing ..."
         },
         {
-          "title": "Cisco Systems (CSCO) registers a bigger fall than the market: Important facts to note",
-          "url": "https://www.msn.com/en-us/money/topstocks/cisco-systems-csco-registers-a-bigger-fall-than-the-market-important-facts-to-note/ar-AA1Ueztw",
-          "snippet": "In the latest trading session, Cisco Systems (CSCO) closed at $74.40, marking a -1.41% move from the previous day. This change lagged the S&P 500's 0.53% loss on the day. Elsewhere, the Dow saw a downswing of 0."
+          "title": "Cisco (CSCO) Is About to Report Q1 Earnings. Option Traders Gear Up for a 5.67% Swing",
+          "url": "https://www.msn.com/en-us/money/topstocks/cisco-csco-is-about-to-report-q1-earnings-option-traders-gear-up-for-a-5-67-swing/ar-AA1Q98TM?ocid=BingNewsVerp",
+          "snippet": "Networking giant Cisco (CSCO) is scheduled to announce its results for the first quarter of Fiscal 2026 after the market closes on Wednesday, November 12. CSCO stock has risen about 22% year-to-date, ..."
         }
       ],
-      "last_updated": "2026-01-19T08:57:03.458869"
+      "last_updated": "2026-01-19T19:21:36.943302"
     },
     {
       "ticker": "PFE",
@@ -1085,15 +1321,34 @@
       "dividend_yield": 671.0,
       "volume": 59395900,
       "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$25.65",
-      "take_profit": "$28.22",
-      "stop_loss": "$24.37",
-      "dividend_analysis": "671.0%",
-      "news": [],
-      "last_updated": "2026-01-19T08:57:08.196226"
+      "confidence_score": 60,
+      "time_horizon": "Short-term",
+      "reasoning": "The current technical indicators suggest an oversold situation in the stock, but there is no clear positive news or catalysts mentioned that would justify a strong buy signal. The high volume suggests market interest, but the overall trend remains bearish.",
+      "entry_zone": "$25-$26",
+      "take_profit": "$28-$29",
+      "stop_loss": "$23-$24",
+      "dividend_analysis": {
+        "yield": 671.0,
+        "potential_for_dividend_growth": "Moderate"
+      },
+      "news": [
+        {
+          "title": "What's Behind The Slump In Pfizer Stock?",
+          "url": "https://www.forbes.com/sites/greatspeculations/2025/10/17/whats-behind-the-slump-in-pfizer-stock/",
+          "snippet": "Pfizer stock (NYSE: PFE) is currently in a significant slump, marking its ninth consecutive day of decline and losing a total of \u221211% of its value over that period. This sustained sell-off has wiped out approximately $18 billion in market capitalization ..."
+        },
+        {
+          "title": "Pfizer Inc. (NYSE:PFE) is favoured by institutional owners who hold 66% of the company",
+          "url": "https://finance.yahoo.com/news/pfizer-inc-nyse-pfe-favoured-110020551.html",
+          "snippet": "Every investor in Pfizer Inc. (NYSE:PFE) should be aware of the most powerful shareholder groups. With 66% stake, institutions possess the maximum shares in the company. Put another way, the group faces the maximum upside potential (or downside risk)."
+        },
+        {
+          "title": "The Best Dividend Stocks to Buy in 2026 and Hold Forever -- Including Pfizer (PFE) and United Parcel Service (UPS)",
+          "url": "https://www.msn.com/en-us/money/topstocks/the-best-dividend-stocks-to-buy-in-2026-and-hold-forever-including-pfizer-pfe-and-united-parcel-service-ups/ar-AA1Upb01",
+          "snippet": "Any believers in UPS who buy now can enjoy a generous dividend payment every quarter while waiting for a turnaround. Given the significant dividend yields for each of these companies, and their chances to keep growing, they seem like some of the best dividend stocks to consider."
+        }
+      ],
+      "last_updated": "2026-01-19T19:21:47.237494"
     },
     {
       "ticker": "KO",
@@ -1109,371 +1364,109 @@
       "recommendation": "Hold",
       "confidence_score": 50,
       "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "reasoning": "Analysis failed: Expecting ',' delimiter: line 4 column 20 (char 74)",
       "entry_zone": "$70.44",
       "take_profit": "$77.48",
       "stop_loss": "$66.92",
       "dividend_analysis": "290.0%",
       "news": [
         {
-          "title": "1 consumer stock I'd be comfortable holding for 20 years: Costco, Coca-Cola, or Walmart?",
-          "url": "https://www.msn.com/en-us/money/top-stocks/1-consumer-stock-i-d-be-comfortable-holding-for-20-years-costco-coca-cola-or-walmart/ar-AA1UlRdY",
+          "title": "1 Consumer Stock I'd Be Comfortable Holding for 20 Years: Costco, Coca-Cola, or Walmart?",
+          "url": "https://www.msn.com/en-us/money/topstocks/1-consumer-stock-id-be-comfortable-holding-for-20-years-costco-coca-cola-or-walmart/ar-AA1UlRdY?ocid=BingNewsVerp",
           "snippet": "Of these three consumer stocks, this longtime Warren Buffett favorite has the far more certain path to solid returns."
         },
         {
-          "title": "Coca-Cola VS Pepsi stock: Which is the better investment for 2026?",
-          "url": "https://www.msn.com/en-us/money/topstocks/coca-cola-vs-pepsi-stock-which-is-the-better-investment-for-2026/ar-AA1TMyJ0",
-          "snippet": "With the broader stock market indexes near all-time highs, investors may be seeking defensive options for their portfolios as we begin 2026. Coca-Cola KO and Pepsi PEP are two defensive stocks that are usually of interest and tend to perform well during market corrections,"
+          "title": "How Has Coca-Cola (KO) Stock Done for Investors?",
+          "url": "https://www.msn.com/en-us/money/other/how-has-coca-cola-ko-stock-done-for-investors/ar-AA1RvCXh?ocid=BingNewsVerp",
+          "snippet": "Coca-Cola stock has returned 38.7% over five years, significantly trailing the S&P 500's stronger performance. Even with dividends reinvested, Coca-Cola's total returns couldn't keep pace with the ..."
         },
         {
-          "title": "Best Stock to Buy Right Now: Uber vs. Coca-Cola",
-          "url": "https://www.msn.com/en-us/money/savingandinvesting/best-stock-to-buy-right-now-uber-vs-coca-cola/ar-AA1Upt1q",
-          "snippet": "Both Uber and Coca-Cola are high-quality companies. But the one that investors decide to buy will depend on their preferences. If you care about generating a steady and growing stream of income, then Coca-Cola is the top choice. It helps that shares trade at a reasonable forward price-to-earnings (P/E) ratio of 21.7."
+          "title": "3 Warren Buffett stocks to buy in 2026 and hold forever",
+          "url": "https://www.msn.com/en-us/money/savingandinvesting/3-warren-buffett-stocks-to-buy-in-2026-and-hold-forever/ar-AA1TDgSp?ocid=BingNewsVerp",
+          "snippet": "Domino's stock trades at a P/E ratio of 24, below the three-year average of 27, so it looks attractive right now. It pays a ..."
         }
       ],
-      "last_updated": "2026-01-19T08:57:13.974738"
+      "last_updated": "2026-01-19T19:21:57.498253"
     },
     {
       "ticker": "BTC-USD",
-      "current_price": 93203.52,
-      "rsi": 54.97,
-      "macd": 1455.01,
-      "macd_signal": 1360.23,
-      "sma_20": 92316.72,
-      "sma_50": 90310.95,
+      "current_price": 93027.97,
+      "rsi": 54.28,
+      "macd": 1441.01,
+      "macd_signal": 1357.43,
+      "sma_20": 92307.94,
+      "sma_50": 90307.44,
       "atr": 2188.86,
       "dividend_yield": 0,
-      "volume": 36074663936,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$93203.52",
-      "take_profit": "$102523.87",
-      "stop_loss": "$88543.34",
-      "dividend_analysis": "N/A",
+      "volume": 37336432640,
+      "recommendation": "Buy",
+      "confidence_score": 95,
+      "time_horizon": "Medium",
+      "reasoning": "The technical indicators suggest that the market may be consolidating rather than trending, but the RSI at 54.28 is still relatively high, indicating potential for a move higher. The MACD crossing above its signal line and the increasing SMA 20 and 50 lines also support a bullish outlook. Recent positive news about Bitcoin's usage and the performance of related stocks add credibility to the bullish view.",
+      "entry_zone": "$92,000-$93,000",
+      "take_profit": "$95,000-$96,000",
+      "stop_loss": "$90,000-$91,000",
+      "dividend_analysis": {
+        "current_dividend_yield": 0,
+        "potential_dividend_income": null,
+        "impact_on_investment": "No impact on current investment strategy"
+      },
       "news": [
+        {
+          "title": "Crypto Market News Today, January 19: Why is Crypto Down Today? BTC USD Falls to...",
+          "url": "https://finance.yahoo.com/news/crypto-market-news-today-january-085538320.html",
+          "snippet": "Why is crypto down today? BTC USD drifted to the $92,000 area, and ETH USD got hit harder, now under..."
+        },
+        {
+          "title": "US Mortgage Lender Lets Buyers Qualify With Bitcoin: Will BTC USD Explode?",
+          "url": "https://finance.yahoo.com/news/us-mortgage-lender-lets-buyers-064619402.html",
+          "snippet": "Bitcoin is money and a store of value. While the USD serves this very role in times of turbulence,..."
+        },
         {
           "title": "MSTR stock rallies as Bitcoin price (BTC USD) today hits $97k and insider buy sparks investor buzz - analysts reveal bullish Strategy stock price target",
           "url": "https://economictimes.indiatimes.com/news/international/us/mstr-stock-rallies-as-bitcoin-price-btc-usd-today-hits-97k-and-insider-buy-sparks-investor-buzz-analysts-reveal-bullish-strategy-stock-price-target/articleshow/126531283.cms",
           "snippet": "MSTR stock surged over 7% as Bitcoin surpassed $97,000, while an insider purchase by director Carl Rickertsen boosts investor confidence. Analysts predict a price target of $455.25 for MSTR within the next year."
-        },
-        {
-          "title": "Strategy Stock (MSTR) Jumps After $1.25 Billion Bitcoin (BTC USD) Purchase",
-          "url": "https://www.msn.com/en-in/money/markets/mstr-stock-surges-today-after-michael-saylor-s-strategy-buys-125-billion-worth-of-bitcoin-btc-usd/ar-AA1U4FA8",
-          "snippet": "MicroStrategy, now known as Strategy, sees its stock (MSTR) surge following the revelation of a $1.25 billion Bitcoin purchase, boosting its total holdings to approximately $62 billion."
-        },
-        {
-          "title": "Bitcoin Price Forecast: BTC Risks $90K Breakdown Amid Greenland Tariff Woes",
-          "url": "https://www.fxempire.com/forecasts/article/bitcoin-price-forecast-btc-risks-90k-breakdown-amid-greenland-tariff-woes-1573487",
-          "snippet": "Bitcoin slipped below $92,000 as Trump's tariff threats rattled risk assets, invalidating a bullish $100K setup. Technical patterns and on-chain data now point to rising downside risk if $90K fails."
         }
       ],
-      "last_updated": "2026-01-19T08:57:19.753496"
+      "last_updated": "2026-01-19T19:22:12.937388"
     },
     {
       "ticker": "ETH-USD",
-      "current_price": 3214.12,
-      "rsi": 54.48,
-      "macd": 68.68,
-      "macd_signal": 63.65,
-      "sma_20": 3181.1,
-      "sma_50": 3084.66,
+      "current_price": 3219.7,
+      "rsi": 54.92,
+      "macd": 69.12,
+      "macd_signal": 63.74,
+      "sma_20": 3181.38,
+      "sma_50": 3084.77,
       "atr": 103.63,
       "dividend_yield": 0,
-      "volume": 26221713408,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$3214.12",
-      "take_profit": "$3535.53",
-      "stop_loss": "$3053.41",
-      "dividend_analysis": "N/A",
+      "volume": 26282631168,
+      "recommendation": "Buy",
+      "confidence_score": 90,
+      "time_horizon": "Medium to Long Term",
+      "reasoning": "The technical indicators suggest strong buy signals due to the high RSI, MACD, and SMAs above their respective moving averages. The recent news about initial yield allocation and additional stock repurchases also support a bullish stance.",
+      "entry_zone": "$3100-$3300",
+      "take_profit": "$3500-$3700",
+      "stop_loss": "-5%",
+      "dividend_analysis": "No dividends available.",
       "news": [
         {
-          "title": "Bitcoin And Altcoins Breakout As Stock Market Momentum Fades: BTC, ETH And SOL Outlook",
-          "url": "https://seekingalpha.com/article/4859438-bitcoin-altcoins-breakout-as-stock-market-momentum-fades-btc-eth-sol-outlook",
-          "snippet": "Bitcoin ( BTC-USD ), the most sought-after and respected crypto, corrected by 36%, with the total crypto market cap suffering a similar drop. Others were hit even harder, with 50% corrections seen in XRP ( XRP-USD) and Solana ( SOL-USD ), and brutal 70% drops in names like Cardano ( ADA-USD )."
+          "title": "ETHZilla Announces Initial ETH Yield Allocation & Additional Stock Repurchases",
+          "url": "https://seekingalpha.com/pr/20231743-ethzilla-announces-initial-eth-yield-allocation-and-additional-stock-repurchases",
+          "snippet": "Company repurchased a total of approximately 6.0 million shares this month at an average price of $2.50 per share Executing on deployment of ETH into L2 protocols PALM BEACH, Fla., Sept. 15, 2025 ..."
         },
         {
-          "title": "BMNR Stock Rises as Tom Lee's BitMine Invests $200M in MrBeast's Beast Industries",
-          "url": "https://finance.yahoo.com/news/why-bmnr-stock-rising-today-125949443.html?fr=sycsrp_catchall",
-          "snippet": "Tom Lee's BitMine, which is the largest Ethereum treasury company, has announced a significant investment in MrBeast's Beast Industries. This has sparked a surge in the BMNR stock, which is already up over 16% year-to-date (YTD)."
+          "title": "Ethereum: The Accumulation Addresses Catalyst",
+          "url": "https://seekingalpha.com/article/4857134-ethereum-the-accumulation-addresses-catalyst",
+          "snippet": "Ethereum is in an accumulation phase, with supply shifting to long-term holders, supporting a bullish medium- to long-term ..."
         },
         {
-          "title": "Ethereum (ETH/USD) Crypto Price, News and Market Data",
-          "url": "https://www.benzinga.com/quote/ETH-USD?nid=47266878",
-          "snippet": "Tech Stocks Eye Third Day Of Losses, Walmart Sinks: What's Moving Markets Thursday? Technology stocks on the Nasdaq 100 were poised for a third consecutive day of losses Thursday, as investors continued to adopt a risk-off stance ahead of Federal Reserve ..."
+          "title": "Bitmine Immersion's Tom Lee urges stockholders to approve increase in authorized shares",
+          "url": "https://www.msn.com/en-us/money/topstocks/bitmine-immersion-s-tom-lee-urges-shareholders-to-approve-increase-in-authorized-shares/ar-AA1TsED5?ocid=BingNewsVerp",
+          "snippet": "Bitmine Immersion Technologies (BMNR) was trading higher Friday pre-market as the Ethereum (ETH-USD) treasury company stated ..."
         }
       ],
-      "last_updated": "2026-01-19T08:57:25.445765"
-    },
-    {
-      "ticker": "BNB-USD",
-      "current_price": 926.22,
-      "rsi": 57.87,
-      "macd": 18.15,
-      "macd_signal": 16.41,
-      "sma_20": 908.76,
-      "sma_50": 884.09,
-      "atr": 22.57,
-      "dividend_yield": 0,
-      "volume": 2739663104,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$926.22",
-      "take_profit": "$1018.84",
-      "stop_loss": "$879.91",
-      "dividend_analysis": "N/A",
-      "news": [
-        {
-          "title": "BNB Recovers Above $970 After Brief Drop as Market Volatility Pressures Token",
-          "url": "https://www.coindesk.com/markets/2025/11/12/bnb-recovers-above-usd970-after-brief-drop-as-market-volatility-pressures-token",
-          "snippet": "BNB recovered above $970 over the last 24-hour period after briefly falling to $953 during a volatile stretch that saw the token lose as much as 2.3% before it started recovering. The move comes amid mounting selling pressure driven by both technical ..."
-        },
-        {
-          "title": "What's Going On With Airbnb Stock Today?",
-          "url": "https://www.benzinga.com/trading-ideas/movers/25/05/45415824/whats-going-on-with-airbnb-stock-today",
-          "snippet": "Airbnb stock is in the spotlight after the company launched new Services, Experiences, and a redesigned app to expand beyond home rentals. Airbnb shares have rebounded more than 30% off the April lows. Up Next: Wall Street trader's 35-0 strategy goes ..."
-        },
-        {
-          "title": "Osprey BNB Chain Trust: Overpriced And Illiquid",
-          "url": "https://seekingalpha.com/article/4749416-osprey-bnb-chain-trust-overpriced-and-illiquid",
-          "snippet": "Osprey BNB Chain Trust offers unique exposure to Binance Coin, but trades at a significant premium to its net asset value (NAV). BNB shows strong network metrics with high daily active addresses and trading volumes, but its valuation is high at 500x ..."
-        }
-      ],
-      "last_updated": "2026-01-19T08:57:31.198432"
-    },
-    {
-      "ticker": "XRP-USD",
-      "current_price": 1.98,
-      "rsi": 44.54,
-      "macd": 0.01,
-      "macd_signal": 0.03,
-      "sma_20": 2.08,
-      "sma_50": 2.01,
-      "atr": 0.08,
-      "dividend_yield": 0,
-      "volume": 3586326272,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$1.98",
-      "take_profit": "$2.18",
-      "stop_loss": "$1.88",
-      "dividend_analysis": "N/A",
-      "news": [
-        {
-          "title": "1 Big Prediction for XRP in 2026",
-          "url": "https://www.msn.com/en-us/money/savingandinvesting/1-big-prediction-for-xrp-in-2026/ar-AA1Urpdu",
-          "snippet": "Understandably, consensus sentiment on XRP is not very high right now. According to data from CoinCodex, the average price prediction for XRP in 2026 is just $2.20. That price target essentially assumes that XRP will end the year up 10%. That's OK, but certainly not worth the risk and volatility of investing in the cryptocurrency asset class."
-        },
-        {
-          "title": "Why the $100 XRP question resurfaced",
-          "url": "https://www.msn.com/en-us/money/other/can-xrp-ever-hit-100/ar-AA1UeNgb",
-          "snippet": "XRP ( XRP 0.35%) has gained over 16.2% so far in 2026, and was trading near $2.14 as of Jan. 14, 2026. After a strong start to the year, some investors are debating whether XRP could ever realistically reach the ambitious $100 price."
-        },
-        {
-          "title": "XRP (XRP/USD) Crypto Price, News and Market Data",
-          "url": "https://www.benzinga.com/quote/XRP-USD?nid=46621043",
-          "snippet": "Bitcoin, Ethereum, XRP In Fine Shape, Analyst Says: 'People Are Freaking Out Just Because It's Going Sideways' A recent minor dip across major cryptocurrencies did little to discourage one of the industry's most prominent analysts, who remains optimistic ..."
-        }
-      ],
-      "last_updated": "2026-01-19T08:57:37.007394"
-    },
-    {
-      "ticker": "ADA-USD",
-      "current_price": 0.37,
-      "rsi": 42.78,
-      "macd": 0.0,
-      "macd_signal": 0.0,
-      "sma_20": 0.39,
-      "sma_50": 0.39,
-      "atr": 0.02,
-      "dividend_yield": 0,
-      "volume": 919792192,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$0.37",
-      "take_profit": "$0.41",
-      "stop_loss": "$0.35",
-      "dividend_analysis": "N/A",
-      "news": [
-        {
-          "title": "Cardano (ADA-USD) Falls despite Completing Its Chang Upgrade",
-          "url": "https://www.nasdaq.com/articles/cardano-ada-usd-falls-despite-completing-its-chang-upgrade",
-          "snippet": "The price of Cardano (ADA-USD) is down in today's trading despite completing its Chang upgrade, which will allow ADA holders to help decide the network's future. This update, which happened on September 1, brings in new features such as on-chain voting ..."
-        },
-        {
-          "title": "Convert ADA to USD",
-          "url": "https://cointelegraph.com/converter/ada/usd",
-          "snippet": "The calculator ADA to USD is a tool for both beginners and experienced crypto users. It provides up-to-date conversion rates, helping users stay informed about Cardano's market performance, regardless of crypto knowledge or tracking purpose (e.g ..."
-        },
-        {
-          "title": "Cardano: Big Things Happening",
-          "url": "https://seekingalpha.com/article/4742274-cardano-big-things-happening-adausd",
-          "snippet": "Cardano has surged 200% recently, driven by improvements in scalability, smart contracts, and the introduction of the Voltaire era and Hydra. ADA's decentralization and technical advancements, such as the Chang Hard Fork and Halo 2, set it apart from ..."
-        }
-      ],
-      "last_updated": "2026-01-19T08:57:42.760189"
-    },
-    {
-      "ticker": "DOGE-USD",
-      "current_price": 0.13,
-      "rsi": 40.14,
-      "macd": -0.0,
-      "macd_signal": 0.0,
-      "sma_20": 0.14,
-      "sma_50": 0.14,
-      "atr": 0.01,
-      "dividend_yield": 0,
-      "volume": 1911690752,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$0.13",
-      "take_profit": "$0.14",
-      "stop_loss": "$0.12",
-      "dividend_analysis": "N/A",
-      "news": [
-        {
-          "title": "Dogecoin (DOGE/USD) Crypto Price, News and Market Data",
-          "url": "https://www.benzinga.com/quote/DOGE-USD?nid=45369814",
-          "snippet": "Dogecoin Price Tumbles 15% In A Week, But This Analyst Says $1.25 Target Could Still Be In Play A widely followed chartist predicted a bullish breakout for Dogecoin (CRYPTO: DOGE) on Tuesday, painting bold targets at $0.6533 and even $1.25, despite the ..."
-        },
-        {
-          "title": "Dogecoin jumps nearly 9% as buyers push price out of recent downtrend",
-          "url": "https://finance.yahoo.com/news/dogecoin-jumps-nearly-9-buyers-065936323.html?fr=yhssrp_catchall",
-          "snippet": "The rally in meme coins like Dogecoin and Pepe reflects renewed speculative interest as broader crypto markets remain mixed."
-        },
-        {
-          "title": "CleanCore raises $175M for dogecoin treasury in private placement; stock plunges",
-          "url": "https://seekingalpha.com/news/4491313-cleancore-raises-175m-for-dogecoin-treasury-in-private-placement-stock-plunges",
-          "snippet": "CleanCore Solutions (NYSE:ZONE) is raising $175M through a private placement to establish a dogecoin (DOGE-USD) treasury, with over 80 investors joining a deal backed by the Dogecoin Foundation and House of Doge, it said on Tuesday. Shares of the cleaning ..."
-        }
-      ],
-      "last_updated": "2026-01-19T08:57:48.427520"
-    },
-    {
-      "ticker": "SOL-USD",
-      "current_price": 133.8,
-      "rsi": 46.76,
-      "macd": 2.83,
-      "macd_signal": 3.22,
-      "sma_20": 137.46,
-      "sma_50": 132.5,
-      "atr": 5.24,
-      "dividend_yield": 0,
-      "volume": 5138077184,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$133.8",
-      "take_profit": "$147.18",
-      "stop_loss": "$127.11",
-      "dividend_analysis": "N/A",
-      "news": [
-        {
-          "title": "Bitcoin And Altcoins Breakout As Stock Market Momentum Fades: BTC, ETH And SOL Outlook",
-          "url": "https://seekingalpha.com/article/4859438-bitcoin-altcoins-breakout-as-stock-market-momentum-fades-btc-eth-sol-outlook",
-          "snippet": "Bitcoin ( BTC-USD ), the most sought-after and respected crypto, corrected by 36%, with the total crypto market cap suffering a similar drop. Others were hit even harder, with 50% corrections seen in XRP ( XRP-USD) and Solana ( SOL-USD ), and brutal 70% drops in names like Cardano ( ADA-USD )."
-        },
-        {
-          "title": "Convert SOL to USD",
-          "url": "https://cointelegraph.com/converter/sol/usd",
-          "snippet": "With real-time exchange rates, you can easily convert SOL into US Dollars (USD) and vice versa, which helps simplify your Solana trading experience. Our calculator is user-friendly and versatile, making it a valuable asset for both beginners and ..."
-        },
-        {
-          "title": "GSOL Is Still Overpriced Relative To Solana",
-          "url": "https://seekingalpha.com/article/4737845-gsol-is-still-overpriced-relative-to-solana",
-          "snippet": "The election of President Trump has sparked a resurgence in digital assets, with Bitcoin and Ethereum rallying over 25% and meme coins nearly 100%. Solana is a major beneficiary in the meme coin bull market, thanks to its fast, inexpensive L1 blockchain ..."
-        }
-      ],
-      "last_updated": "2026-01-19T08:57:55.125105"
-    },
-    {
-      "ticker": "DOT-USD",
-      "current_price": 1.99,
-      "rsi": 45.55,
-      "macd": 0.03,
-      "macd_signal": 0.04,
-      "sma_20": 2.11,
-      "sma_50": 2.02,
-      "atr": 0.12,
-      "dividend_yield": 0,
-      "volume": 238551424,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$1.99",
-      "take_profit": "$2.19",
-      "stop_loss": "$1.89",
-      "dividend_analysis": "N/A",
-      "news": [
-        {
-          "title": "Convert DOT to USD",
-          "url": "https://cointelegraph.com/converter/dot/usd",
-          "snippet": "Cointelegraph's DOT to USD converter offers a straightforward solution for determining the real-time value of your Polkadot (DOT) holdings in US dollars (USD). By providing accurate and up-to-date exchange rates, our tool empowers you to make informed ..."
-        },
-        {
-          "title": "Polkadot Poised For Significant Growth: Why Shorting DOT To Buy SOL Is A Bad Idea",
-          "url": "https://seekingalpha.com/article/4740281-polkadot-poised-for-significant-growth-why-shorting-dot-to-buy-sol-bad-idea",
-          "snippet": "I believe Polkadot will outperform in 2025 due to upcoming catalysts, a strong developer ecosystem, and significant growth potential compared to Solana. DOT's recent inflation rate reduction and decreased unstaking period are bullish moves, attracting new ..."
-        },
-        {
-          "title": "Polkadot Is Falling Behind, Short DOT And Buy Solana Instead",
-          "url": "https://seekingalpha.com/article/4737531-polkadot-falling-behind-short-dot-buy-solana-instead",
-          "snippet": "We think it's time to go Long Solana and short Polkadot due to Solana's superior ecosystem fundamentals and underlying infrastructure. Solana's high transaction volume, low fees, and robust protocol development give it strong long-term prospects, while ..."
-        }
-      ],
-      "last_updated": "2026-01-19T08:58:01.926889"
-    },
-    {
-      "ticker": "AVAX-USD",
-      "current_price": 12.8,
-      "rsi": 42.07,
-      "macd": 0.07,
-      "macd_signal": 0.21,
-      "sma_20": 13.79,
-      "sma_50": 13.25,
-      "atr": 0.65,
-      "dividend_yield": 0,
-      "volume": 438320864,
-      "recommendation": "Hold",
-      "confidence_score": 50,
-      "time_horizon": "Position (Weeks-Months)",
-      "reasoning": "Analysis failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
-      "entry_zone": "$12.8",
-      "take_profit": "$14.08",
-      "stop_loss": "$12.16",
-      "dividend_analysis": "N/A",
-      "news": [
-        {
-          "title": "Avalanche price prediction 2026-2032: Time to buy AVAX?",
-          "url": "https://www.msn.com/en-us/general/general/avalanche-price-prediction-2026-2032-time-to-buy-avax/ar-AA113ZmK",
-          "snippet": "According to the AVAX coin price prediction for 2029, the price of AVAX will range from a minimum price of $43.55 to a maximum price of $52.03. The average price will be $44.79. According to the Avalanche price prediction for 2030, we anticipate that Avalanche to range between $62.84 and $74.74, with an average price of $65.07."
-        },
-        {
-          "title": "Avalanche (AVAX/USD) Crypto Price, News and Market Data",
-          "url": "https://www.benzinga.com/quote/AVAX-USD?nid=47826495",
-          "snippet": "Anthony Scaramucci Calls Avalanche The 'Swiss Army Knife' Of Layer-1 Blockchains, Made A 'Big Bet' On Ethereum Killer Because Of This Reason Anthony Scaramucci, strategic advisor of AgriFORCE Growing Systems Ltd. (NASDAQ:AGRI), sounded optimistic on ..."
-        },
-        {
-          "title": "Avalanche: The AVAX Conundrum",
-          "url": "https://seekingalpha.com/article/4742573-avalanche-the-avax-conundrum",
-          "snippet": "AVAX's ecosystem growth is primarily off C-Chain, which doesn't drive AVAX token demand, making it difficult to justify a 'buy' rating. Despite a 25% year-over-year transaction increase, active addresses and staking rewards have not shown significant ..."
-        }
-      ],
-      "last_updated": "2026-01-19T08:58:07.604334"
+      "last_updated": "2026-01-19T19:22:21.896618"
     }
   ]
 }

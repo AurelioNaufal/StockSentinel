@@ -1,8 +1,15 @@
 yfinance
 pandas
 ta
-google-generativeai
+transformers>=4.40.0
+--index-url https://download.pytorch.org/whl/cu126
+torch>=2.0.0
+torchaudio
+torchvision
+accelerate
 duckduckgo-search
+ddgs
 newspaper3k
 lxml_html_clean
 requests
+sentencepiece

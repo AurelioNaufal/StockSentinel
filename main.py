@@ -5,17 +5,32 @@ import yfinance as yf
 import pandas as pd
 import ta
 from duckduckgo_search import DDGS
+from ddgs import DDGS
 from newspaper import Article
-import google.generativeai as genai
 from datetime import datetime, timedelta
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
 
-# Configure Gemini API
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
-if not GEMINI_API_KEY:
-    raise ValueError("GEMINI_API_KEY environment variable not set")
+# Configure Hugging Face Model (Qwen 2.5 - 1.5B Instruct)
+print("Loading Qwen 2.5 - 1.5B Instruct model...")
+model_name = "Qwen/Qwen2.5-1.5B-Instruct"
 
-genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-2.0-flash-exp')
+# Load tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+    device_map="auto" if torch.cuda.is_available() else None
+)
+
+# Move model to GPU if available
+if torch.cuda.is_available():
+    print(f"Using GPU: {torch.cuda.get_device_name(0)}")
+else:
+    print("Using CPU (this will be slower)")
+    model = model.to('cpu')
+
+print("Model loaded successfully!\n")
 
 # Watchlist: Major IDX, US, and Crypto assets
 WATCHLIST = [
@@ -61,14 +76,6 @@ WATCHLIST = [
     # Crypto (via Yahoo Finance)
     "BTC-USD",  # Bitcoin
     "ETH-USD",  # Ethereum
-    "BNB-USD",  # Binance Coin
-    "XRP-USD",  # Ripple
-    "ADA-USD",  # Cardano
-    "DOGE-USD", # Dogecoin
-    "SOL-USD",  # Solana
-    "MATIC-USD",# Polygon
-    "DOT-USD",  # Polkadot
-    "AVAX-USD", # Avalanche
 ]
 
 
@@ -157,12 +164,11 @@ def fetch_news(ticker):
         return []
 
 
-def analyze_with_gemini(ticker, stock_data, news):
-    """Call Gemini API to analyze stock and return structured recommendation."""
+def analyze_with_qwen(ticker, stock_data, news):
+    """Use Qwen model to analyze stock and return structured recommendation."""
     try:
         # Prepare prompt
-        prompt = f"""
-You are a professional stock analyst. Analyze the following data for {ticker} and provide investment recommendations in JSON format.
+        prompt = f"""You are a professional stock analyst. Analyze the following data for {ticker} and provide investment recommendations in JSON format.
 
 Technical Data:
 - Current Price: ${stock_data['current_price']}
@@ -180,28 +186,39 @@ Recent News:
         for idx, article in enumerate(news, 1):
             prompt += f"{idx}. {article['title']}\n   {article['snippet']}\n"
         
-        prompt += """
-
-Please provide your analysis in the following JSON format (respond ONLY with valid JSON, no markdown):
-{
-    "recommendation": "Strong Buy|Buy|Hold|Sell|Strong Sell",
-    "confidence_score": 85,
-    "time_horizon": "Scalp (Minutes-Hours)|Day Trade (Hours-Days)|Swing (Days-Weeks)|Position (Weeks-Months)|Long-term (Months-Years)",
-    "reasoning": "Brief explanation of your recommendation based on technicals and news",
-    "entry_zone": "Price range for entry (e.g., $150-$155)",
-    "take_profit": "Target price for profit taking",
-    "stop_loss": "Stop loss price to limit downside",
-    "dividend_analysis": "Brief note on dividend if applicable, or 'N/A'"
-}
-"""
+        prompt += """\nProvide your analysis in JSON format with these fields: recommendation (Strong Buy|Buy|Hold|Sell|Strong Sell), confidence_score (0-100), time_horizon, reasoning, entry_zone, take_profit, stop_loss, dividend_analysis. Respond ONLY with valid JSON."""
         
-        # Call Gemini API
-        response = model.generate_content(prompt)
+        # Prepare messages for chat format
+        messages = [
+            {"role": "system", "content": "You are a professional stock analyst. Always respond with valid JSON only."},
+            {"role": "user", "content": prompt}
+        ]
         
-        # Parse JSON response
-        response_text = response.text.strip()
+        # Tokenize
+        text = tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
+        model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
         
-        # Clean markdown code blocks if present
+        # Generate response
+        with torch.no_grad():
+            generated_ids = model.generate(
+                **model_inputs,
+                max_new_tokens=512,
+                temperature=0.7,
+                do_sample=True
+            )
+        
+        # Decode response
+        generated_ids = [
+            output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
+        ]
+        response_text = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+        
+        # Clean and parse JSON
+        response_text = response_text.strip()
         if response_text.startswith('```json'):
             response_text = response_text[7:]
         if response_text.startswith('```'):
@@ -214,7 +231,7 @@ Please provide your analysis in the following JSON format (respond ONLY with val
         return analysis
         
     except Exception as e:
-        print(f"  Error analyzing with Gemini for {ticker}: {e}")
+        print(f"  Error analyzing with Qwen for {ticker}: {e}")
         # Return a fallback analysis
         return {
             "recommendation": "Hold",
@@ -249,8 +266,8 @@ def main():
         # Fetch news
         news = fetch_news(ticker)
         
-        # Analyze with Gemini
-        analysis = analyze_with_gemini(ticker, stock_data, news)
+        # Analyze with Qwen
+        analysis = analyze_with_qwen(ticker, stock_data, news)
         
         # Combine all data
         result = {
@@ -264,10 +281,9 @@ def main():
         
         print(f"  ✓ {ticker}: {analysis['recommendation']} ({analysis['time_horizon']})")
         
-        # Rate limiting: Wait 4 seconds between Gemini calls (15 RPM = 4 seconds)
+        # Small delay between analyses (not needed for local model, but helps with stability)
         if idx < len(WATCHLIST):
-            print("  Waiting 4 seconds (rate limit)...")
-            time.sleep(4)
+            time.sleep(0.5)  # Short delay for stability
     
     # Save to docs/data.json
     output_dir = 'docs'

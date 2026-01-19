@@ -16,18 +16,18 @@ An AI-powered, on-demand stock analysis platform hosted on GitHub Pages. Analyze
    - Generates comprehensive AI-driven recommendations
    - Outputs results to `data.json`
 
-2. **Individual Stock Search**
+2. **Search in Cache**
    - Search any stock directly on the website
-   - If cached: Instant results from `data.json`
-   - If not cached: Live analysis via Gemini API
-   - Real-time recommendations with TP/CL/Entry zones
+   - Instant results from cached `data.json`
+   - Add more stocks by updating watchlist and running workflow
 
 ### Key Features:
-- ✅ **Free Tier**: Powered by Gemini 1.5 Flash (Free Tier)
+- ✅ **Free & Local**: Powered by Qwen 2.5 - 1.5B Instruct (Hugging Face)
+- ✅ **No API Keys**: Everything runs locally
 - ✅ **Automated Scanning**: GitHub Actions workflow
 - ✅ **Interactive UI**: Tailwind CSS + Alpine.js
 - ✅ **Smart Filtering**: Strong Buys, Dividend Gems, Scalp/Day Trade
-- ✅ **Rate Limited**: Respects API limits (15 RPM)
+- ✅ **No Rate Limits**: Unlimited analysis
 - ✅ **Dividend Insights**: Yield analysis for income investors
 - ✅ **News Integration**: Latest market news for each stock
 - ✅ **Technical Analysis**: RSI, MACD, SMA, ATR
@@ -37,8 +37,9 @@ An AI-powered, on-demand stock analysis platform hosted on GitHub Pages. Analyze
 ### Prerequisites
 
 - GitHub account
-- Google Gemini API key (free tier)
 - Python 3.10+ (for local testing)
+- 8GB+ RAM (for model)
+- 5GB free disk space
 
 ### Setup Instructions
 
@@ -49,22 +50,25 @@ git clone https://github.com/YOUR_USERNAME/StockSentinel.git
 cd StockSentinel
 ```
 
-#### 2. Get Your Gemini API Key
+#### 2. Create Virtual Environment & Install Dependencies
 
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Click "Create API Key"
-3. Copy your API key
+```bash
+# Create virtual environment
+python -m venv venv
 
-#### 3. Configure GitHub Secrets
+# Activate (Windows)
+venv\Scripts\activate
 
-1. Go to your GitHub repository
-2. Navigate to **Settings** → **Secrets and variables** → **Actions**
-3. Click **New repository secret**
-4. Name: `GEMINI_API_KEY`
-5. Value: Paste your Gemini API key
-6. Click **Add secret**
+# Activate (Linux/Mac)
+source venv/bin/activate
 
-#### 4. Enable GitHub Pages
+# Install dependencies
+pip install -r requirements.txt
+```
+
+**Note:** First time will download Qwen model (~3GB). This is automatic.
+
+#### 3. Enable GitHub Pages
 
 1. Go to **Settings** → **Pages**
 2. Source: **Deploy from a branch**
@@ -72,56 +76,7 @@ cd StockSentinel
 4. Folder: `/docs`
 5. Click **Save**
 
-#### 5. Configure Frontend API Key (For Individual Stock Search)
-
-⚠️ **IMPORTANT: Security Consideration**
-
-For the individual stock search feature to work, you need to configure the Gemini API key in the frontend.
-
-##### Option A: Private Repository (Simple but Less Secure)
-
-Edit `docs/script.js` and replace:
-
-```javascript
-const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
-```
-
-with your actual API key:
-
-```javascript
-const GEMINI_API_KEY = 'AIzaSy...your-actual-key';
-```
-
-**⚠️ Warning**: This exposes your API key in the source code. Only use this for:
-- Private repositories
-- Personal/testing use
-- When you're okay with the key being visible
-
-##### Option B: Serverless Proxy (Recommended for Production)
-
-For production/public repos, create a serverless function (Netlify/Vercel/Cloudflare Workers) that:
-1. Receives ticker symbol from frontend
-2. Calls Gemini API server-side (hiding your key)
-3. Returns analysis to frontend
-
-Example proxy endpoint:
-```javascript
-// Update in docs/script.js
-const PROXY_URL = 'https://your-proxy.vercel.app/api/analyze';
-
-// Then modify fetchGeminiAnalysis to use the proxy
-const response = await fetch(PROXY_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ticker })
-});
-```
-
-## 🎯 Usage
-
-### Run Automated Analysis
-
-#### Via GitHub Actions (Recommended)
+#### 4. Run Analysis (Optional - Test Locally First)
 
 1. Go to **Actions** tab in your repository
 2. Click **Manual Stock Analysis Scan** workflow
@@ -137,22 +92,24 @@ The workflow will:
 - Commit and push results
 - Update live website automatically
 
-#### Locally (For Testing)
-
 ```bash
 # Install dependencies
 pip install -r requirements.txt
 
-# Set API key
-export GEMINI_API_KEY='your-api-key-here'  # Linux/Mac
-# or
-set GEMINI_API_KEY=your-api-key-here       # Windows CMD
-# or
-$env:GEMINI_API_KEY='your-api-key-here'    # Windows PowerShell
-
-# Run analysis
+# Run analysis (model downloads automatically first time)
 python main.py
 ```
+
+**First run:** Model downloads (~3GB), takes 10-15 minutes  
+**Subsequent runs:** Model loads from cache, much faster
+
+---
+
+## 🎯 Usage
+
+### Run Automated Analysis
+
+#### Via GitHub Actions (Recommended)
 
 ### View Results
 
