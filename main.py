@@ -110,7 +110,7 @@ def fetch_stock_data(ticker):
         try:
             info = stock.info
             dividend_yield = info.get('dividendYield', 0)
-            # Already in decimal form (e.g., 0.05 = 5%), convert to percentage
+            # Already in decimal form (e.g., 0.05 = 5%) no need to convert
         except:
             pass
         
@@ -249,13 +249,14 @@ RESPOND WITH VALID JSON ONLY (no markdown, no explanation):
 RULES:
 1. interest_level "Not Interesting" = fundamentally weak, bad news, poor technicals, not worth monitoring
 2. interest_level "Interesting" = has potential, worth watching or trading
-3. time_horizon:
-   - "Scalp Trading (Minutes/Hours)": High volatility (ATR high), RSI extreme (>75 or <25), predicted quick move up
-   - "Day Trading (Days)": Medium-term momentum play, clear technical setup for 1-5 days
-   - "Investment (Long-Term)": Strong fundamentals, good dividend, stable growth, hold for months/years
-4. entry_zone, take_profit, stop_loss must be NUMBERS with currency symbol (e.g., "$150.50" or "Rp5000")
-5. No objects, no arrays in entry_zone/take_profit/stop_loss
-6. Base recommendation on BOTH technicals AND news sentiment"""
+3. time_horizon (choose ONE only):
+   - "Scalp Trading (Minutes/Hours)": ONLY for extreme volatility with RSI >75 or <25, expected to move sharply within minutes/hours
+   - "Day Trading (Days)": Short-term momentum, technical breakout/breakdown, hold for 1-5 days
+   - "Investment (Long-Term)": Strong fundamentals, good dividend, stable company, hold for months/years
+4. Differentiate clearly: Scalp = very short-term high volatility, Day Trading = short-term momentum, Investment = long-term value
+5. entry_zone, take_profit, stop_loss must be NUMBERS with currency symbol (e.g., "$150.50" or "Rp5000")
+6. No objects, no arrays in entry_zone/take_profit/stop_loss
+7. Base recommendation on BOTH technicals AND news sentiment"""
         
         # Prepare messages for chat format
         messages = [

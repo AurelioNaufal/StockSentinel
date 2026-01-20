@@ -10,7 +10,7 @@ function stockApp() {
         filteredStocks: [],
         activeFilter: 'all',
         activeMarket: 'all',
-        activeInterest: 'all',
+        activeTimeHorizon: 'all',
         selectedStock: null,
         searchQuery: '',
         isLoading: true,
@@ -61,24 +61,26 @@ function stockApp() {
         },
         
         // Apply filter
-        applyFilter(filter, market, interest) {
+        applyFilter(filter, market, timeHorizon) {
             if (filter) {
                 this.activeFilter = filter;
             }
             if (market) {
                 this.activeMarket = market;
             }
-            if (interest) {
-                this.activeInterest = interest;
+            if (timeHorizon) {
+                this.activeTimeHorizon = timeHorizon;
             }
             
             let filtered = this.stocks;
             
-            // Filter by interest level
-            if (this.activeInterest === 'interesting') {
-                filtered = filtered.filter(s => s.interest_level === 'Interesting');
-            } else if (this.activeInterest === 'not-interesting') {
-                filtered = filtered.filter(s => s.interest_level === 'Not Interesting');
+            // Filter by time horizon
+            if (this.activeTimeHorizon === 'scalp') {
+                filtered = filtered.filter(s => s.time_horizon && s.time_horizon.includes('Scalp Trading'));
+            } else if (this.activeTimeHorizon === 'day-swing') {
+                filtered = filtered.filter(s => s.time_horizon && s.time_horizon.includes('Day Trading'));
+            } else if (this.activeTimeHorizon === 'investment') {
+                filtered = filtered.filter(s => s.time_horizon && s.time_horizon.includes('Investment'));
             }
             
             // Filter by market type
@@ -106,10 +108,7 @@ function stockApp() {
                     
                 case 'scalp':
                     filtered = filtered.filter(s => 
-                        s.time_horizon && (
-                            s.time_horizon.includes('Scalp Trading') || 
-                            s.time_horizon.includes('Day Trading')
-                        )
+                        s.time_horizon && s.time_horizon.includes('Scalp Trading')
                     );
                     break;
                     

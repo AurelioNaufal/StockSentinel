@@ -131,30 +131,37 @@
                 </div>
             </div>
             
-            <!-- Interest Level Tabs -->
+            <!-- Time Horizon Tabs -->
             <div class="border-b py-3">
-                <p class="text-sm font-semibold text-gray-600 mb-2">Interest Level:</p>
+                <p class="text-sm font-semibold text-gray-600 mb-2">Time Horizon:</p>
                 <div class="flex flex-wrap gap-2">
                     <button 
                         @click="applyFilter(null, null, 'all')"
-                        :class="activeInterest === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        :class="activeTimeHorizon === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
                         class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
                     >
-                        All
+                        All Horizons
                     </button>
                     <button 
-                        @click="applyFilter(null, null, 'interesting')"
-                        :class="activeInterest === 'interesting' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        @click="applyFilter(null, null, 'scalp')"
+                        :class="activeTimeHorizon === 'scalp' ? 'bg-orange-600 text-white' : 'bg-gray-200 text-gray-700'"
                         class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
                     >
-                        ⭐ Interesting
+                        ⚡ Scalp Trading
                     </button>
                     <button 
-                        @click="applyFilter(null, null, 'not-interesting')"
-                        :class="activeInterest === 'not-interesting' ? 'bg-gray-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        @click="applyFilter(null, null, 'day-swing')"
+                        :class="activeTimeHorizon === 'day-swing' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'"
                         class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
                     >
-                        ❌ Not Interesting
+                        📈 Day/Swing Trading
+                    </button>
+                    <button 
+                        @click="applyFilter(null, null, 'investment')"
+                        :class="activeTimeHorizon === 'investment' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
+                    >
+                        💼 Investment
                     </button>
                 </div>
             </div>
@@ -182,13 +189,6 @@
                     class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
                 >
                     💰 Dividend Gems
-                </button>
-                <button 
-                    @click="applyFilter('scalp', null, null)"
-                    :class="activeFilter === 'scalp' ? 'bg-orange-600 text-white' : 'bg-gray-200 text-gray-700'"
-                    class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
-                >
-                    ⚡ Scalp/Day Trade
                 </button>
             </div>
         </div>
