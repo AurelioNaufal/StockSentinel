@@ -11,9 +11,9 @@ from datetime import datetime, timedelta
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
-# Configure Hugging Face Model (Qwen 2.5 - 1.5B Instruct)
-print("Loading Qwen 2.5 - 1.5B Instruct model (CPU-optimized)...")
-model_name = "Qwen/Qwen2.5-1.5B-Instruct"
+# Configure Hugging Face Model (Qwen 2.5 - 3B Instruct)
+print("Loading Qwen 2.5 - 3B Instruct model (better accuracy)...")
+model_name = "Qwen/Qwen2.5-3B-Instruct"
 
 # Load tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained(model_name)
