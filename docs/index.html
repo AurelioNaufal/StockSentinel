@@ -101,28 +101,28 @@
                 <p class="text-sm font-semibold text-gray-600 mb-2">Market:</p>
                 <div class="flex flex-wrap gap-2">
                     <button 
-                        @click="applyFilter(null, 'all')"
+                        @click="applyFilter(null, 'all', null)"
                         :class="activeMarket === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
                         class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
                     >
                         🌍 All Markets
                     </button>
                     <button 
-                        @click="applyFilter(null, 'idx')"
+                        @click="applyFilter(null, 'idx', null)"
                         :class="activeMarket === 'idx' ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-700'"
                         class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
                     >
                         🇮🇩 IDX Stocks
                     </button>
                     <button 
-                        @click="applyFilter(null, 'us')"
+                        @click="applyFilter(null, 'us', null)"
                         :class="activeMarket === 'us' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'"
                         class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
                     >
                         🇺🇸 US Stocks
                     </button>
                     <button 
-                        @click="applyFilter(null, 'crypto')"
+                        @click="applyFilter(null, 'crypto', null)"
                         :class="activeMarket === 'crypto' ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-gray-700'"
                         class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
                     >
@@ -131,32 +131,60 @@
                 </div>
             </div>
             
+            <!-- Interest Level Tabs -->
+            <div class="border-b py-3">
+                <p class="text-sm font-semibold text-gray-600 mb-2">Interest Level:</p>
+                <div class="flex flex-wrap gap-2">
+                    <button 
+                        @click="applyFilter(null, null, 'all')"
+                        :class="activeInterest === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
+                    >
+                        All
+                    </button>
+                    <button 
+                        @click="applyFilter(null, null, 'interesting')"
+                        :class="activeInterest === 'interesting' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
+                    >
+                        ⭐ Interesting
+                    </button>
+                    <button 
+                        @click="applyFilter(null, null, 'not-interesting')"
+                        :class="activeInterest === 'not-interesting' ? 'bg-gray-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
+                    >
+                        ❌ Not Interesting
+                    </button>
+                </div>
+            </div>
+            
             <!-- Recommendation Filter Tabs -->
             <div class="flex flex-wrap gap-2 py-4">
-                <p class="text-sm font-semibold text-gray-600 w-full mb-1">Filter:</p>
+                <p class="text-sm font-semibold text-gray-600 w-full mb-1">Recommendation:</p>
                 <button 
-                    @click="applyFilter('all')"
+                    @click="applyFilter('all', null, null)"
                     :class="activeFilter === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
                     class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
                 >
                     All Stocks
                 </button>
                 <button 
-                    @click="applyFilter('strong-buy')"
+                    @click="applyFilter('strong-buy', null, null)"
                     :class="activeFilter === 'strong-buy' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'"
                     class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
                 >
                     💎 Strong Buys
                 </button>
                 <button 
-                    @click="applyFilter('dividend')"
+                    @click="applyFilter('dividend', null, null)"
                     :class="activeFilter === 'dividend' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'"
                     class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
                 >
                     💰 Dividend Gems
                 </button>
                 <button 
-                    @click="applyFilter('scalp')"
+                    @click="applyFilter('scalp', null, null)"
                     :class="activeFilter === 'scalp' ? 'bg-orange-600 text-white' : 'bg-gray-200 text-gray-700'"
                     class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
                 >
@@ -194,15 +222,20 @@
                     
                     <!-- Card Body -->
                     <div class="p-4">
-                        <!-- Recommendation Badge -->
-                        <div class="mb-3">
+                        <!-- Interest Level & Recommendation Badges -->
+                        <div class="mb-3 flex flex-wrap gap-2 items-center">
+                            <span 
+                                :class="stock.interest_level === 'Interesting' ? 'bg-green-100 text-green-800 border-green-300' : 'bg-gray-100 text-gray-800 border-gray-300'"
+                                class="px-2 py-1 rounded-full text-xs font-bold uppercase border"
+                                x-text="stock.interest_level === 'Interesting' ? '⭐ Interesting' : '❌ Not Interesting'"
+                            ></span>
                             <span 
                                 :class="getRecommendationClass(stock.recommendation)"
                                 class="px-3 py-1 rounded-full text-xs font-bold uppercase"
                                 x-text="stock.recommendation"
                             ></span>
-                            <span class="ml-2 text-sm text-gray-600">
-                                <span x-text="stock.confidence_score"></span>% confidence
+                            <span class="text-sm text-gray-600">
+                                <span x-text="stock.confidence_score"></span>%
                             </span>
                         </div>
                         
@@ -297,10 +330,16 @@
                                         height="200"></canvas>
                             </div>
                         </div>
-                        <!-- Recommendation -->
+                        
+                        <!-- Interest Level & Recommendation -->
                         <div>
-                            <h3 class="font-bold text-lg mb-2">📊 Recommendation</h3>
-                            <div class="flex items-center gap-3">
+                            <h3 class="font-bold text-lg mb-2">📊 Assessment</h3>
+                            <div class="flex flex-wrap items-center gap-3 mb-3">
+                                <span 
+                                    :class="selectedStock.interest_level === 'Interesting' ? 'bg-green-100 text-green-800 border-2 border-green-400' : 'bg-gray-100 text-gray-800 border-2 border-gray-400'"
+                                    class="px-4 py-2 rounded-lg text-sm font-bold uppercase"
+                                    x-text="selectedStock.interest_level"
+                                ></span>
                                 <span 
                                     :class="getRecommendationClass(selectedStock.recommendation)"
                                     class="px-4 py-2 rounded-lg text-sm font-bold uppercase"
@@ -310,7 +349,7 @@
                                     <span x-text="selectedStock.confidence_score"></span>% confidence
                                 </span>
                             </div>
-                            <p class="mt-2 text-sm">
+                            <p class="text-sm">
                                 <span class="font-semibold">Time Horizon:</span>
                                 <span x-text="selectedStock.time_horizon"></span>
                             </p>

@@ -111,8 +111,6 @@ def fetch_stock_data(ticker):
             info = stock.info
             dividend_yield = info.get('dividendYield', 0)
             # Already in decimal form (e.g., 0.05 = 5%), convert to percentage
-            if dividend_yield:
-                dividend_yield = dividend_yield * 100
         except:
             pass
         
@@ -238,9 +236,10 @@ RECENT NEWS:
         prompt += f"""\n
 RESPOND WITH VALID JSON ONLY (no markdown, no explanation):
 {{
+  "interest_level": "Interesting" or "Not Interesting",
   "recommendation": "Strong Buy" or "Buy" or "Hold" or "Sell" or "Strong Sell",
   "confidence_score": 0-100,
-  "time_horizon": "Scalp (Minutes-Hours)" or "Day Trade (Hours-Days)" or "Swing (Days-Weeks)" or "Position (Weeks-Months)",
+  "time_horizon": "Scalp Trading (Minutes/Hours)" or "Day Trading (Days)" or "Investment (Long-Term)",
   "reasoning": "Brief analysis based on technical indicators and news",
   "entry_zone": "{currency_symbol}X.XX-{currency_symbol}Y.YY",
   "take_profit": "{currency_symbol}X.XX",
@@ -248,10 +247,15 @@ RESPOND WITH VALID JSON ONLY (no markdown, no explanation):
 }}
 
 RULES:
-1. Use Scalp/Day Trade ONLY if RSI shows extreme levels (>75 or <25) AND high volume
-2. entry_zone, take_profit, stop_loss must be NUMBERS with currency symbol (e.g., "$150.50" or "Rp5000")
-3. No objects, no arrays in entry_zone/take_profit/stop_loss
-4. Base recommendation on BOTH technicals AND news sentiment"""
+1. interest_level "Not Interesting" = fundamentally weak, bad news, poor technicals, not worth monitoring
+2. interest_level "Interesting" = has potential, worth watching or trading
+3. time_horizon:
+   - "Scalp Trading (Minutes/Hours)": High volatility (ATR high), RSI extreme (>75 or <25), predicted quick move up
+   - "Day Trading (Days)": Medium-term momentum play, clear technical setup for 1-5 days
+   - "Investment (Long-Term)": Strong fundamentals, good dividend, stable growth, hold for months/years
+4. entry_zone, take_profit, stop_loss must be NUMBERS with currency symbol (e.g., "$150.50" or "Rp5000")
+5. No objects, no arrays in entry_zone/take_profit/stop_loss
+6. Base recommendation on BOTH technicals AND news sentiment"""
         
         # Prepare messages for chat format
         messages = [
@@ -322,9 +326,10 @@ RULES:
         # Return a fallback analysis
         currency_symbol = 'Rp' if stock_data.get('currency') == 'IDR' else '$'
         return {
+            "interest_level": "Interesting",
             "recommendation": "Hold",
             "confidence_score": 50,
-            "time_horizon": "Position (Weeks-Months)",
+            "time_horizon": "Investment (Long-Term)",
             "reasoning": f"Technical analysis pending. RSI: {stock_data['rsi']}, Price near SMA(20).",
             "entry_zone": f"{currency_symbol}{stock_data['current_price']}",
             "take_profit": f"{currency_symbol}{round(stock_data['current_price'] * 1.08, 2)}",

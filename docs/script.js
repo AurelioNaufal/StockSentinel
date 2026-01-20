@@ -10,6 +10,7 @@ function stockApp() {
         filteredStocks: [],
         activeFilter: 'all',
         activeMarket: 'all',
+        activeInterest: 'all',
         selectedStock: null,
         searchQuery: '',
         isLoading: true,
@@ -60,15 +61,25 @@ function stockApp() {
         },
         
         // Apply filter
-        applyFilter(filter, market) {
+        applyFilter(filter, market, interest) {
             if (filter) {
                 this.activeFilter = filter;
             }
             if (market) {
                 this.activeMarket = market;
             }
+            if (interest) {
+                this.activeInterest = interest;
+            }
             
             let filtered = this.stocks;
+            
+            // Filter by interest level
+            if (this.activeInterest === 'interesting') {
+                filtered = filtered.filter(s => s.interest_level === 'Interesting');
+            } else if (this.activeInterest === 'not-interesting') {
+                filtered = filtered.filter(s => s.interest_level === 'Not Interesting');
+            }
             
             // Filter by market type
             if (this.activeMarket === 'idx') {
@@ -96,8 +107,8 @@ function stockApp() {
                 case 'scalp':
                     filtered = filtered.filter(s => 
                         s.time_horizon && (
-                            s.time_horizon.includes('Scalp') || 
-                            s.time_horizon.includes('Day Trade')
+                            s.time_horizon.includes('Scalp Trading') || 
+                            s.time_horizon.includes('Day Trading')
                         )
                     );
                     break;
