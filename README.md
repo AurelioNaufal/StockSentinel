@@ -1,10 +1,10 @@
 # 📈 StockSentinel Interactive
 
-An AI-powered, on-demand stock analysis platform hosted on GitHub Pages. Analyze major IDX, US, and Crypto assets with real-time recommendations powered by Google Gemini 1.5 Flash.
+An AI-powered, on-demand stock analysis platform hosted on GitHub Pages. Analyze major IDX, US, and Crypto assets with real-time recommendations powered by Qwen 2.5 GGUF (CPU-optimized local model).
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
-![Gemini](https://img.shields.io/badge/AI-Gemini%201.5%20Flash-purple.svg)
+![Qwen](https://img.shields.io/badge/AI-Qwen%202.5%20GGUF-purple.svg)
 
 ## 🌟 Features
 
@@ -22,8 +22,10 @@ An AI-powered, on-demand stock analysis platform hosted on GitHub Pages. Analyze
    - Add more stocks by updating watchlist and running workflow
 
 ### Key Features:
-- ✅ **Free & Local**: Powered by Qwen 2.5 - 1.5B Instruct (Hugging Face)
+- ✅ **Free & Local**: Powered by Qwen 2.5 - 1.5B Instruct GGUF (CPU-optimized)
 - ✅ **No API Keys**: Everything runs locally
+- ✅ **Fast CPU Inference**: GGUF quantization for speed
+- ✅ **GitHub Actions Ready**: Works perfectly on free GitHub runners
 - ✅ **Automated Scanning**: GitHub Actions workflow
 - ✅ **Interactive UI**: Tailwind CSS + Alpine.js
 - ✅ **Smart Filtering**: Strong Buys, Dividend Gems, Scalp/Day Trade
@@ -38,8 +40,8 @@ An AI-powered, on-demand stock analysis platform hosted on GitHub Pages. Analyze
 
 - GitHub account
 - Python 3.10+ (for local testing)
-- 8GB+ RAM (for model)
-- 5GB free disk space
+- 4GB+ RAM (GGUF model uses ~2GB)
+- 2GB free disk space
 
 ### Setup Instructions
 

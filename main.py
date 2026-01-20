@@ -12,25 +12,20 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
 # Configure Hugging Face Model (Qwen 2.5 - 1.5B Instruct)
-print("Loading Qwen 2.5 - 1.5B Instruct model...")
+print("Loading Qwen 2.5 - 1.5B Instruct model (CPU-optimized)...")
 model_name = "Qwen/Qwen2.5-1.5B-Instruct"
 
 # Load tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
-    torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
-    device_map="auto" if torch.cuda.is_available() else None
+    torch_dtype=torch.float32,  # Use float32 for CPU
+    device_map=None,
+    low_cpu_mem_usage=True
 )
 
-# Move model to GPU if available
-if torch.cuda.is_available():
-    print(f"Using GPU: {torch.cuda.get_device_name(0)}")
-else:
-    print("Using CPU (this will be slower)")
-    model = model.to('cpu')
-
-print("Model loaded successfully!\n")
+model = model.to('cpu')
+print("Model loaded successfully! Running on CPU.\n")
 
 # Watchlist: Major IDX, US, and Crypto assets
 WATCHLIST = [
@@ -44,7 +39,6 @@ WATCHLIST = [
     "ICBP.JK",  # Indofood CBP
     "INDF.JK",  # Indofood
     "KLBF.JK",  # Kalbe Farma
-    "GGRM.JK",  # Gudang Garam
     "BBTN.JK",  # Bank Tabungan Negara
     "ACES.JK",  # Ace Hardware
     "ADRO.JK",  # Adaro Energy
@@ -70,7 +64,6 @@ WATCHLIST = [
     "DIS",      # Disney
     "NFLX",     # Netflix
     "CSCO",     # Cisco
-    "PFE",      # Pfizer
     "KO",       # Coca-Cola
     
     # Crypto (via Yahoo Finance)
