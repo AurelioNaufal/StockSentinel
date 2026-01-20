@@ -9,6 +9,7 @@ function stockApp() {
         stocks: [],
         filteredStocks: [],
         activeFilter: 'all',
+        activeMarket: 'all',
         selectedStock: null,
         searchQuery: '',
         isLoading: true,
@@ -18,6 +19,7 @@ function stockApp() {
         lastUpdated: 'Loading...',
         totalAssets: 0,
         currentChart: null,
+        chartTimeframe: '6M',
         
         // API Rate Limiting
         lastApiCall: 0,
@@ -58,26 +60,41 @@ function stockApp() {
         },
         
         // Apply filter
-        applyFilter(filter) {
+        applyFilter(filter, market) {
             if (filter) {
                 this.activeFilter = filter;
             }
+            if (market) {
+                this.activeMarket = market;
+            }
             
+            let filtered = this.stocks;
+            
+            // Filter by market type
+            if (this.activeMarket === 'idx') {
+                filtered = filtered.filter(s => s.ticker.endsWith('.JK'));
+            } else if (this.activeMarket === 'us') {
+                filtered = filtered.filter(s => !s.ticker.endsWith('.JK') && !s.ticker.includes('-USD'));
+            } else if (this.activeMarket === 'crypto') {
+                filtered = filtered.filter(s => s.ticker.includes('-USD'));
+            }
+            
+            // Filter by recommendation type
             switch (this.activeFilter) {
                 case 'strong-buy':
-                    this.filteredStocks = this.stocks.filter(s => 
+                    filtered = filtered.filter(s => 
                         s.recommendation === 'Strong Buy'
                     );
                     break;
                     
                 case 'dividend':
-                    this.filteredStocks = this.stocks.filter(s => 
+                    filtered = filtered.filter(s => 
                         s.dividend_yield > 2
                     );
                     break;
                     
                 case 'scalp':
-                    this.filteredStocks = this.stocks.filter(s => 
+                    filtered = filtered.filter(s => 
                         s.time_horizon && (
                             s.time_horizon.includes('Scalp') || 
                             s.time_horizon.includes('Day Trade')
@@ -86,8 +103,10 @@ function stockApp() {
                     break;
                     
                 default:
-                    this.filteredStocks = this.stocks;
+                    // 'all' - already filtered by market
             }
+            
+            this.filteredStocks = filtered;
         },
         
         // Search stock
@@ -131,7 +150,7 @@ function stockApp() {
         
         // Render chart for stock
         renderChart(stock) {
-            if (!stock.chart_data || stock.chart_data.length === 0) return;
+            if (!stock.chart_data || !stock.chart_data[this.chartTimeframe]) return;
             
             const ctx = document.getElementById('chart-' + stock.ticker);
             if (!ctx) return;
@@ -141,9 +160,10 @@ function stockApp() {
                 this.currentChart.destroy();
             }
             
-            const dates = stock.chart_data.map(d => d.date);
-            const prices = stock.chart_data.map(d => d.price);
-            const sma20 = stock.chart_data.map(d => d.sma_20);
+            const chartData = stock.chart_data[this.chartTimeframe];
+            const dates = chartData.map(d => d.date);
+            const prices = chartData.map(d => d.price);
+            const sma20 = chartData.map(d => d.sma_20);
             
             this.currentChart = new Chart(ctx, {
                 type: 'line',

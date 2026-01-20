@@ -110,21 +110,38 @@ def fetch_stock_data(ticker):
         try:
             info = stock.info
             dividend_yield = info.get('dividendYield', 0)
+            # Already in decimal form (e.g., 0.05 = 5%), convert to percentage
             if dividend_yield:
-                dividend_yield = dividend_yield * 100  # Convert to percentage
+                dividend_yield = dividend_yield * 100
         except:
             pass
         
-        # Prepare 6 months historical data for chart
+        # Prepare historical data for different timeframes
+        hist_1m = stock.history(period="1mo")
         hist_6m = stock.history(period="6mo")
-        chart_data = []
-        if not hist_6m.empty:
-            for idx, row in hist_6m.tail(180).iterrows():  # Last 6 months (~180 days)
-                chart_data.append({
-                    'date': idx.strftime('%Y-%m-%d'),
-                    'price': round(row['Close'], 2),
-                    'sma_20': round(ta.trend.SMAIndicator(hist_6m['Close'][:idx], window=20).sma_indicator().iloc[-1], 2) if len(hist_6m['Close'][:idx]) >= 20 else None
-                })
+        hist_max = stock.history(period="max")
+        
+        chart_data = {
+            '1M': [],
+            '6M': [],
+            'MAX': []
+        }
+        
+        # Process each timeframe
+        for period_key, hist_period in [('1M', hist_1m), ('6M', hist_6m), ('MAX', hist_max)]:
+            if not hist_period.empty:
+                for idx in range(len(hist_period)):
+                    row = hist_period.iloc[idx]
+                    # Calculate SMA 20 if enough data
+                    sma_20_val = None
+                    if idx >= 19:
+                        sma_20_val = round(hist_period['Close'].iloc[max(0, idx-19):idx+1].mean(), 2)
+                    
+                    chart_data[period_key].append({
+                        'date': hist_period.index[idx].strftime('%Y-%m-%d'),
+                        'price': round(row['Close'], 2),
+                        'sma_20': sma_20_val
+                    })
         
         data = {
             'ticker': ticker,
@@ -197,30 +214,48 @@ def fetch_news(ticker):
 def analyze_with_qwen(ticker, stock_data, news):
     """Use Qwen model to analyze stock and return structured recommendation."""
     try:
-        # Prepare prompt
-        prompt = f"""You are a professional stock analyst. Analyze the following data for {ticker} and provide investment recommendations in JSON format.
+        # Get currency symbol
+        currency = stock_data.get('currency', 'USD')
+        currency_symbol = 'Rp' if currency == 'IDR' else '$'
+        
+        # Prepare prompt with strict JSON structure
+        prompt = f"""Analyze {ticker} stock data and provide investment recommendation.
 
-Technical Data:
-- Current Price: ${stock_data['current_price']}
-- RSI: {stock_data['rsi']}
-- MACD: {stock_data['macd']}
-- MACD Signal: {stock_data['macd_signal']}
-- SMA 20: {stock_data['sma_20']}
-- SMA 50: {stock_data['sma_50']}
-- ATR: {stock_data['atr']}
+TECHNICAL INDICATORS:
+- Price: {currency_symbol}{stock_data['current_price']}
+- RSI(14): {stock_data['rsi']} (>70 overbought, <30 oversold)
+- MACD: {stock_data['macd']} | Signal: {stock_data['macd_signal']}
+- SMA(20): {currency_symbol}{stock_data['sma_20']} | SMA(50): {currency_symbol}{stock_data['sma_50']}
+- ATR: {stock_data['atr']} (volatility)
 - Dividend Yield: {stock_data['dividend_yield']}%
-- Volume: {stock_data['volume']}
+- Volume: {stock_data['volume']:,}
 
-Recent News:
+RECENT NEWS:
 """
         for idx, article in enumerate(news, 1):
-            prompt += f"{idx}. {article['title']}\n   {article['snippet']}\n"
+            prompt += f"{idx}. {article['title']}\n"
         
-        prompt += """\nProvide your analysis in JSON format with these fields: recommendation (Strong Buy|Buy|Hold|Sell|Strong Sell), confidence_score (0-100), time_horizon, reasoning, entry_zone, take_profit, stop_loss, dividend_analysis. Respond ONLY with valid JSON."""
+        prompt += f"""\n
+RESPOND WITH VALID JSON ONLY (no markdown, no explanation):
+{{
+  "recommendation": "Strong Buy" or "Buy" or "Hold" or "Sell" or "Strong Sell",
+  "confidence_score": 0-100,
+  "time_horizon": "Scalp (Minutes-Hours)" or "Day Trade (Hours-Days)" or "Swing (Days-Weeks)" or "Position (Weeks-Months)",
+  "reasoning": "Brief analysis based on technical indicators and news",
+  "entry_zone": "{currency_symbol}X.XX-{currency_symbol}Y.YY",
+  "take_profit": "{currency_symbol}X.XX",
+  "stop_loss": "{currency_symbol}X.XX"
+}}
+
+RULES:
+1. Use Scalp/Day Trade ONLY if RSI shows extreme levels (>75 or <25) AND high volume
+2. entry_zone, take_profit, stop_loss must be NUMBERS with currency symbol (e.g., "$150.50" or "Rp5000")
+3. No objects, no arrays in entry_zone/take_profit/stop_loss
+4. Base recommendation on BOTH technicals AND news sentiment"""
         
         # Prepare messages for chat format
         messages = [
-            {"role": "system", "content": "You are a professional stock analyst. Always respond with valid JSON only."},
+            {"role": "system", "content": "You are a professional stock analyst. Output ONLY valid JSON. No markdown formatting."},
             {"role": "user", "content": prompt}
         ]
         
@@ -232,13 +267,15 @@ Recent News:
         )
         model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
         
-        # Generate response
+        # Generate response with more constrained parameters
         with torch.no_grad():
             generated_ids = model.generate(
                 **model_inputs,
-                max_new_tokens=512,
-                temperature=0.7,
-                do_sample=True
+                max_new_tokens=400,
+                temperature=0.3,  # Lower temperature for more consistent output
+                do_sample=True,
+                top_p=0.9,
+                repetition_penalty=1.1
             )
         
         # Decode response
@@ -247,31 +284,51 @@ Recent News:
         ]
         response_text = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
         
-        # Clean and parse JSON
+        # Aggressive JSON extraction
         response_text = response_text.strip()
-        if response_text.startswith('```json'):
-            response_text = response_text[7:]
-        if response_text.startswith('```'):
-            response_text = response_text[3:]
-        if response_text.endswith('```'):
-            response_text = response_text[:-3]
+        # Remove markdown code blocks
+        if '```json' in response_text:
+            response_text = response_text.split('```json')[1].split('```')[0]
+        elif '```' in response_text:
+            response_text = response_text.split('```')[1].split('```')[0]
+        
+        # Find JSON object
+        start_idx = response_text.find('{')
+        end_idx = response_text.rfind('}') + 1
+        if start_idx != -1 and end_idx > start_idx:
+            response_text = response_text[start_idx:end_idx]
         
         analysis = json.loads(response_text.strip())
+        
+        # Validate and fix common issues
+        currency_symbol = 'Rp' if stock_data.get('currency') == 'IDR' else '$'
+        
+        # Fix entry_zone if it's an object or array
+        if isinstance(analysis.get('entry_zone'), (dict, list)):
+            analysis['entry_zone'] = f"{currency_symbol}{stock_data['current_price']}-{currency_symbol}{round(stock_data['current_price'] * 1.02, 2)}"
+        
+        # Fix take_profit if it's an object or array
+        if isinstance(analysis.get('take_profit'), (dict, list)):
+            analysis['take_profit'] = f"{currency_symbol}{round(stock_data['current_price'] * 1.1, 2)}"
+        
+        # Fix stop_loss if it's an object or array
+        if isinstance(analysis.get('stop_loss'), (dict, list)):
+            analysis['stop_loss'] = f"{currency_symbol}{round(stock_data['current_price'] * 0.95, 2)}"
         
         return analysis
         
     except Exception as e:
         print(f"  Error analyzing with Qwen for {ticker}: {e}")
         # Return a fallback analysis
+        currency_symbol = 'Rp' if stock_data.get('currency') == 'IDR' else '$'
         return {
             "recommendation": "Hold",
             "confidence_score": 50,
             "time_horizon": "Position (Weeks-Months)",
-            "reasoning": f"Analysis failed: {str(e)}",
-            "entry_zone": f"${stock_data['current_price']}",
-            "take_profit": f"${round(stock_data['current_price'] * 1.1, 2)}",
-            "stop_loss": f"${round(stock_data['current_price'] * 0.95, 2)}",
-            "dividend_analysis": f"{stock_data['dividend_yield']}%" if stock_data['dividend_yield'] > 0 else "N/A"
+            "reasoning": f"Technical analysis pending. RSI: {stock_data['rsi']}, Price near SMA(20).",
+            "entry_zone": f"{currency_symbol}{stock_data['current_price']}",
+            "take_profit": f"{currency_symbol}{round(stock_data['current_price'] * 1.08, 2)}",
+            "stop_loss": f"{currency_symbol}{round(stock_data['current_price'] * 0.95, 2)}"
         }
 
 

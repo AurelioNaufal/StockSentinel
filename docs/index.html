@@ -96,7 +96,44 @@
     <!-- Filter Tabs -->
     <section class="bg-white border-b">
         <div class="container mx-auto px-4">
+            <!-- Market Type Tabs -->
+            <div class="border-b py-3">
+                <p class="text-sm font-semibold text-gray-600 mb-2">Market:</p>
+                <div class="flex flex-wrap gap-2">
+                    <button 
+                        @click="applyFilter(null, 'all')"
+                        :class="activeMarket === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
+                    >
+                        🌍 All Markets
+                    </button>
+                    <button 
+                        @click="applyFilter(null, 'idx')"
+                        :class="activeMarket === 'idx' ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
+                    >
+                        🇮🇩 IDX Stocks
+                    </button>
+                    <button 
+                        @click="applyFilter(null, 'us')"
+                        :class="activeMarket === 'us' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
+                    >
+                        🇺🇸 US Stocks
+                    </button>
+                    <button 
+                        @click="applyFilter(null, 'crypto')"
+                        :class="activeMarket === 'crypto' ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-gray-700'"
+                        class="px-3 py-1 rounded-lg text-sm font-semibold transition hover:opacity-80"
+                    >
+                        ₿ Crypto
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Recommendation Filter Tabs -->
             <div class="flex flex-wrap gap-2 py-4">
+                <p class="text-sm font-semibold text-gray-600 w-full mb-1">Filter:</p>
                 <button 
                     @click="applyFilter('all')"
                     :class="activeFilter === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
@@ -227,8 +264,33 @@
                     <div class="p-6 space-y-6">
                         
                         <!-- 6-Month Price Chart -->
-                        <div x-show="selectedStock.chart_data && selectedStock.chart_data.length > 0">
-                            <h3 class="font-bold text-lg mb-2">📊 6-Month Price Chart with MA(20)</h3>
+                        <div x-show="selectedStock.chart_data && selectedStock.chart_data['6M']">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-bold text-lg">📊 Price Chart with MA(20)</h3>
+                                <div class="flex gap-2">
+                                    <button 
+                                        @click="chartTimeframe = '1M'; renderChart(selectedStock)"
+                                        :class="chartTimeframe === '1M' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
+                                        class="px-3 py-1 rounded text-xs font-semibold transition"
+                                    >
+                                        1M
+                                    </button>
+                                    <button 
+                                        @click="chartTimeframe = '6M'; renderChart(selectedStock)"
+                                        :class="chartTimeframe === '6M' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
+                                        class="px-3 py-1 rounded text-xs font-semibold transition"
+                                    >
+                                        6M
+                                    </button>
+                                    <button 
+                                        @click="chartTimeframe = 'MAX'; renderChart(selectedStock)"
+                                        :class="chartTimeframe === 'MAX' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
+                                        class="px-3 py-1 rounded text-xs font-semibold transition"
+                                    >
+                                        MAX
+                                    </button>
+                                </div>
+                            </div>
                             <div class="bg-gray-50 rounded-lg p-4">
                                 <canvas :id="'chart-' + selectedStock.ticker" 
                                         x-init="$nextTick(() => renderChart(selectedStock))"

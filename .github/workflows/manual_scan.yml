@@ -1,9 +1,9 @@
-name: Manual Stock Analysis Scan
+name: Stock Analysis Scan
 
 on:
-  workflow_dispatch:  # Manual trigger only
+  workflow_dispatch:  # Manual trigger
   schedule:
-    - cron: '0 0 * * *'  # Optional: Daily at midnight UTC
+    - cron: '0 1 * * *'  # Daily at 9am WIB (1am UTC = 9am WIB, UTC+8)
 
 jobs:
   analyze:
