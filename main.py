@@ -253,7 +253,7 @@ RULES:
    - "Scalp Trading (Minutes/Hours)": ONLY for extreme volatility with RSI >75 or <25, expected to move sharply within minutes/hours
    - "Day Trading (Days)": Short-term momentum, technical breakout/breakdown, hold for 1-5 days
    - "Investment (Long-Term)": Strong fundamentals, good dividend, stable company, hold for months/years
-4. Differentiate clearly: Scalp = very short-term high volatility, Day Trading = short-term momentum, Investment = long-term value
+4. Differentiate clearly: Scalp = very short-term high volatility, Day Trading = day-term momentum, Investment = long-term value
 5. entry_zone, take_profit, stop_loss must be NUMBERS with currency symbol (e.g., "$150.50" or "Rp5000")
 6. No objects, no arrays in entry_zone/take_profit/stop_loss
 7. Base recommendation on BOTH technicals AND news sentiment"""
