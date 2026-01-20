@@ -8,6 +8,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
@@ -95,30 +98,30 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap gap-2 py-4">
                 <button 
-                    @click="activeFilter = 'all'"
+                    @click="applyFilter('all')"
                     :class="activeFilter === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700'"
-                    class="px-4 py-2 rounded-lg font-semibold transition"
+                    class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
                 >
                     All Stocks
                 </button>
                 <button 
-                    @click="activeFilter = 'strong-buy'"
+                    @click="applyFilter('strong-buy')"
                     :class="activeFilter === 'strong-buy' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'"
-                    class="px-4 py-2 rounded-lg font-semibold transition"
+                    class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
                 >
                     💎 Strong Buys
                 </button>
                 <button 
-                    @click="activeFilter = 'dividend'"
+                    @click="applyFilter('dividend')"
                     :class="activeFilter === 'dividend' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'"
-                    class="px-4 py-2 rounded-lg font-semibold transition"
+                    class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
                 >
                     💰 Dividend Gems
                 </button>
                 <button 
-                    @click="activeFilter = 'scalp'"
+                    @click="applyFilter('scalp')"
                     :class="activeFilter === 'scalp' ? 'bg-orange-600 text-white' : 'bg-gray-200 text-gray-700'"
-                    class="px-4 py-2 rounded-lg font-semibold transition"
+                    class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
                 >
                     ⚡ Scalp/Day Trade
                 </button>
@@ -147,7 +150,7 @@
                                 <p class="text-sm text-purple-100">Click for details</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-2xl font-bold" x-text="formatPrice(stock.current_price)"></p>
+                                <p class="text-2xl font-bold" x-text="formatPrice(stock.current_price, stock.currency)"></p>
                             </div>
                         </div>
                     </div>
@@ -213,7 +216,7 @@
                     <div class="gradient-bg text-white px-6 py-4 flex justify-between items-start">
                         <div>
                             <h2 class="text-2xl font-bold" x-text="selectedStock.ticker"></h2>
-                            <p class="text-purple-100" x-text="'$' + selectedStock.current_price"></p>
+                            <p class="text-purple-100" x-text="formatPrice(selectedStock.current_price, selectedStock.currency)"></p>
                         </div>
                         <button @click="selectedStock = null" class="text-white hover:text-gray-200 text-2xl">
                             &times;
@@ -222,6 +225,16 @@
                     
                     <!-- Modal Body -->
                     <div class="p-6 space-y-6">
+                        
+                        <!-- 6-Month Price Chart -->
+                        <div x-show="selectedStock.chart_data && selectedStock.chart_data.length > 0">
+                            <h3 class="font-bold text-lg mb-2">📊 6-Month Price Chart with MA(20)</h3>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <canvas :id="'chart-' + selectedStock.ticker" 
+                                        x-init="$nextTick(() => renderChart(selectedStock))"
+                                        height="200"></canvas>
+                            </div>
+                        </div>
                         <!-- Recommendation -->
                         <div>
                             <h3 class="font-bold text-lg mb-2">📊 Recommendation</h3>
@@ -280,11 +293,11 @@
                                 </div>
                                 <div class="bg-gray-50 rounded p-3">
                                     <p class="text-xs text-gray-600">SMA 20</p>
-                                    <p class="font-bold" x-text="formatPrice(selectedStock.sma_20)"></p>
+                                    <p class="font-bold" x-text="formatPrice(selectedStock.sma_20, selectedStock.currency)"></p>
                                 </div>
                                 <div class="bg-gray-50 rounded p-3">
                                     <p class="text-xs text-gray-600">SMA 50</p>
-                                    <p class="font-bold" x-text="formatPrice(selectedStock.sma_50)"></p>
+                                    <p class="font-bold" x-text="formatPrice(selectedStock.sma_50, selectedStock.currency)"></p>
                                 </div>
                             </div>
                         </div>

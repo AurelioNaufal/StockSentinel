@@ -17,6 +17,7 @@ function stockApp() {
         searchMessage: '',
         lastUpdated: 'Loading...',
         totalAssets: 0,
+        currentChart: null,
         
         // API Rate Limiting
         lastApiCall: 0,
@@ -57,7 +58,11 @@ function stockApp() {
         },
         
         // Apply filter
-        applyFilter() {
+        applyFilter(filter) {
+            if (filter) {
+                this.activeFilter = filter;
+            }
+            
             switch (this.activeFilter) {
                 case 'strong-buy':
                     this.filteredStocks = this.stocks.filter(s => 
@@ -118,6 +123,99 @@ function stockApp() {
         // Show stock details
         showDetails(stock) {
             this.selectedStock = stock;
+            // Cleanup previous chart if exists
+            if (this.currentChart) {
+                this.currentChart.destroy();
+            }
+        },
+        
+        // Render chart for stock
+        renderChart(stock) {
+            if (!stock.chart_data || stock.chart_data.length === 0) return;
+            
+            const ctx = document.getElementById('chart-' + stock.ticker);
+            if (!ctx) return;
+            
+            // Cleanup previous chart
+            if (this.currentChart) {
+                this.currentChart.destroy();
+            }
+            
+            const dates = stock.chart_data.map(d => d.date);
+            const prices = stock.chart_data.map(d => d.price);
+            const sma20 = stock.chart_data.map(d => d.sma_20);
+            
+            this.currentChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [
+                        {
+                            label: 'Price',
+                            data: prices,
+                            borderColor: 'rgb(99, 102, 241)',
+                            backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'MA(20)',
+                            data: sma20,
+                            borderColor: 'rgb(234, 88, 12)',
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            borderDash: [5, 5],
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    const currency = stock.currency === 'IDR' ? 'Rp ' : '$';
+                                    label += currency + context.parsed.y.toLocaleString();
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: true,
+                            ticks: {
+                                maxTicksLimit: 8
+                            }
+                        },
+                        y: {
+                            display: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return stock.currency === 'IDR' ? 
+                                        'Rp ' + value.toLocaleString() : 
+                                        '$' + value.toFixed(2);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         },
         
         // Get recommendation CSS class
@@ -126,10 +224,15 @@ function stockApp() {
             return `recommendation-${rec}`;
         },
         
-        // Format price
-        formatPrice(price) {
+        // Format price with currency detection
+        formatPrice(price, currency) {
             if (!price) return 'N/A';
-            return '$' + parseFloat(price).toFixed(2);
+            const symbol = currency === 'IDR' ? 'Rp ' : '$';
+            const formatted = parseFloat(price).toLocaleString('en-US', {
+                minimumFractionDigits: currency === 'IDR' ? 0 : 2,
+                maximumFractionDigits: currency === 'IDR' ? 0 : 2
+            });
+            return symbol + formatted;
         },
         
         // Sleep utility

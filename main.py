@@ -102,6 +102,9 @@ def fetch_stock_data(ticker):
         latest = hist.iloc[-1]
         current_price = latest['Close']
         
+        # Determine currency based on ticker
+        currency = 'IDR' if ticker.endswith('.JK') else 'USD'
+        
         # Get dividend info
         dividend_yield = 0
         try:
@@ -112,9 +115,21 @@ def fetch_stock_data(ticker):
         except:
             pass
         
+        # Prepare 6 months historical data for chart
+        hist_6m = stock.history(period="6mo")
+        chart_data = []
+        if not hist_6m.empty:
+            for idx, row in hist_6m.tail(180).iterrows():  # Last 6 months (~180 days)
+                chart_data.append({
+                    'date': idx.strftime('%Y-%m-%d'),
+                    'price': round(row['Close'], 2),
+                    'sma_20': round(ta.trend.SMAIndicator(hist_6m['Close'][:idx], window=20).sma_indicator().iloc[-1], 2) if len(hist_6m['Close'][:idx]) >= 20 else None
+                })
+        
         data = {
             'ticker': ticker,
             'current_price': round(current_price, 2),
+            'currency': currency,
             'rsi': round(latest['RSI'], 2) if pd.notna(latest['RSI']) else None,
             'macd': round(latest['MACD'], 2) if pd.notna(latest['MACD']) else None,
             'macd_signal': round(latest['MACD_Signal'], 2) if pd.notna(latest['MACD_Signal']) else None,
@@ -123,6 +138,7 @@ def fetch_stock_data(ticker):
             'atr': round(latest['ATR'], 2) if pd.notna(latest['ATR']) else None,
             'dividend_yield': round(dividend_yield, 2) if dividend_yield else 0,
             'volume': int(latest['Volume']),
+            'chart_data': chart_data
         }
         
         return data
@@ -135,12 +151,33 @@ def fetch_stock_data(ticker):
 def fetch_news(ticker):
     """Fetch recent news headlines and snippets for a ticker."""
     try:
-        # Clean ticker for search (remove .JK suffix for better results)
-        search_ticker = ticker.replace('.JK', '')
+        # Clean ticker for search
+        if ticker.endswith('.JK'):
+            # Indonesian stocks - use company name mapping for better news
+            stock_names = {
+                'BBCA.JK': 'Bank BCA Indonesia',
+                'BBRI.JK': 'Bank BRI Indonesia',
+                'BMRI.JK': 'Bank Mandiri Indonesia',
+                'TLKM.JK': 'Telkom Indonesia',
+                'ASII.JK': 'Astra International',
+                'UNVR.JK': 'Unilever Indonesia',
+                'ICBP.JK': 'Indofood CBP',
+                'INDF.JK': 'Indofood',
+                'KLBF.JK': 'Kalbe Farma',
+                'GGRM.JK': 'Gudang Garam',
+                'BBTN.JK': 'BTN Bank',
+                'ACES.JK': 'Ace Hardware Indonesia',
+                'ADRO.JK': 'Adaro Energy',
+                'ANTM.JK': 'Aneka Tambang',
+                'INCO.JK': 'Vale Indonesia'
+            }
+            search_query = stock_names.get(ticker, ticker.replace('.JK', '')) + ' saham'
+        else:
+            search_query = f"{ticker} stock"
         
         # Search for news
         ddgs = DDGS()
-        results = ddgs.news(f"{search_ticker} stock", max_results=5)
+        results = ddgs.news(search_query, max_results=5)
         
         news_items = []
         for result in results[:3]:  # Limit to 3 articles
