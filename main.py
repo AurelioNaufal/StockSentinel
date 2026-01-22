@@ -246,17 +246,56 @@ RESPOND WITH VALID JSON ONLY (no markdown, no explanation):
   "stop_loss": "{currency_symbol}X.XX"
 }}
 
-RULES:
-1. interest_level "Not Interesting" = fundamentally weak, bad news, poor technicals, not worth monitoring
-2. interest_level "Interesting" = has potential, worth watching or trading
-3. time_horizon (choose ONE only):
-   - "Scalp Trading (Minutes/Hours)": ONLY for extreme volatility with RSI >75 or <25, expected to move sharply within minutes/hours
-   - "Day Trading (Days)": Short-term momentum, technical breakout/breakdown, hold for 1-5 days
-   - "Investment (Long-Term)": Strong fundamentals, good dividend, stable company, hold for months/years
-4. Differentiate clearly: Scalp = very short-term high volatility, Day Trading = day-term momentum, Investment = long-term value
-5. entry_zone, take_profit, stop_loss must be NUMBERS with currency symbol (e.g., "$150.50" or "Rp5000")
-6. No objects, no arrays in entry_zone/take_profit/stop_loss
-7. Base recommendation on BOTH technicals AND news sentiment"""
+CRITICAL RECOMMENDATION CRITERIA (BE STRICT):
+
+STRONG BUY: Use ONLY when ALL conditions met:
+- RSI < 40 (oversold territory)
+- Price below SMA(20) AND SMA(50) (strong support)
+- MACD showing bullish crossover (MACD > Signal)
+- Positive news sentiment
+- High confidence (>75%)
+
+BUY: Use when MOST conditions met:
+- RSI 40-50 (neutral to slightly oversold)
+- Price near or slightly below SMA(20)
+- MACD positive or neutral
+- Neutral to positive news
+- Medium confidence (60-75%)
+
+HOLD: Use when:
+- RSI 50-65 (neutral)
+- Price near moving averages
+- Mixed technical signals
+- Neutral news
+- Moderate confidence (50-65%)
+- Already fairly valued
+
+SELL: Use when MOST conditions met:
+- RSI 65-75 (approaching overbought)
+- Price above SMA(20) significantly
+- MACD showing bearish signals
+- Negative news emerging
+- Medium confidence (60-75%)
+
+STRONG SELL: Use ONLY when ALL conditions met:
+- RSI > 75 (severely overbought)
+- Price far above SMA(20) AND SMA(50)
+- MACD showing strong bearish crossover (MACD < Signal)
+- Very negative news
+- High confidence (>75%)
+
+IMPORTANT:
+1. BE BALANCED - Not everything is a buy! Distribute recommendations realistically
+2. If RSI > 70, consider SELL or STRONG SELL (overbought)
+3. If negative news, lean towards HOLD/SELL even if technicals look OK
+4. HOLD is a valid choice when uncertain - don't force buy/sell
+5. time_horizon:
+   - "Scalp Trading (Minutes/Hours)": ONLY RSI >75 or <25 with extreme volatility
+   - "Day Trading (Days)": Clear breakout/breakdown, 1-5 day play
+   - "Investment (Long-Term)": Strong fundamentals, dividends, hold months/years
+6. entry_zone, take_profit, stop_loss must be NUMBERS with currency symbol
+7. No objects, no arrays in prices
+8. Interest level: "Not Interesting" if fundamentally weak or bad technicals"""
         
         # Prepare messages for chat format
         messages = [

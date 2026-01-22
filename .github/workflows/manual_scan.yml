@@ -3,7 +3,7 @@ name: Stock Analysis Scan
 on:
   workflow_dispatch:  # Manual trigger
   schedule:
-    - cron: '0 1 * * *'  # Daily at 9am WIB (1am UTC = 9am WIB, UTC+8)
+    - cron: '0 22 * * *'  # Daily at 6am UTC+8 (22:00 UTC = 6am WIB/SGT)
 
 jobs:
   analyze:
