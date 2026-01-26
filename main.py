@@ -10,6 +10,7 @@ from newspaper import Article
 from datetime import datetime, timedelta
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
+import numpy as np
 
 # Configure Hugging Face Model (Qwen 2.5 - 3B Instruct)
 print("Loading Qwen 2.5 - 3B Instruct model (better accuracy)...")
@@ -56,15 +57,8 @@ WATCHLIST = [
     "JPM",      # JP Morgan
     "V",        # Visa
     "WMT",      # Walmart
-    "JNJ",      # Johnson & Johnson
-    "PG",       # Procter & Gamble
-    "MA",       # Mastercard
-    "HD",       # Home Depot
-    "BAC",      # Bank of America
     "DIS",      # Disney
     "NFLX",     # Netflix
-    "CSCO",     # Cisco
-    "KO",       # Coca-Cola
     
     # Crypto (via Yahoo Finance)
     "BTC-USD",  # Bitcoin
@@ -192,10 +186,10 @@ def fetch_news(ticker):
         
         # Search for news
         ddgs = DDGS()
-        results = ddgs.news(search_query, max_results=5)
+        results = ddgs.news(search_query, max_results=10)
         
         news_items = []
-        for result in results[:3]:  # Limit to 3 articles
+        for result in results[:3]:  # Limit to 3 articles for speed
             news_items.append({
                 'title': result.get('title', ''),
                 'url': result.get('url', ''),
@@ -209,97 +203,247 @@ def fetch_news(ticker):
         return []
 
 
-def analyze_with_qwen(ticker, stock_data, news):
-    """Use Qwen model to analyze stock and return structured recommendation."""
+def calculate_fundamental_score(ticker, stock_data):
+    """Calculate fundamental score 0-100 based on financial metrics."""
     try:
+        stock = yf.Ticker(ticker)
+        info = stock.info
+        
+        scores = []
+        
+        # 1. P/E Ratio (lower is better, typical range 10-30)
+        pe = info.get('trailingPE', None) or info.get('forwardPE', None)
+        if pe and pe > 0:
+            if pe < 15:
+                scores.append(90)  # Undervalued
+            elif pe < 25:
+                scores.append(70)  # Fair
+            elif pe < 40:
+                scores.append(50)  # Expensive
+            else:
+                scores.append(30)  # Overvalued
+        
+        # 2. ROE (Return on Equity) - higher is better
+        roe = info.get('returnOnEquity', None)
+        if roe:
+            roe_pct = roe * 100
+            if roe_pct > 20:
+                scores.append(90)
+            elif roe_pct > 15:
+                scores.append(75)
+            elif roe_pct > 10:
+                scores.append(60)
+            else:
+                scores.append(40)
+        
+        # 3. Debt to Equity (lower is better)
+        debt_to_equity = info.get('debtToEquity', None)
+        if debt_to_equity is not None:
+            if debt_to_equity < 50:
+                scores.append(90)
+            elif debt_to_equity < 100:
+                scores.append(70)
+            elif debt_to_equity < 200:
+                scores.append(50)
+            else:
+                scores.append(30)
+        
+        # 4. Profit Margins (higher is better)
+        profit_margin = info.get('profitMargins', None)
+        if profit_margin:
+            margin_pct = profit_margin * 100
+            if margin_pct > 20:
+                scores.append(90)
+            elif margin_pct > 10:
+                scores.append(70)
+            elif margin_pct > 5:
+                scores.append(50)
+            else:
+                scores.append(30)
+        
+        # 5. Revenue Growth (YoY)
+        revenue_growth = info.get('revenueGrowth', None)
+        if revenue_growth:
+            growth_pct = revenue_growth * 100
+            if growth_pct > 20:
+                scores.append(90)
+            elif growth_pct > 10:
+                scores.append(75)
+            elif growth_pct > 0:
+                scores.append(60)
+            else:
+                scores.append(40)
+        
+        # 6. Dividend Yield (bonus points)
+        if stock_data.get('dividend_yield', 0) > 3:
+            scores.append(85)
+        elif stock_data.get('dividend_yield', 0) > 1:
+            scores.append(65)
+        
+        # Average all available scores
+        if scores:
+            return round(np.mean(scores), 2)
+        else:
+            return 50  # Neutral if no data
+            
+    except Exception as e:
+        print(f"  Fundamental scoring error: {e}")
+        return 50
+
+
+def calculate_technical_score(stock_data):
+    """Calculate technical score 0-100 based on indicators."""
+    scores = []
+    
+    # 1. RSI Score (30-70 is ideal, extremes are warning signs)
+    rsi = stock_data.get('rsi')
+    if rsi:
+        if 40 <= rsi <= 60:
+            scores.append(80)  # Neutral zone - good
+        elif 30 <= rsi < 40:
+            scores.append(90)  # Oversold - buy opportunity
+        elif 60 < rsi <= 70:
+            scores.append(60)  # Mildly overbought
+        elif rsi < 30:
+            scores.append(95)  # Very oversold - strong buy signal
+        elif rsi > 70:
+            scores.append(40)  # Overbought - caution
+        else:
+            scores.append(50)
+    
+    # 2. MACD Signal (bullish crossover is positive)
+    macd = stock_data.get('macd')
+    macd_signal = stock_data.get('macd_signal')
+    if macd is not None and macd_signal is not None:
+        if macd > macd_signal and macd > 0:
+            scores.append(85)  # Bullish momentum
+        elif macd > macd_signal:
+            scores.append(70)  # Gaining strength
+        elif macd < macd_signal and macd < 0:
+            scores.append(40)  # Bearish momentum
+        else:
+            scores.append(55)
+    
+    # 3. Price vs Moving Averages
+    price = stock_data.get('current_price')
+    sma_20 = stock_data.get('sma_20')
+    sma_50 = stock_data.get('sma_50')
+    
+    if price and sma_20 and sma_50:
+        if price > sma_20 > sma_50:
+            scores.append(85)  # Strong uptrend
+        elif price > sma_20:
+            scores.append(70)  # Above short-term MA
+        elif price < sma_20 < sma_50:
+            scores.append(40)  # Downtrend
+        elif price < sma_20:
+            scores.append(90)  # Below MA - potential buy
+        else:
+            scores.append(60)
+    
+    # 4. Volume Analysis (higher volume = more conviction)
+    volume = stock_data.get('volume', 0)
+    if volume > 0:
+        # Placeholder: ideally compare to average volume
+        scores.append(65)
+    
+    # Average all scores
+    if scores:
+        return round(np.mean(scores), 2)
+    else:
+        return 50
+
+
+def calculate_composite_score(sentiment_score, fundamental_score, technical_score):
+    """Calculate weighted composite score (33% sentiment, 33% fundamental, 34% technical)."""
+    composite = (
+        sentiment_score * 0.33 +      # Sentiment: 33%
+        fundamental_score * 0.33 +     # Fundamentals: 33%
+        technical_score * 0.34         # Technicals: 34%
+    )
+    
+    # Determine suggested recommendation based on composite score
+    if composite >= 80:
+        suggested_rec = "Strong Buy"
+    elif composite >= 65:
+        suggested_rec = "Buy"
+    elif composite >= 45:
+        suggested_rec = "Hold"
+    elif composite >= 30:
+        suggested_rec = "Sell"
+    else:
+        suggested_rec = "Strong Sell"
+    
+    return round(composite, 2), suggested_rec
+
+
+def analyze_with_qwen(ticker, stock_data, news):
+    """Use Qwen model with AI-powered composite scoring to analyze stock."""
+    try:
+        # Calculate AI scores (fundamental + technical, sentiment from Qwen)
+        print(f"  Calculating AI scores...")
+        fundamental_score = calculate_fundamental_score(ticker, stock_data)
+        technical_score = calculate_technical_score(stock_data)
+        
+        print(f"  Scores - Fundamental: {fundamental_score}, Technical: {technical_score}")
+        
         # Get currency symbol
         currency = stock_data.get('currency', 'USD')
         currency_symbol = 'Rp' if currency == 'IDR' else '$'
         
-        # Prepare prompt with strict JSON structure
-        prompt = f"""Analyze {ticker} stock data and provide investment recommendation.
+        # Prepare prompt with AI scoring insights
+        prompt = f"""You are an expert stock analyst. Analyze {ticker} using the provided scoring system.
 
-TECHNICAL INDICATORS:
+SCORING SYSTEM:
+- Fundamental Score: {fundamental_score}/100 (PE, ROE, debt, margins, growth)
+- Technical Score: {technical_score}/100 (RSI, MACD, moving averages)
+
+TECHNICAL DETAILS:
 - Price: {currency_symbol}{stock_data['current_price']}
-- RSI(14): {stock_data['rsi']} (>70 overbought, <30 oversold)
-- MACD: {stock_data['macd']} | Signal: {stock_data['macd_signal']}
+- RSI: {stock_data['rsi']} | MACD: {stock_data['macd']} | Signal: {stock_data['macd_signal']}
 - SMA(20): {currency_symbol}{stock_data['sma_20']} | SMA(50): {currency_symbol}{stock_data['sma_50']}
-- ATR: {stock_data['atr']} (volatility)
 - Dividend Yield: {stock_data['dividend_yield']}%
-- Volume: {stock_data['volume']:,}
 
-RECENT NEWS:
+RECENT NEWS HEADLINES:
 """
         for idx, article in enumerate(news, 1):
             prompt += f"{idx}. {article['title']}\n"
         
-        prompt += f"""\n
-RESPOND WITH VALID JSON ONLY (no markdown, no explanation):
+        prompt += f"""
+
+YOUR TASK:
+1. Read and analyze the news sentiment comprehensively (0-100 score)
+   - 0-30: Very negative
+   - 30-45: Negative
+   - 45-55: Neutral  
+   - 55-70: Positive
+   - 70-100: Very positive
+2. Calculate composite score: (sentiment*33% + fundamental*33% + technical*34%)
+3. Provide recommendation based on composite score
+
+RESPOND WITH VALID JSON ONLY (no markdown):
 {{
+  "sentiment_score": X (0-100, your analysis of news sentiment),
+  "composite_score": Y (calculated: sentiment*0.33 + {fundamental_score}*0.33 + {technical_score}*0.34),
   "interest_level": "Interesting" or "Not Interesting",
   "recommendation": "Strong Buy" or "Buy" or "Hold" or "Sell" or "Strong Sell",
-  "confidence_score": 0-100,
+  "confidence_score": Z (same as composite_score),
   "time_horizon": "Scalp Trading (Minutes/Hours)" or "Day Trading (Days)" or "Investment (Long-Term)",
-  "reasoning": "Brief analysis based on technical indicators and news",
+  "reasoning": "Brief explanation mentioning sentiment, fundamentals, technicals.",
   "entry_zone": "{currency_symbol}X.XX-{currency_symbol}Y.YY",
   "take_profit": "{currency_symbol}X.XX",
   "stop_loss": "{currency_symbol}X.XX"
 }}
 
-CRITICAL RECOMMENDATION CRITERIA (BE STRICT):
-
-STRONG BUY: Use ONLY when ALL conditions met:
-- RSI < 40 (oversold territory)
-- Price below SMA(20) AND SMA(50) (strong support)
-- MACD showing bullish crossover (MACD > Signal)
-- Positive news sentiment
-- High confidence (>75%)
-
-BUY: Use when MOST conditions met:
-- RSI 40-50 (neutral to slightly oversold)
-- Price near or slightly below SMA(20)
-- MACD positive or neutral
-- Neutral to positive news
-- Medium confidence (60-75%)
-
-HOLD: Use when:
-- RSI 50-65 (neutral)
-- Price near moving averages
-- Mixed technical signals
-- Neutral news
-- Moderate confidence (50-65%)
-- Already fairly valued
-
-SELL: Use when MOST conditions met:
-- RSI 65-75 (approaching overbought)
-- Price above SMA(20) significantly
-- MACD showing bearish signals
-- Negative news emerging
-- Medium confidence (60-75%)
-
-STRONG SELL: Use ONLY when ALL conditions met:
-- RSI > 75 (severely overbought)
-- Price far above SMA(20) AND SMA(50)
-- MACD showing strong bearish crossover (MACD < Signal)
-- Very negative news
-- High confidence (>75%)
-
-IMPORTANT:
-1. BE BALANCED - Not everything is a buy! Distribute recommendations realistically
-2. If RSI > 70, consider SELL or STRONG SELL (overbought)
-3. If negative news, lean towards HOLD/SELL even if technicals look OK
-4. HOLD is a valid choice when uncertain - don't force buy/sell
-5. time_horizon:
-   - "Scalp Trading (Minutes/Hours)": ONLY RSI >75 or <25 with extreme volatility
-   - "Day Trading (Days)": Clear breakout/breakdown, 1-5 day play
-   - "Investment (Long-Term)": Strong fundamentals, dividends, hold months/years
-6. entry_zone, take_profit, stop_loss must be NUMBERS with currency symbol
-7. No objects, no arrays in prices
-8. Interest level: "Not Interesting" if fundamentally weak or bad technicals"""
+GUIDELINES:
+1. Analyze news carefully for sentiment (not just keywords)
+2. Composite >= 80: Strong Buy, >= 65: Buy, >= 45: Hold, >= 30: Sell, < 30: Strong Sell
+3. Interest level: "Not Interesting" if composite < 40
+4. Prices must be numbers with {currency_symbol}"""
         
         # Prepare messages for chat format
         messages = [
-            {"role": "system", "content": "You are a professional stock analyst. Output ONLY valid JSON. No markdown formatting."},
+            {"role": "system", "content": "You are a stock analyst validating AI-generated composite scores. Output ONLY valid JSON."},
             {"role": "user", "content": prompt}
         ]
         
@@ -315,8 +459,8 @@ IMPORTANT:
         with torch.no_grad():
             generated_ids = model.generate(
                 **model_inputs,
-                max_new_tokens=400,
-                temperature=0.3,  # Lower temperature for more consistent output
+                max_new_tokens=250,  # Reduced for faster generation
+                temperature=0.2,
                 do_sample=True,
                 top_p=0.9,
                 repetition_penalty=1.1
@@ -344,6 +488,12 @@ IMPORTANT:
         
         analysis = json.loads(response_text.strip())
         
+        # Extract sentiment and composite scores from Qwen's response
+        sentiment_score = analysis.get('sentiment_score', 50)
+        composite_score = analysis.get('composite_score', 50)
+        
+        print(f"  Qwen sentiment: {sentiment_score}, Composite: {composite_score} -> {analysis.get('recommendation', 'N/A')}")
+        
         # Validate and fix common issues
         currency_symbol = 'Rp' if stock_data.get('currency') == 'IDR' else '$'
         
@@ -365,12 +515,15 @@ IMPORTANT:
         print(f"  Error analyzing with Qwen for {ticker}: {e}")
         # Return a fallback analysis
         currency_symbol = 'Rp' if stock_data.get('currency') == 'IDR' else '$'
+        fallback_composite = int((50 * 0.33 + fundamental_score * 0.33 + technical_score * 0.34))
         return {
+            "sentiment_score": 50,
+            "composite_score": fallback_composite,
             "interest_level": "Interesting",
             "recommendation": "Hold",
-            "confidence_score": 50,
+            "confidence_score": fallback_composite,
             "time_horizon": "Investment (Long-Term)",
-            "reasoning": f"Technical analysis pending. RSI: {stock_data['rsi']}, Price near SMA(20).",
+            "reasoning": f"Analysis pending. Fundamental: {fundamental_score}, Technical: {technical_score}",
             "entry_zone": f"{currency_symbol}{stock_data['current_price']}",
             "take_profit": f"{currency_symbol}{round(stock_data['current_price'] * 1.08, 2)}",
             "stop_loss": f"{currency_symbol}{round(stock_data['current_price'] * 0.95, 2)}"
@@ -411,11 +564,11 @@ def main():
         
         results.append(result)
         
-        print(f"  ✓ {ticker}: {analysis['recommendation']} ({analysis['time_horizon']})")
+        print(f"  [OK] {ticker}: {analysis['recommendation']} ({analysis['time_horizon']})")
         
-        # Small delay between analyses (not needed for local model, but helps with stability)
+        # Small delay between analyses
         if idx < len(WATCHLIST):
-            time.sleep(0.5)  # Short delay for stability
+            time.sleep(0.5)
     
     # Save to docs/data.json
     output_dir = 'docs'
