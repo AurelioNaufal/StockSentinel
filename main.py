@@ -39,12 +39,24 @@ WATCHLIST = [
     "UNVR.JK",  # Unilever Indonesia
     "ICBP.JK",  # Indofood CBP
     "INDF.JK",  # Indofood
-    "KLBF.JK",  # Kalbe Farma
     "BBTN.JK",  # Bank Tabungan Negara
-    "ACES.JK",  # Ace Hardware
     "ADRO.JK",  # Adaro Energy
     "ANTM.JK",  # Aneka Tambang
     "INCO.JK",  # Vale Indonesia
+    "AALI.JK",  # Astra Agro Lestari
+    "INDR.JK",  # Indorama Synthetics
+    "SIDO.JK",  # Sido Muncul
+    "SSIA.JK",  # Surya Semesta Internusa
+    "MBMA.JK",  # Mitrabara Adiperdana
+    "TINS.JK",  # Timah
+    "AMRT.JK",  # Sumber Alfaria Trijaya (Alfamart)
+    "BUMI.JK",  # Bumi Resources
+    "HEXA.JK",  # Hexindo Adiperkasa
+    "BACA.JK",  # Bank Capital Indonesia
+    "NRCA.JK",  # Nusa Raya Cipta
+    "HALO.JK",  # Halo Teknologi Indonesia
+    "DOID.JK",  # Delta Dunia Makmur
+    "BLES.JK",  # Berkah Beton Sadaya
     
     # US Stocks
     "AAPL",     # Apple
@@ -54,7 +66,6 @@ WATCHLIST = [
     "NVDA",     # Nvidia
     "TSLA",     # Tesla
     "META",     # Meta
-    "JPM",      # JP Morgan
     "V",        # Visa
     "WMT",      # Walmart
     "DIS",      # Disney
@@ -63,6 +74,9 @@ WATCHLIST = [
     # Crypto (via Yahoo Finance)
     "BTC-USD",  # Bitcoin
     "ETH-USD",  # Ethereum
+    "XRP-USD",  # Ripple
+    "SOL-USD",  # Solana
+    "GC=F",     # Gold Futures (XAU)
 ]
 
 
@@ -201,6 +215,150 @@ def fetch_news(ticker):
     except Exception as e:
         print(f"  Error fetching news for {ticker}: {e}")
         return []
+
+
+def predict_price_trend(ticker, stock_data):
+    """Predict 6-month price trend using Random Forest with multiple features and backtesting."""
+    try:
+        from sklearn.ensemble import RandomForestRegressor
+        from sklearn.preprocessing import StandardScaler
+        
+        # Get 1 year historical data for better prediction
+        stock = yf.Ticker(ticker)
+        hist_1y = stock.history(period="1y")
+        
+        if len(hist_1y) < 60:
+            return None
+        
+        # Engineer features for better prediction
+        def create_features(data):
+            features = pd.DataFrame()
+            features['day'] = np.arange(len(data))
+            features['price'] = data['Close'].values
+            features['volume'] = data['Volume'].values
+            features['high'] = data['High'].values
+            features['low'] = data['Low'].values
+            
+            # Moving averages
+            features['ma5'] = data['Close'].rolling(window=5, min_periods=1).mean().values
+            features['ma10'] = data['Close'].rolling(window=10, min_periods=1).mean().values
+            features['ma20'] = data['Close'].rolling(window=20, min_periods=1).mean().values
+            
+            # Volatility (20-day standard deviation)
+            features['volatility'] = data['Close'].rolling(window=20, min_periods=1).std().values
+            
+            # Price momentum (rate of change)
+            features['momentum_5'] = data['Close'].pct_change(5).fillna(0).values
+            features['momentum_10'] = data['Close'].pct_change(10).fillna(0).values
+            
+            # Volume trend
+            features['volume_ma5'] = data['Volume'].rolling(window=5, min_periods=1).mean().values
+            
+            # Price range (high-low)
+            features['price_range'] = (data['High'] - data['Low']).values
+            
+            return features
+        
+        # Create feature set
+        features_df = create_features(hist_1y)
+        prices = hist_1y['Close'].values
+        
+        # Prepare training data
+        X = features_df.drop('price', axis=1).values
+        y = prices
+        
+        # Scale features for better performance
+        scaler = StandardScaler()
+        X_scaled = scaler.fit_transform(X)
+        
+        # Train Random Forest model on all data
+        model = RandomForestRegressor(
+            n_estimators=100,  # Number of trees
+            max_depth=10,      # Prevent overfitting
+            min_samples_split=5,
+            min_samples_leaf=2,
+            random_state=42,
+            n_jobs=-1          # Use all CPU cores
+        )
+        model.fit(X_scaled, y)
+        
+        # Predict next 6 months (126 trading days)
+        # Use last known values and extrapolate
+        last_row = features_df.iloc[-1].copy()
+        predictions = []
+        
+        for i in range(126):
+            # Update day feature
+            last_row['day'] = features_df['day'].iloc[-1] + i + 1
+            
+            # Prepare features (exclude price)
+            future_features = last_row.drop('price').values.reshape(1, -1)
+            future_scaled = scaler.transform(future_features)
+            
+            # Predict
+            pred_price = model.predict(future_scaled)[0]
+            predictions.append(pred_price)
+            
+            # Update rolling features for next iteration (simple approximation)
+            last_row['ma5'] = np.mean([last_row['price']] + predictions[-min(4, len(predictions)):])
+            last_row['ma10'] = np.mean([last_row['price']] + predictions[-min(9, len(predictions)):])
+            last_row['ma20'] = np.mean([last_row['price']] + predictions[-min(19, len(predictions)):])
+            last_row['price'] = pred_price
+        
+        current_price = stock_data['current_price']
+        predicted_6m = predictions[-1]
+        price_change_pct = ((predicted_6m - current_price) / current_price) * 100
+        
+        # Backtesting: Use first 9 months to predict last 3 months
+        if len(hist_1y) >= 189:  # Need ~9 months data
+            train_size = len(prices) - 63  # Use first 9 months
+            
+            X_train = X_scaled[:train_size]
+            y_train = y[:train_size]
+            X_test = X_scaled[train_size:]
+            y_test = y[train_size:]
+            
+            backtest_model = RandomForestRegressor(
+                n_estimators=100,
+                max_depth=10,
+                min_samples_split=5,
+                min_samples_leaf=2,
+                random_state=42,
+                n_jobs=-1
+            )
+            backtest_model.fit(X_train, y_train)
+            
+            # Predict test set
+            predicted_test = backtest_model.predict(X_test)
+            
+            # Calculate accuracy (MAPE - Mean Absolute Percentage Error)
+            mape = np.mean(np.abs((y_test - predicted_test) / y_test)) * 100
+            accuracy = max(0, 100 - mape)
+        else:
+            accuracy = None
+        
+        # Determine trend
+        if price_change_pct > 15:
+            trend = "Strong Uptrend"
+        elif price_change_pct > 5:
+            trend = "Uptrend"
+        elif price_change_pct > -5:
+            trend = "Sideways"
+        elif price_change_pct > -15:
+            trend = "Downtrend"
+        else:
+            trend = "Strong Downtrend"
+        
+        return {
+            'predicted_6m_price': round(predicted_6m, 2),
+            'price_change_pct': round(price_change_pct, 2),
+            'trend': trend,
+            'backtest_accuracy': round(accuracy, 2) if accuracy else None
+        }
+        
+    except Exception as e:
+        print(f"  Prediction error: {e}")
+        return None
 
 
 def calculate_fundamental_score(ticker, stock_data):
@@ -385,13 +543,25 @@ def analyze_with_qwen(ticker, stock_data, news):
         fundamental_score = calculate_fundamental_score(ticker, stock_data)
         technical_score = calculate_technical_score(stock_data)
         
+        # Predict price trend (6 months)
+        print(f"  Predicting 6-month price trend...")
+        prediction = predict_price_trend(ticker, stock_data)
+        
         print(f"  Scores - Fundamental: {fundamental_score}, Technical: {technical_score}")
+        if prediction:
+            print(f"  Prediction: {prediction['trend']} ({prediction['price_change_pct']:+.2f}%) to {prediction['predicted_6m_price']}")
+            if prediction['backtest_accuracy']:
+                print(f"  Backtest accuracy: {prediction['backtest_accuracy']:.2f}%")
         
         # Get currency symbol
         currency = stock_data.get('currency', 'USD')
         currency_symbol = 'Rp' if currency == 'IDR' else '$'
         
         # Prepare prompt with AI scoring insights
+        prediction_text = ""
+        if prediction:
+            prediction_text = f"\n6-MONTH PRICE PREDICTION:\n- Current: {currency_symbol}{stock_data['current_price']} → Predicted: {currency_symbol}{prediction['predicted_6m_price']}\n- Change: {prediction['price_change_pct']:+.2f}% ({prediction['trend']})\n- Backtest Accuracy: {prediction['backtest_accuracy']:.1f}%\n"
+        
         prompt = f"""You are an expert stock analyst. Analyze {ticker} using the provided scoring system.
 
 SCORING SYSTEM:
@@ -403,7 +573,7 @@ TECHNICAL DETAILS:
 - RSI: {stock_data['rsi']} | MACD: {stock_data['macd']} | Signal: {stock_data['macd_signal']}
 - SMA(20): {currency_symbol}{stock_data['sma_20']} | SMA(50): {currency_symbol}{stock_data['sma_50']}
 - Dividend Yield: {stock_data['dividend_yield']}%
-
+{prediction_text}
 RECENT NEWS HEADLINES:
 """
         for idx, article in enumerate(news, 1):
@@ -418,8 +588,9 @@ YOUR TASK:
    - 45-55: Neutral  
    - 55-70: Positive
    - 70-100: Very positive
-2. Calculate composite score: (sentiment*33% + fundamental*33% + technical*34%)
-3. Provide recommendation based on composite score
+2. Consider the 6-month price prediction trend in your analysis
+3. Calculate composite score: (sentiment*33% + fundamental*33% + technical*34%)
+4. Provide recommendation based on composite score AND predicted trend
 
 RESPOND WITH VALID JSON ONLY (no markdown):
 {{
@@ -429,7 +600,7 @@ RESPOND WITH VALID JSON ONLY (no markdown):
   "recommendation": "Strong Buy" or "Buy" or "Hold" or "Sell" or "Strong Sell",
   "confidence_score": Z (same as composite_score),
   "time_horizon": "Scalp Trading (Minutes/Hours)" or "Day Trading (Days)" or "Investment (Long-Term)",
-  "reasoning": "Brief explanation mentioning sentiment, fundamentals, technicals.",
+  "reasoning": "Brief explanation mentioning sentiment, fundamentals, technicals, and predicted trend.",
   "entry_zone": "{currency_symbol}X.XX-{currency_symbol}Y.YY",
   "take_profit": "{currency_symbol}X.XX",
   "stop_loss": "{currency_symbol}X.XX"
@@ -437,9 +608,10 @@ RESPOND WITH VALID JSON ONLY (no markdown):
 
 GUIDELINES:
 1. Analyze news carefully for sentiment (not just keywords)
-2. Composite >= 80: Strong Buy, >= 65: Buy, >= 45: Hold, >= 30: Sell, < 30: Strong Sell
-3. Interest level: "Not Interesting" if composite < 40
-4. Prices must be numbers with {currency_symbol}"""
+2. Consider predicted trend: Strong Uptrend/Uptrend = favor Buy, Downtrend = favor Sell
+3. Composite >= 80: Strong Buy, >= 65: Buy, >= 45: Hold, >= 30: Sell, < 30: Strong Sell
+4. Interest level: "Not Interesting" if composite < 40
+5. Prices must be numbers with {currency_symbol}"""
         
         # Prepare messages for chat format
         messages = [
@@ -509,6 +681,13 @@ GUIDELINES:
         if isinstance(analysis.get('stop_loss'), (dict, list)):
             analysis['stop_loss'] = f"{currency_symbol}{round(stock_data['current_price'] * 0.95, 2)}"
         
+        # Add prediction data to analysis
+        if prediction:
+            analysis['predicted_6m_price'] = prediction['predicted_6m_price']
+            analysis['price_change_pct'] = prediction['price_change_pct']
+            analysis['predicted_trend'] = prediction['trend']
+            analysis['backtest_accuracy'] = prediction['backtest_accuracy']
+        
         return analysis
         
     except Exception as e:
@@ -516,7 +695,11 @@ GUIDELINES:
         # Return a fallback analysis
         currency_symbol = 'Rp' if stock_data.get('currency') == 'IDR' else '$'
         fallback_composite = int((50 * 0.33 + fundamental_score * 0.33 + technical_score * 0.34))
-        return {
+        
+        # Try to get prediction even if Qwen fails
+        prediction_fallback = predict_price_trend(ticker, stock_data)
+        
+        fallback = {
             "sentiment_score": 50,
             "composite_score": fallback_composite,
             "interest_level": "Interesting",
@@ -528,6 +711,15 @@ GUIDELINES:
             "take_profit": f"{currency_symbol}{round(stock_data['current_price'] * 1.08, 2)}",
             "stop_loss": f"{currency_symbol}{round(stock_data['current_price'] * 0.95, 2)}"
         }
+        
+        # Add prediction if available
+        if prediction_fallback:
+            fallback['predicted_6m_price'] = prediction_fallback['predicted_6m_price']
+            fallback['price_change_pct'] = prediction_fallback['price_change_pct']
+            fallback['predicted_trend'] = prediction_fallback['trend']
+            fallback['backtest_accuracy'] = prediction_fallback['backtest_accuracy']
+        
+        return fallback
 
 
 def main():

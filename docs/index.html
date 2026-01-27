@@ -245,6 +245,21 @@
                             <span x-text="stock.time_horizon"></span>
                         </p>
                         
+                        <!-- 6-Month Prediction -->
+                        <template x-if="stock.predicted_6m_price">
+                            <div class="bg-blue-50 border border-blue-200 rounded p-2 mb-2 text-sm">
+                                <p class="font-semibold text-blue-800">📈 6-Month Prediction:</p>
+                                <p>
+                                    <span x-text="formatPrice(stock.predicted_6m_price, stock.currency)"></span>
+                                    <span :class="stock.price_change_pct > 0 ? 'text-green-600' : 'text-red-600'" class="font-semibold ml-1" x-text="(stock.price_change_pct > 0 ? '+' : '') + stock.price_change_pct + '%'"></span>
+                                </p>
+                                <p class="text-xs text-gray-600" x-text="stock.predicted_trend"></p>
+                                <p x-show="stock.backtest_accuracy" class="text-xs text-gray-500">
+                                    Accuracy: <span x-text="stock.backtest_accuracy + '%'"></span>
+                                </p>
+                            </div>
+                        </template>
+                        
                         <!-- Technical Indicators -->
                         <div class="grid grid-cols-2 gap-2 text-sm mb-3">
                             <div>
@@ -360,6 +375,42 @@
                             <h3 class="font-bold text-lg mb-2">💡 Analysis</h3>
                             <p class="text-gray-700" x-text="selectedStock.reasoning"></p>
                         </div>
+                        
+                        <!-- 6-Month Price Prediction -->
+                        <template x-if="selectedStock.predicted_6m_price">
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">🔮 6-Month Price Prediction</h3>
+                                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <p class="text-sm text-gray-600">Current Price</p>
+                                            <p class="text-2xl font-bold" x-text="formatPrice(selectedStock.current_price, selectedStock.currency)"></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-600">Predicted Price (6M)</p>
+                                            <p class="text-2xl font-bold" x-text="formatPrice(selectedStock.predicted_6m_price, selectedStock.currency)"></p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 pt-3 border-t border-blue-200">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm font-semibold">Expected Change:</span>
+                                            <span :class="selectedStock.price_change_pct > 0 ? 'text-green-600' : 'text-red-600'" class="text-lg font-bold" x-text="(selectedStock.price_change_pct > 0 ? '+' : '') + selectedStock.price_change_pct + '%'"></span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm font-semibold">Trend:</span>
+                                            <span class="text-sm font-bold text-blue-700" x-text="selectedStock.predicted_trend"></span>
+                                        </div>
+                                        <div x-show="selectedStock.backtest_accuracy" class="flex justify-between items-center">
+                                            <span class="text-sm font-semibold">Model Accuracy:</span>
+                                            <span class="text-sm font-bold text-purple-700" x-text="selectedStock.backtest_accuracy + '%'"></span>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 text-xs text-gray-500 italic">
+                                        ⚠️ Prediction based on Random Forest ML model with 100 trees analyzing price patterns, moving averages, volatility, and momentum. Past performance does not guarantee future results.
+                                    </p>
+                                </div>
+                            </div>
+                        </template>
                         
                         <!-- Trading Levels -->
                         <div>
