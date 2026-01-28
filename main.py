@@ -312,10 +312,13 @@ def predict_price_trend(ticker, stock_data):
             
             # Add volatility component (increases with time horizon)
             time_factor = np.sqrt((i + 1) / 252)  # Square root of time for volatility scaling
-            volatility_component = pred_price * daily_volatility * time_factor * 1.96  # 95% confidence
+            volatility_component = pred_price * daily_volatility * time_factor * 1.0  # Reduced from 1.96
             
-            # Combine model uncertainty with historical volatility
-            total_uncertainty = np.sqrt(pred_std**2 + volatility_component**2)
+            # Combine model uncertainty with historical volatility (cap at 15% of price)
+            total_uncertainty = min(
+                np.sqrt(pred_std**2 + volatility_component**2),
+                pred_price * 0.15  # Cap uncertainty at 15% of predicted price
+            )
             
             predictions.append(pred_price)
             prediction_upper.append(pred_price + total_uncertainty)
@@ -326,8 +329,8 @@ def predict_price_trend(ticker, stock_data):
             approx_date = last_date + pd.Timedelta(days=int(days_ahead * 365 / 252))
             prediction_dates.append(approx_date.strftime('%Y-%m-%d'))
             
-            # Update rolling features with some noise to add volatility
-            noise_factor = np.random.normal(1.0, daily_volatility * 0.5)  # Add realistic noise
+            # Update rolling features with small noise to add volatility
+            noise_factor = np.random.normal(1.0, daily_volatility * 0.3)  # Reduced from 0.5
             last_row['ma5'] = np.mean([last_row['price']] + predictions[-min(4, len(predictions)):]) * noise_factor
             last_row['ma10'] = np.mean([last_row['price']] + predictions[-min(9, len(predictions)):])
             last_row['ma20'] = np.mean([last_row['price']] + predictions[-min(19, len(predictions)):])

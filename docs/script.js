@@ -296,7 +296,7 @@ function stockApp() {
                     labels: dates,
                     datasets: [
                         {
-                            label: '95% Confidence Upper',
+                            label: 'Confidence Upper',
                             data: upper,
                             borderColor: 'rgba(59, 130, 246, 0.3)',
                             backgroundColor: 'rgba(59, 130, 246, 0.05)',
@@ -318,7 +318,7 @@ function stockApp() {
                             fill: false
                         },
                         {
-                            label: '95% Confidence Lower',
+                            label: 'Confidence Lower',
                             data: lower,
                             borderColor: 'rgba(59, 130, 246, 0.3)',
                             backgroundColor: 'rgba(59, 130, 246, 0.05)',
