@@ -287,6 +287,8 @@ function stockApp() {
             
             const dates = stock.prediction_graph.map(d => d.date);
             const predictions = stock.prediction_graph.map(d => d.price);
+            const upper = stock.prediction_graph.map(d => d.upper || d.price);
+            const lower = stock.prediction_graph.map(d => d.lower || d.price);
             
             this.predictionChart = new Chart(ctx, {
                 type: 'line',
@@ -294,7 +296,18 @@ function stockApp() {
                     labels: dates,
                     datasets: [
                         {
-                            label: '6-Month Prediction',
+                            label: '95% Confidence Upper',
+                            data: upper,
+                            borderColor: 'rgba(59, 130, 246, 0.3)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.05)',
+                            borderWidth: 1,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            fill: '+1',
+                            borderDash: [3, 3]
+                        },
+                        {
+                            label: 'Expected Price',
                             data: predictions,
                             borderColor: 'rgb(59, 130, 246)',
                             backgroundColor: 'rgba(59, 130, 246, 0.1)',
@@ -302,7 +315,18 @@ function stockApp() {
                             pointRadius: 3,
                             pointBackgroundColor: 'rgb(59, 130, 246)',
                             tension: 0.3,
-                            fill: true
+                            fill: false
+                        },
+                        {
+                            label: '95% Confidence Lower',
+                            data: lower,
+                            borderColor: 'rgba(59, 130, 246, 0.3)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.05)',
+                            borderWidth: 1,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            fill: false,
+                            borderDash: [3, 3]
                         }
                     ]
                 },
@@ -317,7 +341,7 @@ function stockApp() {
                             callbacks: {
                                 label: function(context) {
                                     const currency = stock.currency === 'IDR' ? 'Rp ' : '$';
-                                    return 'Predicted: ' + currency + context.parsed.y.toLocaleString();
+                                    return context.dataset.label + ': ' + currency + context.parsed.y.toLocaleString();
                                 }
                             }
                         }
