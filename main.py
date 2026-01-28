@@ -286,6 +286,10 @@ def predict_price_trend(ticker, stock_data):
         # Use last known values and extrapolate
         last_row = features_df.iloc[-1].copy()
         predictions = []
+        prediction_dates = []
+        
+        # Get the last date from historical data
+        last_date = hist_1y.index[-1]
         
         for i in range(126):
             # Update day feature
@@ -299,6 +303,11 @@ def predict_price_trend(ticker, stock_data):
             pred_price = model.predict(future_scaled)[0]
             predictions.append(pred_price)
             
+            # Calculate approximate date (assuming ~252 trading days/year)
+            days_ahead = i + 1
+            approx_date = last_date + pd.Timedelta(days=int(days_ahead * 365 / 252))
+            prediction_dates.append(approx_date.strftime('%Y-%m-%d'))
+            
             # Update rolling features for next iteration (simple approximation)
             last_row['ma5'] = np.mean([last_row['price']] + predictions[-min(4, len(predictions)):])
             last_row['ma10'] = np.mean([last_row['price']] + predictions[-min(9, len(predictions)):])
@@ -310,6 +319,7 @@ def predict_price_trend(ticker, stock_data):
         price_change_pct = ((predicted_6m - current_price) / current_price) * 100
         
         # Backtesting: Use first 9 months to predict last 3 months
+        backtest_results = None
         if len(hist_1y) >= 189:  # Need ~9 months data
             train_size = len(prices) - 63  # Use first 9 months
             
@@ -331,9 +341,19 @@ def predict_price_trend(ticker, stock_data):
             # Predict test set
             predicted_test = backtest_model.predict(X_test)
             
-            # Calculate accuracy (MAPE - Mean Absolute Percentage Error)
+            # Calculate MAPE
             mape = np.mean(np.abs((y_test - predicted_test) / y_test)) * 100
             accuracy = max(0, 100 - mape)
+            
+            # Prepare backtest data for visualization
+            backtest_dates = [hist_1y.index[train_size + i].strftime('%Y-%m-%d') for i in range(len(y_test))]
+            backtest_results = {
+                'dates': backtest_dates,
+                'actual': [round(float(val), 2) for val in y_test],
+                'predicted': [round(float(val), 2) for val in predicted_test],
+                'mape': round(mape, 2),
+                'accuracy': round(accuracy, 2)
+            }
         else:
             accuracy = None
         
@@ -349,11 +369,27 @@ def predict_price_trend(ticker, stock_data):
         else:
             trend = "Strong Downtrend"
         
+        # Prepare prediction graph data (sample every 5 days to reduce data size)
+        prediction_graph = []
+        for i in range(0, len(predictions), 5):  # Every 5 days
+            prediction_graph.append({
+                'date': prediction_dates[i],
+                'price': round(predictions[i], 2)
+            })
+        # Always include the last prediction
+        if len(predictions) % 5 != 1:
+            prediction_graph.append({
+                'date': prediction_dates[-1],
+                'price': round(predictions[-1], 2)
+            })
+        
         return {
             'predicted_6m_price': round(predicted_6m, 2),
             'price_change_pct': round(price_change_pct, 2),
             'trend': trend,
-            'backtest_accuracy': round(accuracy, 2) if accuracy else None
+            'backtest_accuracy': round(accuracy, 2) if accuracy else None,
+            'prediction_graph': prediction_graph,  # Array of {date, price}
+            'backtest_results': backtest_results   # Actual vs predicted with MAPE
         }
         
     except Exception as e:
@@ -687,6 +723,8 @@ GUIDELINES:
             analysis['price_change_pct'] = prediction['price_change_pct']
             analysis['predicted_trend'] = prediction['trend']
             analysis['backtest_accuracy'] = prediction['backtest_accuracy']
+            analysis['prediction_graph'] = prediction['prediction_graph']
+            analysis['backtest_results'] = prediction['backtest_results']
         
         return analysis
         
@@ -718,6 +756,8 @@ GUIDELINES:
             fallback['price_change_pct'] = prediction_fallback['price_change_pct']
             fallback['predicted_trend'] = prediction_fallback['trend']
             fallback['backtest_accuracy'] = prediction_fallback['backtest_accuracy']
+            fallback['prediction_graph'] = prediction_fallback['prediction_graph']
+            fallback['backtest_results'] = prediction_fallback['backtest_results']
         
         return fallback
 

@@ -20,6 +20,8 @@ function stockApp() {
         lastUpdated: 'Loading...',
         totalAssets: 0,
         currentChart: null,
+        predictionChart: null,
+        backtestChart: null,
         chartTimeframe: '6M',
         
         // API Rate Limiting
@@ -152,9 +154,15 @@ function stockApp() {
         // Show stock details
         showDetails(stock) {
             this.selectedStock = stock;
-            // Cleanup previous chart if exists
+            // Cleanup previous charts if exist
             if (this.currentChart) {
                 this.currentChart.destroy();
+            }
+            if (this.predictionChart) {
+                this.predictionChart.destroy();
+            }
+            if (this.backtestChart) {
+                this.backtestChart.destroy();
             }
         },
         
@@ -263,6 +271,157 @@ function stockApp() {
                 maximumFractionDigits: currency === 'IDR' ? 0 : 2
             });
             return symbol + formatted;
+        },
+        
+        // Render prediction chart
+        renderPredictionChart(stock) {
+            if (!stock.prediction_graph || stock.prediction_graph.length === 0) return;
+            
+            const ctx = document.getElementById('prediction-chart-' + stock.ticker);
+            if (!ctx) return;
+            
+            // Cleanup previous chart
+            if (this.predictionChart) {
+                this.predictionChart.destroy();
+            }
+            
+            const dates = stock.prediction_graph.map(d => d.date);
+            const predictions = stock.prediction_graph.map(d => d.price);
+            
+            this.predictionChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [
+                        {
+                            label: '6-Month Prediction',
+                            data: predictions,
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            borderWidth: 3,
+                            pointRadius: 3,
+                            pointBackgroundColor: 'rgb(59, 130, 246)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const currency = stock.currency === 'IDR' ? 'Rp ' : '$';
+                                    return 'Predicted: ' + currency + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: true,
+                            ticks: {
+                                maxTicksLimit: 6
+                            }
+                        },
+                        y: {
+                            display: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return stock.currency === 'IDR' ? 
+                                        'Rp ' + value.toLocaleString() : 
+                                        '$' + value.toFixed(2);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        },
+        
+        // Render backtest chart
+        renderBacktestChart(stock) {
+            if (!stock.backtest_results || !stock.backtest_results.dates) return;
+            
+            const ctx = document.getElementById('backtest-chart-' + stock.ticker);
+            if (!ctx) return;
+            
+            // Cleanup previous chart
+            if (this.backtestChart) {
+                this.backtestChart.destroy();
+            }
+            
+            const dates = stock.backtest_results.dates;
+            const actual = stock.backtest_results.actual;
+            const predicted = stock.backtest_results.predicted;
+            
+            this.backtestChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [
+                        {
+                            label: 'Actual Price',
+                            data: actual,
+                            borderColor: 'rgb(34, 197, 94)',
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            pointRadius: 2,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Predicted Price',
+                            data: predicted,
+                            borderColor: 'rgb(249, 115, 22)',
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            pointRadius: 2,
+                            borderDash: [5, 5],
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const currency = stock.currency === 'IDR' ? 'Rp ' : '$';
+                                    return context.dataset.label + ': ' + currency + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: true,
+                            ticks: {
+                                maxTicksLimit: 8
+                            }
+                        },
+                        y: {
+                            display: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return stock.currency === 'IDR' ? 
+                                        'Rp ' + value.toLocaleString() : 
+                                        '$' + value.toFixed(2);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         },
         
         // Sleep utility
