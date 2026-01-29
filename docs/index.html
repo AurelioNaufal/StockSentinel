@@ -385,7 +385,7 @@
                                 <template x-if="selectedStock.prediction_graph && selectedStock.prediction_graph.length > 0">
                                     <div class="bg-gray-50 rounded-lg p-4 mb-4">
                                         <p class="text-xs text-gray-600 mb-2">
-                                            � 6-month price forecast based on Random Forest analysis of historical patterns
+                                            📈 6-month forecast with confidence interval. Shaded area shows expected price range (capped at ±8% for stability).
                                         </p>
                                         <canvas :id="'prediction-chart-' + selectedStock.ticker" 
                                                 x-init="$nextTick(() => renderPredictionChart(selectedStock))"

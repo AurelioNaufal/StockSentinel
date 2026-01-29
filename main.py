@@ -337,8 +337,15 @@ def predict_price_trend(ticker, stock_data):
         
         # Multi-step prediction with model updates
         predictions = []
+        prediction_upper = []
+        prediction_lower = []
         prediction_dates = []
         last_date = hist_2y.index[-1]
+        
+        # Get baseline statistics for constraints
+        base_price = stock_data['current_price']
+        historical_returns = pd.Series(hist_2y['Close'].values).pct_change().dropna()
+        daily_volatility = historical_returns.std()
         
         # Start with last known features
         current_features = features_df.tail(sequence_length).copy()
@@ -358,7 +365,29 @@ def predict_price_trend(ticker, stock_data):
             # Predict next price
             X_future = scaler.transform([agg_features])
             pred_price = model.predict(X_future)[0]
+            
+            # Apply soft constraint to prevent exponential growth
+            # Allow max ±25% deviation from base price over 6 months
+            max_deviation = base_price * 0.25
+            time_factor = (i + 1) / 126  # 0 to 1 over 6 months
+            max_price = base_price + (max_deviation * time_factor)
+            min_price = base_price - (max_deviation * time_factor)
+            
+            # Apply constraint with smoothing
+            if pred_price > max_price:
+                pred_price = max_price - (max_price - pred_price) * 0.1  # Soft cap
+            elif pred_price < min_price:
+                pred_price = min_price + (pred_price - min_price) * 0.1  # Soft floor
+            
             predictions.append(pred_price)
+            
+            # Calculate confidence interval based on historical volatility
+            # Fixed width based on base price, not predicted price
+            uncertainty = base_price * daily_volatility * np.sqrt(i + 1) * 1.5
+            uncertainty = min(uncertainty, base_price * 0.08)  # Cap at 8% of base price
+            
+            prediction_upper.append(pred_price + uncertainty)
+            prediction_lower.append(pred_price - uncertainty)
             
             # Calculate date
             days_ahead = i + 1
@@ -389,8 +418,10 @@ def predict_price_trend(ticker, stock_data):
             # Update momentum
             for period in [5, 10, 20]:
                 if len(recent_prices) > period:
-                    new_row[f'momentum_{period}'] = (recent_prices[-1] - recent_prices[-period-1]) / recent_prices[-period-1]
-                    new_row[f'roc_{period}'] = new_row[f'momentum_{period}']
+                    momentum = (recent_prices[-1] - recent_prices[-period-1]) / recent_prices[-period-1]
+                    momentum = np.clip(momentum, -0.05, 0.05)  # Cap momentum at ±5%
+                    new_row[f'momentum_{period}'] = momentum
+                    new_row[f'roc_{period}'] = momentum
                 else:
                     new_row[f'momentum_{period}'] = 0
                     new_row[f'roc_{period}'] = 0
@@ -479,13 +510,17 @@ def predict_price_trend(ticker, stock_data):
         for i in range(0, len(predictions), 5):  # Every 5 days
             prediction_graph.append({
                 'date': prediction_dates[i],
-                'price': round(predictions[i], 2)
+                'price': round(predictions[i], 2),
+                'upper': round(prediction_upper[i], 2),
+                'lower': round(prediction_lower[i], 2)
             })
         # Always include the last prediction
         if len(predictions) % 5 != 1:
             prediction_graph.append({
                 'date': prediction_dates[-1],
-                'price': round(predictions[-1], 2)
+                'price': round(predictions[-1], 2),
+                'upper': round(prediction_upper[-1], 2),
+                'lower': round(prediction_lower[-1], 2)
             })
         
         return {
