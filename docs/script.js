@@ -308,31 +308,18 @@ function stockApp() {
             const upper = stock.prediction_graph.map(d => d.upper || d.price);
             const lower = stock.prediction_graph.map(d => d.lower || d.price);
             
-            // Calculate proper Y-axis range to prevent scale issues
-            const allPrices = [...predictions, ...upper, ...lower];
-            const minPrice = Math.min(...allPrices);
-            const maxPrice = Math.max(...allPrices);
+            // Calculate Y-axis range based on current price with fixed percentage
             const currentPrice = stock.current_price;
+            const allPrices = [...predictions, ...upper, ...lower];
+            const minPrice = Math.min(...allPrices, currentPrice);
+            const maxPrice = Math.max(...allPrices, currentPrice);
             
-            // Ensure minimum range of 5% of current price to prevent narrow scaling
-            const minRange = currentPrice * 0.05;
-            let range = maxPrice - minPrice;
+            // Use 10% range around the actual min/max to prevent squishing
+            const range = maxPrice - minPrice;
+            const padding = Math.max(range * 0.15, currentPrice * 0.02); // At least 2% of price
             
-            if (range < minRange) {
-                // Expand range symmetrically around the center
-                const center = (maxPrice + minPrice) / 2;
-                const expandedMin = center - (minRange / 2);
-                const expandedMax = center + (minRange / 2);
-                const padding = minRange * 0.2; // 20% padding on expanded range
-                
-                var finalMin = expandedMin - padding;
-                var finalMax = expandedMax + padding;
-            } else {
-                // Use actual range with 10% padding
-                const padding = range * 0.1;
-                var finalMin = minPrice - padding;
-                var finalMax = maxPrice + padding;
-            }
+            const finalMin = minPrice - padding;
+            const finalMax = maxPrice + padding;
             
             this.predictionChart = new Chart(ctx, {
                 type: 'line',
@@ -401,9 +388,10 @@ function stockApp() {
                         },
                         y: {
                             display: true,
-                            min: finalMin,
-                            max: finalMax,
+                            suggestedMin: finalMin,
+                            suggestedMax: finalMax,
                             ticks: {
+                                maxTicksLimit: 8,
                                 callback: function(value) {
                                     return stock.currency === 'IDR' ? 
                                         'Rp ' + value.toLocaleString() : 

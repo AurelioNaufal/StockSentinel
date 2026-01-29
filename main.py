@@ -517,9 +517,10 @@ def predict_price_trend(ticker, stock_data):
         else:
             trend = "Strong Downtrend"
         
-        # Prepare prediction graph data (sample every 5 days to reduce data size)
+        # Prepare prediction graph data (sample every week to reduce data size and lag)
         prediction_graph = []
-        for i in range(0, len(predictions), 5):  # Every 5 days
+        step = max(1, len(predictions) // 20)  # ~20 data points max
+        for i in range(0, len(predictions), step):
             prediction_graph.append({
                 'date': prediction_dates[i],
                 'price': round(predictions[i], 2),
@@ -527,7 +528,7 @@ def predict_price_trend(ticker, stock_data):
                 'lower': round(prediction_lower[i], 2)
             })
         # Always include the last prediction
-        if len(predictions) % 5 != 1:
+        if (len(predictions) - 1) % step != 0:
             prediction_graph.append({
                 'date': prediction_dates[-1],
                 'price': round(predictions[-1], 2),
