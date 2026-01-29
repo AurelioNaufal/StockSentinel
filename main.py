@@ -380,10 +380,9 @@ def predict_price_trend(ticker, stock_data):
             
             predictions.append(pred_price)
             
-            # Calculate confidence interval with STRICT bounds to prevent Y-axis expansion
-            # Use smaller, fixed uncertainty based on base price only
-            uncertainty = base_price * daily_volatility * np.sqrt(i + 1) * 1.2
-            uncertainty = min(uncertainty, base_price * 0.05)  # Cap at 5% of base price (reduced from 8%)
+            # FIXED uncertainty band - does NOT grow over time to prevent Y-axis expansion
+            # Use a constant 3% band around predictions
+            uncertainty = base_price * 0.03  # Fixed 3% of base price
             
             # Apply bounds to BOTH prediction and uncertainty
             upper_bound = pred_price + uncertainty
