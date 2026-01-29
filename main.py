@@ -310,27 +310,29 @@ def predict_price_trend(ticker, stock_data):
             pred_price = np.mean(tree_predictions)
             pred_std = np.std(tree_predictions)
             
-            # Add volatility component (increases with time horizon)
-            time_factor = np.sqrt((i + 1) / 252)  # Square root of time for volatility scaling
-            volatility_component = pred_price * daily_volatility * time_factor * 1.0  # Reduced from 1.96
+            # Calculate a conservative uncertainty band (±5-10% based on volatility)
+            # Cap it to prevent extreme values
+            base_uncertainty = pred_price * daily_volatility * 2.0  # ~2 standard deviations
+            time_adjusted = base_uncertainty * (1 + 0.3 * np.sqrt((i + 1) / 126))  # Gentle growth
             
-            # Combine model uncertainty with historical volatility (cap at 15% of price)
+            # Combine with model uncertainty and cap at 10% of price
             total_uncertainty = min(
-                np.sqrt(pred_std**2 + volatility_component**2),
-                pred_price * 0.15  # Cap uncertainty at 15% of predicted price
+                pred_std + time_adjusted,
+                pred_price * 0.10  # Cap at 10% of predicted price
             )
             
             predictions.append(pred_price)
             prediction_upper.append(pred_price + total_uncertainty)
-            prediction_lower.append(max(0, pred_price - total_uncertainty))  # Price can't be negative
+            prediction_lower.append(max(pred_price * 0.5, pred_price - total_uncertainty))  # Don't go below 50% of price
             
             # Calculate approximate date (assuming ~252 trading days/year)
             days_ahead = i + 1
             approx_date = last_date + pd.Timedelta(days=int(days_ahead * 365 / 252))
             prediction_dates.append(approx_date.strftime('%Y-%m-%d'))
             
-            # Update rolling features with small noise to add volatility
-            noise_factor = np.random.normal(1.0, daily_volatility * 0.3)  # Reduced from 0.5
+            # Update rolling features with minimal noise to prevent compounding
+            noise_factor = np.random.normal(1.0, daily_volatility * 0.1)  # Very small noise
+            noise_factor = np.clip(noise_factor, 0.98, 1.02)  # Limit to ±2%
             last_row['ma5'] = np.mean([last_row['price']] + predictions[-min(4, len(predictions)):]) * noise_factor
             last_row['ma10'] = np.mean([last_row['price']] + predictions[-min(9, len(predictions)):])
             last_row['ma20'] = np.mean([last_row['price']] + predictions[-min(19, len(predictions)):])

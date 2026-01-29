@@ -385,7 +385,7 @@
                                 <template x-if="selectedStock.prediction_graph && selectedStock.prediction_graph.length > 0">
                                     <div class="bg-gray-50 rounded-lg p-4 mb-4">
                                         <p class="text-xs text-gray-600 mb-2">
-                                            📊 Shaded area shows confidence interval (model uncertainty + historical volatility, capped at ±15%)
+                                            📊 Shaded area shows confidence interval based on model uncertainty + historical volatility (capped at ±10%)
                                         </p>
                                         <canvas :id="'prediction-chart-' + selectedStock.ticker" 
                                                 x-init="$nextTick(() => renderPredictionChart(selectedStock))"
