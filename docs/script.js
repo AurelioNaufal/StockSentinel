@@ -388,8 +388,10 @@ function stockApp() {
                         },
                         y: {
                             display: true,
-                            suggestedMin: finalMin,
-                            suggestedMax: finalMax,
+                            min: finalMin,
+                            max: finalMax,
+                            beginAtZero: false,
+                            grace: 0,
                             ticks: {
                                 maxTicksLimit: 8,
                                 callback: function(value) {
