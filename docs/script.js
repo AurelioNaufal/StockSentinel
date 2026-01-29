@@ -113,6 +113,24 @@ function stockApp() {
                         s.time_horizon && s.time_horizon.includes('Scalp Trading')
                     );
                     break;
+                
+                case 'undervalued':
+                    filtered = filtered.filter(s => 
+                        s.valuation_status === 'Undervalued'
+                    );
+                    break;
+                    
+                case 'fair-valued':
+                    filtered = filtered.filter(s => 
+                        s.valuation_status === 'Fair-Valued'
+                    );
+                    break;
+                    
+                case 'overvalued':
+                    filtered = filtered.filter(s => 
+                        s.valuation_status === 'Overvalued'
+                    );
+                    break;
                     
                 default:
                     // 'all' - already filtered by market

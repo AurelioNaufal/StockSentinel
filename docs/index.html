@@ -190,6 +190,29 @@
                 >
                     💰 Dividend Gems
                 </button>
+                
+                <p class="text-sm font-semibold text-gray-600 w-full mt-2 mb-1">Valuation:</p>
+                <button 
+                    @click="applyFilter('undervalued', null, null)"
+                    :class="activeFilter === 'undervalued' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'"
+                    class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
+                >
+                    🔽 Undervalued
+                </button>
+                <button 
+                    @click="applyFilter('fair-valued', null, null)"
+                    :class="activeFilter === 'fair-valued' ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-gray-700'"
+                    class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
+                >
+                    ⚖️ Fair-Valued
+                </button>
+                <button 
+                    @click="applyFilter('overvalued', null, null)"
+                    :class="activeFilter === 'overvalued' ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-700'"
+                    class="px-4 py-2 rounded-lg font-semibold transition hover:opacity-80"
+                >
+                    🔼 Overvalued
+                </button>
             </div>
         </div>
     </section>
@@ -234,6 +257,18 @@
                                 class="px-3 py-1 rounded-full text-xs font-bold uppercase"
                                 x-text="stock.recommendation"
                             ></span>
+                            <!-- Valuation Badge -->
+                            <template x-if="stock.valuation_status">
+                                <span 
+                                    :class="{
+                                        'bg-green-100 text-green-800 border-green-300': stock.valuation_status === 'Undervalued',
+                                        'bg-yellow-100 text-yellow-800 border-yellow-300': stock.valuation_status === 'Fair-Valued',
+                                        'bg-red-100 text-red-800 border-red-300': stock.valuation_status === 'Overvalued'
+                                    }"
+                                    class="px-2 py-1 rounded-full text-xs font-bold uppercase border"
+                                    x-text="stock.valuation_status"
+                                ></span>
+                            </template>
                             <span class="text-sm text-gray-600">
                                 <span x-text="stock.confidence_score"></span>%
                             </span>
@@ -360,6 +395,18 @@
                                     class="px-4 py-2 rounded-lg text-sm font-bold uppercase"
                                     x-text="selectedStock.recommendation"
                                 ></span>
+                                <!-- Valuation Badge in Modal -->
+                                <template x-if="selectedStock.valuation_status">
+                                    <span 
+                                        :class="{
+                                            'bg-green-100 text-green-800 border-2 border-green-400': selectedStock.valuation_status === 'Undervalued',
+                                            'bg-yellow-100 text-yellow-800 border-2 border-yellow-400': selectedStock.valuation_status === 'Fair-Valued',
+                                            'bg-red-100 text-red-800 border-2 border-red-400': selectedStock.valuation_status === 'Overvalued'
+                                        }"
+                                        class="px-4 py-2 rounded-lg text-sm font-bold uppercase"
+                                        x-text="selectedStock.valuation_status"
+                                    ></span>
+                                </template>
                                 <span class="text-gray-600">
                                     <span x-text="selectedStock.confidence_score"></span>% confidence
                                 </span>
@@ -368,6 +415,43 @@
                                 <span class="font-semibold">Time Horizon:</span>
                                 <span x-text="selectedStock.time_horizon"></span>
                             </p>
+                            
+                            <!-- Valuation Details -->
+                            <template x-if="selectedStock.valuation_details && Object.keys(selectedStock.valuation_details).length > 0">
+                                <div class="mt-3 bg-gray-50 rounded-lg p-3">
+                                    <h4 class="font-semibold text-sm mb-2">📋 Valuation Ratios</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-xs">
+                                        <template x-if="selectedStock.valuation_details.pe_ratio">
+                                            <div>
+                                                <span class="text-gray-600">P/E:</span>
+                                                <span class="font-semibold ml-1" x-text="selectedStock.valuation_details.pe_ratio"></span>
+                                                <span class="text-gray-500 ml-1" x-text="'(' + selectedStock.valuation_details.pe_signal + ')'"></span>
+                                            </div>
+                                        </template>
+                                        <template x-if="selectedStock.valuation_details.pb_ratio">
+                                            <div>
+                                                <span class="text-gray-600">P/B:</span>
+                                                <span class="font-semibold ml-1" x-text="selectedStock.valuation_details.pb_ratio"></span>
+                                                <span class="text-gray-500 ml-1" x-text="'(' + selectedStock.valuation_details.pb_signal + ')'"></span>
+                                            </div>
+                                        </template>
+                                        <template x-if="selectedStock.valuation_details.peg_ratio">
+                                            <div>
+                                                <span class="text-gray-600">PEG:</span>
+                                                <span class="font-semibold ml-1" x-text="selectedStock.valuation_details.peg_ratio"></span>
+                                                <span class="text-gray-500 ml-1" x-text="'(' + selectedStock.valuation_details.peg_signal + ')'"></span>
+                                            </div>
+                                        </template>
+                                        <template x-if="selectedStock.valuation_details.ps_ratio">
+                                            <div>
+                                                <span class="text-gray-600">P/S:</span>
+                                                <span class="font-semibold ml-1" x-text="selectedStock.valuation_details.ps_ratio"></span>
+                                                <span class="text-gray-500 ml-1" x-text="'(' + selectedStock.valuation_details.ps_signal + ')'"></span>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
                         </div>
                         
                         <!-- Reasoning -->

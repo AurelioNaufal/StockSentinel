@@ -6,9 +6,8 @@ torch>=2.0.0
 accelerate
 sentencepiece
 duckduckgo-search
-ddgs
 newspaper3k
 lxml_html_clean
 requests
-scipy
+scipy==1.11.0
 scikit-learn

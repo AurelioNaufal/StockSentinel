@@ -5,7 +5,6 @@ import yfinance as yf
 import pandas as pd
 import ta
 from duckduckgo_search import DDGS
-from ddgs import DDGS
 from newspaper import Article
 from datetime import datetime, timedelta
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -490,8 +489,6 @@ def predict_price_trend(ticker, stock_data):
                 'mape': round(mape, 2),
                 'accuracy': round(accuracy, 2)
             }
-        else:
-            accuracy = None
         
         # Determine trend
         if price_change_pct > 15:
@@ -538,26 +535,66 @@ def predict_price_trend(ticker, stock_data):
 
 
 def calculate_fundamental_score(ticker, stock_data):
-    """Calculate fundamental score 0-100 based on financial metrics."""
+    """Calculate fundamental score 0-100 including comprehensive valuation metrics."""
     try:
         stock = yf.Ticker(ticker)
         info = stock.info
         
         scores = []
         
+        # VALUATION METRICS (40% weight - most important for buy/sell decisions)
+        
         # 1. P/E Ratio (lower is better, typical range 10-30)
         pe = info.get('trailingPE', None) or info.get('forwardPE', None)
         if pe and pe > 0:
             if pe < 15:
-                scores.append(90)  # Undervalued
+                scores.append(95)  # Undervalued
             elif pe < 25:
                 scores.append(70)  # Fair
             elif pe < 40:
-                scores.append(50)  # Expensive
+                scores.append(45)  # Expensive
             else:
-                scores.append(30)  # Overvalued
+                scores.append(25)  # Overvalued
         
-        # 2. ROE (Return on Equity) - higher is better
+        # 2. P/B Ratio (Price to Book) - lower is better
+        pb = info.get('priceToBook', None)
+        if pb and pb > 0:
+            if pb < 1:
+                scores.append(95)  # Undervalued (trading below book value)
+            elif pb < 3:
+                scores.append(70)  # Fair
+            elif pb < 5:
+                scores.append(45)  # Expensive
+            else:
+                scores.append(25)  # Overvalued
+        
+        # 3. PEG Ratio (P/E to Growth) - best overall valuation metric
+        peg = info.get('pegRatio', None)
+        if peg and peg > 0:
+            if peg < 1:
+                scores.append(95)  # Undervalued (growth justifies price)
+            elif peg < 2:
+                scores.append(70)  # Fair
+            elif peg < 3:
+                scores.append(45)  # Expensive
+            else:
+                scores.append(25)  # Overvalued
+        
+        # 4. P/S Ratio (Price to Sales) - lower is better
+        ps = info.get('priceToSalesTrailing12Months', None)
+        if ps and ps > 0:
+            if ps < 1:
+                scores.append(90)  # Undervalued
+            elif ps < 3:
+                scores.append(70)  # Fair
+            elif ps < 5:
+                scores.append(45)  # Expensive
+            else:
+                scores.append(25)  # Overvalued
+        
+        # PROFITABILITY METRICS (30% weight)
+        
+        # 5. ROE (Return on Equity) - higher is better
         roe = info.get('returnOnEquity', None)
         if roe:
             roe_pct = roe * 100
@@ -570,19 +607,7 @@ def calculate_fundamental_score(ticker, stock_data):
             else:
                 scores.append(40)
         
-        # 3. Debt to Equity (lower is better)
-        debt_to_equity = info.get('debtToEquity', None)
-        if debt_to_equity is not None:
-            if debt_to_equity < 50:
-                scores.append(90)
-            elif debt_to_equity < 100:
-                scores.append(70)
-            elif debt_to_equity < 200:
-                scores.append(50)
-            else:
-                scores.append(30)
-        
-        # 4. Profit Margins (higher is better)
+        # 6. Profit Margins (higher is better)
         profit_margin = info.get('profitMargins', None)
         if profit_margin:
             margin_pct = profit_margin * 100
@@ -595,7 +620,23 @@ def calculate_fundamental_score(ticker, stock_data):
             else:
                 scores.append(30)
         
-        # 5. Revenue Growth (YoY)
+        # FINANCIAL HEALTH (20% weight)
+        
+        # 7. Debt to Equity (lower is better)
+        debt_to_equity = info.get('debtToEquity', None)
+        if debt_to_equity is not None:
+            if debt_to_equity < 50:
+                scores.append(90)
+            elif debt_to_equity < 100:
+                scores.append(70)
+            elif debt_to_equity < 200:
+                scores.append(50)
+            else:
+                scores.append(30)
+        
+        # GROWTH METRICS (10% weight)
+        
+        # 8. Revenue Growth (YoY)
         revenue_growth = info.get('revenueGrowth', None)
         if revenue_growth:
             growth_pct = revenue_growth * 100
@@ -608,21 +649,117 @@ def calculate_fundamental_score(ticker, stock_data):
             else:
                 scores.append(40)
         
-        # 6. Dividend Yield (bonus points)
+        # 9. Dividend Yield (bonus for income investors)
         if stock_data.get('dividend_yield', 0) > 3:
-            scores.append(85)
+            scores.append(80)
         elif stock_data.get('dividend_yield', 0) > 1:
-            scores.append(65)
+            scores.append(60)
         
-        # Average all available scores
+        # Calculate weighted average
         if scores:
-            return round(np.mean(scores), 2)
+            base_score = round(np.mean(scores), 2)
+            
+            # Apply valuation status modifier (if we have it)
+            valuation_status, _ = calculate_valuation_status(ticker)
+            
+            # Boost/penalize based on overall valuation
+            if valuation_status == 'Undervalued':
+                base_score = min(100, base_score + 5)  # +5 bonus
+            elif valuation_status == 'Overvalued':
+                base_score = max(0, base_score - 5)  # -5 penalty
+            
+            return round(base_score, 2)
         else:
             return 50  # Neutral if no data
             
     except Exception as e:
         print(f"  Fundamental scoring error: {e}")
         return 50
+
+
+def calculate_valuation_status(ticker):
+    """Determine if stock is undervalued, overvalued, or fairly valued based on multiple ratios."""
+    try:
+        stock = yf.Ticker(ticker)
+        info = stock.info
+        
+        valuation_signals = []
+        details = {}
+        
+        # 1. P/E Ratio Analysis
+        pe_ratio = info.get('trailingPE') or info.get('forwardPE')
+        if pe_ratio and pe_ratio > 0:
+            details['pe_ratio'] = round(pe_ratio, 2)
+            if pe_ratio < 15:
+                valuation_signals.append(-1)  # Undervalued
+                details['pe_signal'] = 'Low (Undervalued)'
+            elif pe_ratio > 25:
+                valuation_signals.append(1)  # Overvalued
+                details['pe_signal'] = 'High (Overvalued)'
+            else:
+                valuation_signals.append(0)  # Fair
+                details['pe_signal'] = 'Fair'
+        
+        # 2. P/B Ratio (Price-to-Book)
+        pb_ratio = info.get('priceToBook')
+        if pb_ratio and pb_ratio > 0:
+            details['pb_ratio'] = round(pb_ratio, 2)
+            if pb_ratio < 1:
+                valuation_signals.append(-1)  # Undervalued
+                details['pb_signal'] = 'Low (Undervalued)'
+            elif pb_ratio > 3:
+                valuation_signals.append(1)  # Overvalued
+                details['pb_signal'] = 'High (Overvalued)'
+            else:
+                valuation_signals.append(0)
+                details['pb_signal'] = 'Fair'
+        
+        # 3. PEG Ratio (P/E to Growth) - Best indicator if growth is positive
+        peg_ratio = info.get('pegRatio')
+        if peg_ratio and peg_ratio > 0:
+            details['peg_ratio'] = round(peg_ratio, 2)
+            if peg_ratio < 1:
+                valuation_signals.append(-1)  # Undervalued
+                details['peg_signal'] = 'Low (Undervalued)'
+            elif peg_ratio > 2:
+                valuation_signals.append(1)  # Overvalued
+                details['peg_signal'] = 'High (Overvalued)'
+            else:
+                valuation_signals.append(0)
+                details['peg_signal'] = 'Fair'
+        
+        # 4. Price to Sales
+        ps_ratio = info.get('priceToSalesTrailing12Months')
+        if ps_ratio and ps_ratio > 0:
+            details['ps_ratio'] = round(ps_ratio, 2)
+            if ps_ratio < 1:
+                valuation_signals.append(-1)
+                details['ps_signal'] = 'Low (Undervalued)'
+            elif ps_ratio > 3:
+                valuation_signals.append(1)
+                details['ps_signal'] = 'High (Overvalued)'
+            else:
+                valuation_signals.append(0)
+                details['ps_signal'] = 'Fair'
+        
+        # Calculate overall valuation status
+        if len(valuation_signals) == 0:
+            return 'Fair-Valued', details
+        
+        avg_signal = sum(valuation_signals) / len(valuation_signals)
+        
+        if avg_signal < -0.3:
+            status = 'Undervalued'
+        elif avg_signal > 0.3:
+            status = 'Overvalued'
+        else:
+            status = 'Fair-Valued'
+        
+        return status, details
+    
+    except Exception as e:
+        print(f"  Valuation calculation error: {e}")
+        return 'Fair-Valued', {}
 
 
 def calculate_technical_score(stock_data):
@@ -719,6 +856,11 @@ def analyze_with_qwen(ticker, stock_data, news):
         fundamental_score = calculate_fundamental_score(ticker, stock_data)
         technical_score = calculate_technical_score(stock_data)
         
+        # Calculate valuation status
+        print(f"  Analyzing valuation...")
+        valuation_status, valuation_details = calculate_valuation_status(ticker)
+        print(f"  Valuation: {valuation_status}")
+        
         # Predict price trend (6 months)
         print(f"  Predicting 6-month price trend...")
         prediction = predict_price_trend(ticker, stock_data)
@@ -732,6 +874,20 @@ def analyze_with_qwen(ticker, stock_data, news):
         # Get currency symbol
         currency = stock_data.get('currency', 'USD')
         currency_symbol = 'Rp' if currency == 'IDR' else '$'
+        
+        # Format valuation details
+        valuation_text = f"\nVALUATION ANALYSIS ({valuation_status}):\n"
+        if valuation_details:
+            if 'pe_ratio' in valuation_details:
+                valuation_text += f"- P/E Ratio: {valuation_details['pe_ratio']} - {valuation_details.get('pe_signal', 'N/A')}\n"
+            if 'pb_ratio' in valuation_details:
+                valuation_text += f"- P/B Ratio: {valuation_details['pb_ratio']} - {valuation_details.get('pb_signal', 'N/A')}\n"
+            if 'peg_ratio' in valuation_details:
+                valuation_text += f"- PEG Ratio: {valuation_details['peg_ratio']} - {valuation_details.get('peg_signal', 'N/A')}\n"
+            if 'ps_ratio' in valuation_details:
+                valuation_text += f"- P/S Ratio: {valuation_details['ps_ratio']} - {valuation_details.get('ps_signal', 'N/A')}\n"
+        else:
+            valuation_text += "- Limited valuation data available\n"
         
         # Prepare prompt with AI scoring insights
         prediction_text = ""
@@ -749,7 +905,7 @@ TECHNICAL DETAILS:
 - RSI: {stock_data['rsi']} | MACD: {stock_data['macd']} | Signal: {stock_data['macd_signal']}
 - SMA(20): {currency_symbol}{stock_data['sma_20']} | SMA(50): {currency_symbol}{stock_data['sma_50']}
 - Dividend Yield: {stock_data['dividend_yield']}%
-{prediction_text}
+{valuation_text}{prediction_text}
 RECENT NEWS HEADLINES:
 """
         for idx, article in enumerate(news, 1):
@@ -764,9 +920,13 @@ YOUR TASK:
    - 45-55: Neutral  
    - 55-70: Positive
    - 70-100: Very positive
-2. Consider the 6-month price prediction trend in your analysis
-3. Calculate composite score: (sentiment*33% + fundamental*33% + technical*34%)
-4. Provide recommendation based on composite score AND predicted trend
+2. Consider the valuation status ({valuation_status}) - adjust recommendation accordingly:
+   - Undervalued + positive indicators → favor Buy
+   - Overvalued + negative indicators → favor Sell
+   - Fair-Valued → rely on technicals and sentiment
+3. Consider the 6-month price prediction trend in your analysis
+4. Calculate composite score: (sentiment*33% + fundamental*33% + technical*34%)
+5. Provide recommendation based on composite score, predicted trend, AND valuation
 
 RESPOND WITH VALID JSON ONLY (no markdown):
 {{
@@ -776,7 +936,7 @@ RESPOND WITH VALID JSON ONLY (no markdown):
   "recommendation": "Strong Buy" or "Buy" or "Hold" or "Sell" or "Strong Sell",
   "confidence_score": Z (same as composite_score),
   "time_horizon": "Scalp Trading (Minutes/Hours)" or "Day Trading (Days)" or "Investment (Long-Term)",
-  "reasoning": "Brief explanation mentioning sentiment, fundamentals, technicals, and predicted trend.",
+  "reasoning": "Brief explanation mentioning sentiment, fundamentals, technicals, valuation ({valuation_status}), and predicted trend.",
   "entry_zone": "{currency_symbol}X.XX-{currency_symbol}Y.YY",
   "take_profit": "{currency_symbol}X.XX",
   "stop_loss": "{currency_symbol}X.XX"
@@ -784,8 +944,9 @@ RESPOND WITH VALID JSON ONLY (no markdown):
 
 GUIDELINES:
 1. Analyze news carefully for sentiment (not just keywords)
-2. Consider predicted trend: Strong Uptrend/Uptrend = favor Buy, Downtrend = favor Sell
-3. Composite >= 80: Strong Buy, >= 65: Buy, >= 45: Hold, >= 30: Sell, < 30: Strong Sell
+2. Consider valuation: {valuation_status} stock should influence your recommendation
+3. Consider predicted trend: Strong Uptrend/Uptrend = favor Buy, Downtrend = favor Sell
+4. Composite >= 80: Strong Buy, >= 65: Buy, >= 45: Hold, >= 30: Sell, < 30: Strong Sell
 4. Interest level: "Not Interesting" if composite < 40
 5. Prices must be numbers with {currency_symbol}"""
         
@@ -865,6 +1026,10 @@ GUIDELINES:
             analysis['backtest_accuracy'] = prediction['backtest_accuracy']
             analysis['prediction_graph'] = prediction['prediction_graph']
             analysis['backtest_results'] = prediction['backtest_results']
+        
+        # Add valuation data to analysis
+        analysis['valuation_status'] = valuation_status
+        analysis['valuation_details'] = valuation_details
         
         return analysis
         
