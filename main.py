@@ -380,13 +380,29 @@ def predict_price_trend(ticker, stock_data):
             
             predictions.append(pred_price)
             
-            # Calculate confidence interval based on historical volatility
-            # Fixed width based on base price, not predicted price
-            uncertainty = base_price * daily_volatility * np.sqrt(i + 1) * 1.5
-            uncertainty = min(uncertainty, base_price * 0.08)  # Cap at 8% of base price
+            # Calculate confidence interval with STRICT bounds to prevent Y-axis expansion
+            # Use smaller, fixed uncertainty based on base price only
+            uncertainty = base_price * daily_volatility * np.sqrt(i + 1) * 1.2
+            uncertainty = min(uncertainty, base_price * 0.05)  # Cap at 5% of base price (reduced from 8%)
             
-            prediction_upper.append(pred_price + uncertainty)
-            prediction_lower.append(pred_price - uncertainty)
+            # Apply bounds to BOTH prediction and uncertainty
+            upper_bound = pred_price + uncertainty
+            lower_bound = pred_price - uncertainty
+            
+            # CRITICAL: Enforce absolute bounds to prevent exponential growth
+            # Bounds should never exceed ±20% from base price at any point
+            max_allowed = base_price * 1.20  # +20% max
+            min_allowed = base_price * 0.80  # -20% min
+            
+            upper_bound = min(upper_bound, max_allowed)
+            lower_bound = max(lower_bound, min_allowed)
+            
+            # Ensure bounds don't cross or get inverted
+            if upper_bound < lower_bound:
+                upper_bound = lower_bound = pred_price
+            
+            prediction_upper.append(upper_bound)
+            prediction_lower.append(lower_bound)
             
             # Calculate date
             days_ahead = i + 1

@@ -312,7 +312,27 @@ function stockApp() {
             const allPrices = [...predictions, ...upper, ...lower];
             const minPrice = Math.min(...allPrices);
             const maxPrice = Math.max(...allPrices);
-            const padding = (maxPrice - minPrice) * 0.1; // 10% padding
+            const currentPrice = stock.current_price;
+            
+            // Ensure minimum range of 5% of current price to prevent narrow scaling
+            const minRange = currentPrice * 0.05;
+            let range = maxPrice - minPrice;
+            
+            if (range < minRange) {
+                // Expand range symmetrically around the center
+                const center = (maxPrice + minPrice) / 2;
+                const expandedMin = center - (minRange / 2);
+                const expandedMax = center + (minRange / 2);
+                const padding = minRange * 0.2; // 20% padding on expanded range
+                
+                var finalMin = expandedMin - padding;
+                var finalMax = expandedMax + padding;
+            } else {
+                // Use actual range with 10% padding
+                const padding = range * 0.1;
+                var finalMin = minPrice - padding;
+                var finalMax = maxPrice + padding;
+            }
             
             this.predictionChart = new Chart(ctx, {
                 type: 'line',
@@ -381,8 +401,8 @@ function stockApp() {
                         },
                         y: {
                             display: true,
-                            min: minPrice - padding,
-                            max: maxPrice + padding,
+                            min: finalMin,
+                            max: finalMax,
                             ticks: {
                                 callback: function(value) {
                                     return stock.currency === 'IDR' ? 
