@@ -461,8 +461,8 @@ def predict_price_trend(ticker, stock_data):
                 current_features = current_features.tail(sequence_length)
         
         current_price = stock_data['current_price']
-        predicted_6m = predictions[-1]
-        price_change_pct = ((predicted_6m - current_price) / current_price) * 100
+        predicted_3m = predictions[-1]
+        price_change_pct = ((predicted_3m - current_price) / current_price) * 100
         
         # Backtesting with walk-forward validation
         backtest_results = None
@@ -517,18 +517,17 @@ def predict_price_trend(ticker, stock_data):
         else:
             trend = "Strong Downtrend"
         
-        # Prepare prediction graph data (sample every week to reduce data size and lag)
+        # Prepare prediction graph data - weekly samples only (12-13 points for 3 months)
         prediction_graph = []
-        step = max(1, len(predictions) // 20)  # ~20 data points max
-        for i in range(0, len(predictions), step):
+        for i in range(0, len(predictions), 5):  # Every 5 trading days = 1 week
             prediction_graph.append({
                 'date': prediction_dates[i],
                 'price': round(predictions[i], 2),
                 'upper': round(prediction_upper[i], 2),
                 'lower': round(prediction_lower[i], 2)
             })
-        # Always include the last prediction
-        if (len(predictions) - 1) % step != 0:
+        # Always include the last prediction (3 months out)
+        if (len(predictions) - 1) % 5 != 0:
             prediction_graph.append({
                 'date': prediction_dates[-1],
                 'price': round(predictions[-1], 2),
@@ -537,11 +536,11 @@ def predict_price_trend(ticker, stock_data):
             })
         
         return {
-            'predicted_6m_price': round(predicted_6m, 2),
+            'predicted_6m_price': round(predicted_3m, 2),  # Keep key name for compatibility
             'price_change_pct': round(price_change_pct, 2),
             'trend': trend,
             'backtest_accuracy': round(accuracy, 2) if accuracy else None,
-            'prediction_graph': prediction_graph,  # Array of {date, price}
+            'prediction_graph': prediction_graph,  # Array of {date, price} - weekly samples
             'backtest_results': backtest_results   # Actual vs predicted with MAPE
         }
         
@@ -908,7 +907,7 @@ def analyze_with_qwen(ticker, stock_data, news):
         # Prepare prompt with AI scoring insights
         prediction_text = ""
         if prediction:
-            prediction_text = f"\n6-MONTH PRICE PREDICTION:\n- Current: {currency_symbol}{stock_data['current_price']} → Predicted: {currency_symbol}{prediction['predicted_6m_price']}\n- Change: {prediction['price_change_pct']:+.2f}% ({prediction['trend']})\n- Backtest Accuracy: {prediction['backtest_accuracy']:.1f}%\n"
+            prediction_text = f"\n3-MONTH PRICE PREDICTION:\n- Current: {currency_symbol}{stock_data['current_price']} → Predicted: {currency_symbol}{prediction['predicted_6m_price']}\n- Change: {prediction['price_change_pct']:+.2f}% ({prediction['trend']})\n- Backtest Accuracy: {prediction['backtest_accuracy']:.1f}%\n"
         
         prompt = f"""You are an expert stock analyst. Analyze {ticker} using the provided scoring system.
 
@@ -940,7 +939,7 @@ YOUR TASK:
    - Undervalued + positive indicators → favor Buy
    - Overvalued + negative indicators → favor Sell
    - Fair-Valued → rely on technicals and sentiment
-3. Consider the 6-month price prediction trend in your analysis
+3. Consider the 3-month price prediction trend in your analysis
 4. Calculate composite score: (sentiment*33% + fundamental*33% + technical*34%)
 5. Provide recommendation based on composite score, predicted trend, AND valuation
 

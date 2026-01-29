@@ -280,10 +280,10 @@
                             <span x-text="stock.time_horizon"></span>
                         </p>
                         
-                        <!-- 6-Month Prediction -->
+                        <!-- 3-Month Prediction -->
                         <template x-if="stock.predicted_6m_price">
                             <div class="bg-blue-50 border border-blue-200 rounded p-2 mb-2 text-sm">
-                                <p class="font-semibold text-blue-800">📈 6-Month Prediction:</p>
+                                <p class="font-semibold text-blue-800">📈 3-Month Prediction:</p>
                                 <p>
                                     <span x-text="formatPrice(stock.predicted_6m_price, stock.currency)"></span>
                                     <span :class="stock.price_change_pct > 0 ? 'text-green-600' : 'text-red-600'" class="font-semibold ml-1" x-text="(stock.price_change_pct > 0 ? '+' : '') + stock.price_change_pct + '%'"></span>
@@ -346,7 +346,7 @@
                     <!-- Modal Body -->
                     <div class="p-6 space-y-6">
                         
-                        <!-- 6-Month Price Chart -->
+                        <!-- 3-Month Price Chart -->
                         <div x-show="selectedStock.chart_data && selectedStock.chart_data['6M']">
                             <div class="flex justify-between items-center mb-2">
                                 <h3 class="font-bold text-lg">📊 Price Chart with MA(20)</h3>
@@ -460,16 +460,16 @@
                             <p class="text-gray-700" x-text="selectedStock.reasoning"></p>
                         </div>
                         
-                        <!-- 6-Month Price Prediction -->
+                        <!-- 3-Month Price Prediction -->
                         <template x-if="selectedStock.predicted_6m_price">
                             <div>
-                                <h3 class="font-bold text-lg mb-2">🔮 6-Month Price Prediction</h3>
+                                <h3 class="font-bold text-lg mb-2">🔮 3-Month Price Prediction</h3>
                                 
                                 <!-- Prediction Graph -->
                                 <template x-if="selectedStock.prediction_graph && selectedStock.prediction_graph.length > 0">
                                     <div class="bg-gray-50 rounded-lg p-4 mb-4">
                                         <p class="text-xs text-gray-600 mb-2">
-                                            📈 6-month forecast with confidence interval. Shaded area shows expected price range (capped at ±8% for stability).
+                                            📈 3-month forecast (weekly samples). Shaded area shows expected price range with ±3% confidence band.
                                         </p>
                                         <canvas :id="'prediction-chart-' + selectedStock.ticker" 
                                                 x-init="$nextTick(() => renderPredictionChart(selectedStock))"
