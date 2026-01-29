@@ -297,6 +297,11 @@ def predict_price_trend(ticker, stock_data):
         # Get the last date from historical data
         last_date = hist_1y.index[-1]
         
+        # Calculate uncertainty band based on CURRENT price (not predicted)
+        base_price = stock_data['current_price']
+        base_uncertainty_pct = daily_volatility * 5.0  # ~5 days of volatility
+        max_uncertainty_pct = min(0.08, base_uncertainty_pct)  # Cap at 8%
+        
         for i in range(126):
             # Update day feature
             last_row['day'] = features_df['day'].iloc[-1] + i + 1
@@ -305,35 +310,25 @@ def predict_price_trend(ticker, stock_data):
             future_features = last_row.drop('price').values.reshape(1, -1)
             future_scaled = scaler.transform(future_features)
             
-            # Get predictions from all trees to calculate uncertainty
-            tree_predictions = np.array([tree.predict(future_scaled)[0] for tree in model.estimators_])
-            pred_price = np.mean(tree_predictions)
-            pred_std = np.std(tree_predictions)
-            
-            # Calculate a conservative uncertainty band (±5-10% based on volatility)
-            # Cap it to prevent extreme values
-            base_uncertainty = pred_price * daily_volatility * 2.0  # ~2 standard deviations
-            time_adjusted = base_uncertainty * (1 + 0.3 * np.sqrt((i + 1) / 126))  # Gentle growth
-            
-            # Combine with model uncertainty and cap at 10% of price
-            total_uncertainty = min(
-                pred_std + time_adjusted,
-                pred_price * 0.10  # Cap at 10% of predicted price
-            )
-            
+            # Get prediction
+            pred_price = model.predict(future_scaled)[0]
             predictions.append(pred_price)
-            prediction_upper.append(pred_price + total_uncertainty)
-            prediction_lower.append(max(pred_price * 0.5, pred_price - total_uncertainty))  # Don't go below 50% of price
+            
+            # Calculate uncertainty relative to BASE price (not predicted price)
+            # This prevents compounding
+            time_factor = 1.0 + (i / 126) * 0.2  # Grows from 1.0 to 1.2 over 6 months
+            uncertainty = base_price * max_uncertainty_pct * time_factor
+            
+            prediction_upper.append(pred_price + uncertainty)
+            prediction_lower.append(pred_price - uncertainty)
             
             # Calculate approximate date (assuming ~252 trading days/year)
             days_ahead = i + 1
             approx_date = last_date + pd.Timedelta(days=int(days_ahead * 365 / 252))
             prediction_dates.append(approx_date.strftime('%Y-%m-%d'))
             
-            # Update rolling features with minimal noise to prevent compounding
-            noise_factor = np.random.normal(1.0, daily_volatility * 0.1)  # Very small noise
-            noise_factor = np.clip(noise_factor, 0.98, 1.02)  # Limit to ±2%
-            last_row['ma5'] = np.mean([last_row['price']] + predictions[-min(4, len(predictions)):]) * noise_factor
+            # Update rolling features WITHOUT noise (stable predictions)
+            last_row['ma5'] = np.mean([last_row['price']] + predictions[-min(4, len(predictions)):])
             last_row['ma10'] = np.mean([last_row['price']] + predictions[-min(9, len(predictions)):])
             last_row['ma20'] = np.mean([last_row['price']] + predictions[-min(19, len(predictions)):])
             last_row['price'] = pred_price
