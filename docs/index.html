@@ -385,7 +385,7 @@
                                 <template x-if="selectedStock.prediction_graph && selectedStock.prediction_graph.length > 0">
                                     <div class="bg-gray-50 rounded-lg p-4 mb-4">
                                         <p class="text-xs text-gray-600 mb-2">
-                                            📊 Shaded area shows confidence interval based on model uncertainty + historical volatility (capped at ±10%)
+                                            � 6-month price forecast based on Random Forest analysis of historical patterns
                                         </p>
                                         <canvas :id="'prediction-chart-' + selectedStock.ticker" 
                                                 x-init="$nextTick(() => renderPredictionChart(selectedStock))"
@@ -441,7 +441,7 @@
                                 </template>
                                 
                                 <p class="mt-3 text-xs text-gray-500 italic">
-                                    ⚠️ Prediction based on Random Forest ML model with 100 trees analyzing price patterns, moving averages, volatility, and momentum. Past performance does not guarantee future results.
+                                    ⚠️ Prediction based on Gradient Boosting ML model analyzing 50+ technical features including multiple MAs, EMAs, RSI, momentum, volatility, and volume patterns over 2 years of data. Past performance does not guarantee future results.
                                 </p>
                             </div>
                         </template>

@@ -287,8 +287,6 @@ function stockApp() {
             
             const dates = stock.prediction_graph.map(d => d.date);
             const predictions = stock.prediction_graph.map(d => d.price);
-            const upper = stock.prediction_graph.map(d => d.upper || d.price);
-            const lower = stock.prediction_graph.map(d => d.lower || d.price);
             
             this.predictionChart = new Chart(ctx, {
                 type: 'line',
@@ -296,37 +294,17 @@ function stockApp() {
                     labels: dates,
                     datasets: [
                         {
-                            label: 'Confidence Upper',
-                            data: upper,
-                            borderColor: 'rgba(59, 130, 246, 0.3)',
-                            backgroundColor: 'rgba(59, 130, 246, 0.05)',
-                            borderWidth: 1,
-                            pointRadius: 0,
-                            tension: 0.3,
-                            fill: '+1',
-                            borderDash: [3, 3]
-                        },
-                        {
-                            label: 'Expected Price',
+                            label: '6-Month Price Forecast',
                             data: predictions,
                             borderColor: 'rgb(59, 130, 246)',
                             backgroundColor: 'rgba(59, 130, 246, 0.1)',
                             borderWidth: 3,
-                            pointRadius: 3,
+                            pointRadius: 4,
                             pointBackgroundColor: 'rgb(59, 130, 246)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
                             tension: 0.3,
-                            fill: false
-                        },
-                        {
-                            label: 'Confidence Lower',
-                            data: lower,
-                            borderColor: 'rgba(59, 130, 246, 0.3)',
-                            backgroundColor: 'rgba(59, 130, 246, 0.05)',
-                            borderWidth: 1,
-                            pointRadius: 0,
-                            tension: 0.3,
-                            fill: false,
-                            borderDash: [3, 3]
+                            fill: true
                         }
                     ]
                 },
@@ -341,7 +319,7 @@ function stockApp() {
                             callbacks: {
                                 label: function(context) {
                                     const currency = stock.currency === 'IDR' ? 'Rp ' : '$';
-                                    return context.dataset.label + ': ' + currency + context.parsed.y.toLocaleString();
+                                    return 'Forecast: ' + currency + context.parsed.y.toLocaleString();
                                 }
                             }
                         }

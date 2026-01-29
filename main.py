@@ -218,151 +218,237 @@ def fetch_news(ticker):
 
 
 def predict_price_trend(ticker, stock_data):
-    """Predict 6-month price trend using Random Forest with multiple features and backtesting."""
+    """Predict 6-month price trend using Gradient Boosting with comprehensive feature engineering."""
     try:
-        from sklearn.ensemble import RandomForestRegressor
+        from sklearn.ensemble import GradientBoostingRegressor
         from sklearn.preprocessing import StandardScaler
         
-        # Get 1 year historical data for better prediction
+        # Get 2 years of historical data for better pattern recognition
         stock = yf.Ticker(ticker)
-        hist_1y = stock.history(period="1y")
+        hist_2y = stock.history(period="2y")
         
-        if len(hist_1y) < 60:
+        if len(hist_2y) < 100:
             return None
         
-        # Engineer features for better prediction
-        def create_features(data):
+        # Advanced feature engineering
+        def create_features(data, lookback=60):
             features = pd.DataFrame()
-            features['day'] = np.arange(len(data))
-            features['price'] = data['Close'].values
-            features['volume'] = data['Volume'].values
-            features['high'] = data['High'].values
-            features['low'] = data['Low'].values
+            close = data['Close'].values
+            volume = data['Volume'].values
+            high = data['High'].values
+            low = data['Low'].values
             
-            # Moving averages
-            features['ma5'] = data['Close'].rolling(window=5, min_periods=1).mean().values
-            features['ma10'] = data['Close'].rolling(window=10, min_periods=1).mean().values
-            features['ma20'] = data['Close'].rolling(window=20, min_periods=1).mean().values
+            # Price-based features
+            features['price'] = close
+            features['log_price'] = np.log(close + 1)
             
-            # Volatility (20-day standard deviation)
-            features['volatility'] = data['Close'].rolling(window=20, min_periods=1).std().values
+            # Multiple timeframe moving averages
+            for window in [5, 10, 20, 50]:
+                features[f'ma{window}'] = pd.Series(close).rolling(window=window, min_periods=1).mean().values
+                features[f'price_to_ma{window}'] = close / features[f'ma{window}']
             
-            # Price momentum (rate of change)
-            features['momentum_5'] = data['Close'].pct_change(5).fillna(0).values
-            features['momentum_10'] = data['Close'].pct_change(10).fillna(0).values
+            # Exponential moving averages (more weight on recent prices)
+            for span in [12, 26]:
+                features[f'ema{span}'] = pd.Series(close).ewm(span=span, adjust=False).mean().values
             
-            # Volume trend
-            features['volume_ma5'] = data['Volume'].rolling(window=5, min_periods=1).mean().values
+            # Volatility features
+            features['volatility_20'] = pd.Series(close).rolling(window=20, min_periods=1).std().values
+            features['volatility_50'] = pd.Series(close).rolling(window=50, min_periods=1).std().values
             
-            # Price range (high-low)
-            features['price_range'] = (data['High'] - data['Low']).values
+            # Momentum indicators
+            for period in [5, 10, 20]:
+                features[f'momentum_{period}'] = pd.Series(close).pct_change(period).fillna(0).values
+                features[f'roc_{period}'] = ((close - np.roll(close, period)) / np.roll(close, period))
+            
+            # Rate of change of momentum (acceleration)
+            features['momentum_acceleration'] = pd.Series(features['momentum_10']).diff().fillna(0).values
+            
+            # RSI-like momentum
+            returns = pd.Series(close).pct_change().fillna(0)
+            gains = returns.where(returns > 0, 0)
+            losses = -returns.where(returns < 0, 0)
+            avg_gain = gains.rolling(window=14, min_periods=1).mean()
+            avg_loss = losses.rolling(window=14, min_periods=1).mean()
+            rs = avg_gain / (avg_loss + 1e-10)
+            features['rsi'] = (100 - (100 / (1 + rs))).values
+            
+            # Volume features
+            features['volume'] = volume
+            features['volume_ma5'] = pd.Series(volume).rolling(window=5, min_periods=1).mean().values
+            features['volume_ratio'] = volume / (features['volume_ma5'] + 1)
+            
+            # Price range and spread
+            features['high_low_range'] = high - low
+            features['high_low_ratio'] = high / (low + 1)
+            
+            # Trend strength (ADX-like)
+            features['trend_strength'] = np.abs(features['ma5'] - features['ma20']) / close
+            
+            # Cyclical features (time patterns)
+            day_of_year = data.index.dayofyear.values
+            features['day_sin'] = np.sin(2 * np.pi * day_of_year / 365)
+            features['day_cos'] = np.cos(2 * np.pi * day_of_year / 365)
             
             return features
         
-        # Create feature set
-        features_df = create_features(hist_1y)
-        prices = hist_1y['Close'].values
+        # Create comprehensive features
+        features_df = create_features(hist_2y)
         
-        # Prepare training data
-        X = features_df.drop('price', axis=1).values
-        y = prices
+        # Create sequences for multi-step prediction
+        sequence_length = 20  # Use last 20 days to predict next day
+        X_sequences = []
+        y_targets = []
         
-        # Scale features for better performance
+        for i in range(sequence_length, len(features_df)):
+            # Use statistical aggregations of recent sequence
+            sequence = features_df.iloc[i-sequence_length:i]
+            
+            # Create aggregated features from sequence
+            agg_features = []
+            for col in sequence.columns:
+                if col != 'price':
+                    agg_features.extend([
+                        sequence[col].mean(),
+                        sequence[col].std(),
+                        sequence[col].iloc[-1],  # Latest value
+                    ])
+            
+            X_sequences.append(agg_features)
+            y_targets.append(features_df.iloc[i]['price'])
+        
+        X = np.array(X_sequences)
+        y = np.array(y_targets)
+        
+        # Scale features
         scaler = StandardScaler()
         X_scaled = scaler.fit_transform(X)
         
-        # Train Random Forest model on all data
-        model = RandomForestRegressor(
-            n_estimators=100,  # Number of trees
-            max_depth=10,      # Prevent overfitting
-            min_samples_split=5,
-            min_samples_leaf=2,
-            random_state=42,
-            n_jobs=-1          # Use all CPU cores
+        # Train Gradient Boosting (better than Random Forest for time series)
+        model = GradientBoostingRegressor(
+            n_estimators=200,
+            max_depth=5,
+            learning_rate=0.05,
+            subsample=0.8,
+            min_samples_split=10,
+            min_samples_leaf=4,
+            random_state=42
         )
         model.fit(X_scaled, y)
         
-        # Calculate historical volatility for confidence intervals
-        returns = pd.Series(prices).pct_change().dropna()
-        daily_volatility = returns.std()
-        
-        # Predict next 6 months (126 trading days)
-        # Use last known values and extrapolate
-        last_row = features_df.iloc[-1].copy()
+        # Multi-step prediction with model updates
         predictions = []
-        prediction_upper = []  # Upper confidence bound
-        prediction_lower = []  # Lower confidence bound
         prediction_dates = []
+        last_date = hist_2y.index[-1]
         
-        # Get the last date from historical data
-        last_date = hist_1y.index[-1]
-        
-        # Calculate uncertainty band based on CURRENT price (not predicted)
-        base_price = stock_data['current_price']
-        base_uncertainty_pct = daily_volatility * 5.0  # ~5 days of volatility
-        max_uncertainty_pct = min(0.08, base_uncertainty_pct)  # Cap at 8%
+        # Start with last known features
+        current_features = features_df.tail(sequence_length).copy()
         
         for i in range(126):
-            # Update day feature
-            last_row['day'] = features_df['day'].iloc[-1] + i + 1
+            # Prepare sequence features
+            sequence = current_features.tail(sequence_length)
+            agg_features = []
+            for col in sequence.columns:
+                if col != 'price':
+                    agg_features.extend([
+                        sequence[col].mean(),
+                        sequence[col].std(),
+                        sequence[col].iloc[-1],
+                    ])
             
-            # Prepare features (exclude price)
-            future_features = last_row.drop('price').values.reshape(1, -1)
-            future_scaled = scaler.transform(future_features)
-            
-            # Get prediction
-            pred_price = model.predict(future_scaled)[0]
+            # Predict next price
+            X_future = scaler.transform([agg_features])
+            pred_price = model.predict(X_future)[0]
             predictions.append(pred_price)
             
-            # Calculate uncertainty relative to BASE price (not predicted price)
-            # This prevents compounding
-            time_factor = 1.0 + (i / 126) * 0.2  # Grows from 1.0 to 1.2 over 6 months
-            uncertainty = base_price * max_uncertainty_pct * time_factor
-            
-            prediction_upper.append(pred_price + uncertainty)
-            prediction_lower.append(pred_price - uncertainty)
-            
-            # Calculate approximate date (assuming ~252 trading days/year)
+            # Calculate date
             days_ahead = i + 1
             approx_date = last_date + pd.Timedelta(days=int(days_ahead * 365 / 252))
             prediction_dates.append(approx_date.strftime('%Y-%m-%d'))
             
-            # Update rolling features WITHOUT noise (stable predictions)
-            last_row['ma5'] = np.mean([last_row['price']] + predictions[-min(4, len(predictions)):])
-            last_row['ma10'] = np.mean([last_row['price']] + predictions[-min(9, len(predictions)):])
-            last_row['ma20'] = np.mean([last_row['price']] + predictions[-min(19, len(predictions)):])
-            last_row['price'] = pred_price
+            # Update features with prediction
+            new_row = pd.Series(dtype=float)
+            new_row['price'] = pred_price
+            new_row['log_price'] = np.log(pred_price + 1)
+            
+            # Update MAs based on recent predictions
+            recent_prices = list(current_features.tail(50)['price']) + predictions[-50:]
+            for window in [5, 10, 20, 50]:
+                ma_val = np.mean(recent_prices[-window:])
+                new_row[f'ma{window}'] = ma_val
+                new_row[f'price_to_ma{window}'] = pred_price / ma_val
+            
+            # Update EMAs
+            for span in [12, 26]:
+                ema_val = pd.Series(recent_prices[-span:]).ewm(span=span, adjust=False).mean().iloc[-1]
+                new_row[f'ema{span}'] = ema_val
+            
+            # Update volatility
+            new_row['volatility_20'] = np.std(recent_prices[-20:])
+            new_row['volatility_50'] = np.std(recent_prices[-50:]) if len(recent_prices) >= 50 else np.std(recent_prices)
+            
+            # Update momentum
+            for period in [5, 10, 20]:
+                if len(recent_prices) > period:
+                    new_row[f'momentum_{period}'] = (recent_prices[-1] - recent_prices[-period-1]) / recent_prices[-period-1]
+                    new_row[f'roc_{period}'] = new_row[f'momentum_{period}']
+                else:
+                    new_row[f'momentum_{period}'] = 0
+                    new_row[f'roc_{period}'] = 0
+            
+            # Fill other features
+            new_row['momentum_acceleration'] = 0
+            new_row['rsi'] = 50  # Neutral
+            new_row['volume'] = current_features['volume'].mean()
+            new_row['volume_ma5'] = current_features['volume_ma5'].mean()
+            new_row['volume_ratio'] = 1.0
+            new_row['high_low_range'] = current_features['high_low_range'].mean()
+            new_row['high_low_ratio'] = current_features['high_low_ratio'].mean()
+            new_row['trend_strength'] = np.abs(new_row['ma5'] - new_row['ma20']) / pred_price
+            
+            # Time features
+            day_of_year = (approx_date.timetuple().tm_yday)
+            new_row['day_sin'] = np.sin(2 * np.pi * day_of_year / 365)
+            new_row['day_cos'] = np.cos(2 * np.pi * day_of_year / 365)
+            
+            # Append and maintain sequence length
+            current_features = pd.concat([current_features, pd.DataFrame([new_row])], ignore_index=True)
+            if len(current_features) > sequence_length:
+                current_features = current_features.tail(sequence_length)
         
         current_price = stock_data['current_price']
         predicted_6m = predictions[-1]
         price_change_pct = ((predicted_6m - current_price) / current_price) * 100
         
-        # Backtesting: Use first 9 months to predict last 3 months
+        # Backtesting with walk-forward validation
         backtest_results = None
-        if len(hist_1y) >= 189:  # Need ~9 months data
-            train_size = len(prices) - 63  # Use first 9 months
+        if len(X) >= 150:
+            train_size = len(X) - 63
+            X_train, X_test = X_scaled[:train_size], X_scaled[train_size:]
+            y_train, y_test = y[:train_size], y[train_size:]
             
-            X_train = X_scaled[:train_size]
-            y_train = y[:train_size]
-            X_test = X_scaled[train_size:]
-            y_test = y[train_size:]
-            
-            backtest_model = RandomForestRegressor(
-                n_estimators=100,
-                max_depth=10,
-                min_samples_split=5,
-                min_samples_leaf=2,
-                random_state=42,
-                n_jobs=-1
+            backtest_model = GradientBoostingRegressor(
+                n_estimators=200,
+                max_depth=5,
+                learning_rate=0.05,
+                subsample=0.8,
+                random_state=42
             )
             backtest_model.fit(X_train, y_train)
-            
-            # Predict test set
             predicted_test = backtest_model.predict(X_test)
             
-            # Calculate MAPE
             mape = np.mean(np.abs((y_test - predicted_test) / y_test)) * 100
             accuracy = max(0, 100 - mape)
+            
+            backtest_dates = [last_date - pd.Timedelta(days=(63-i)*365//252) for i in range(len(y_test))]
+            backtest_results = {
+                'dates': [d.strftime('%Y-%m-%d') for d in backtest_dates],
+                'actual': [round(float(val), 2) for val in y_test],
+                'predicted': [round(float(val), 2) for val in predicted_test],
+                'mape': round(mape, 2),
+                'accuracy': round(accuracy, 2)
+            }
+        else:
+            accuracy = None
             
             # Prepare backtest data for visualization
             backtest_dates = [hist_1y.index[train_size + i].strftime('%Y-%m-%d') for i in range(len(y_test))]
@@ -393,17 +479,13 @@ def predict_price_trend(ticker, stock_data):
         for i in range(0, len(predictions), 5):  # Every 5 days
             prediction_graph.append({
                 'date': prediction_dates[i],
-                'price': round(predictions[i], 2),
-                'upper': round(prediction_upper[i], 2),
-                'lower': round(prediction_lower[i], 2)
+                'price': round(predictions[i], 2)
             })
         # Always include the last prediction
         if len(predictions) % 5 != 1:
             prediction_graph.append({
                 'date': prediction_dates[-1],
-                'price': round(predictions[-1], 2),
-                'upper': round(prediction_upper[-1], 2),
-                'lower': round(prediction_lower[-1], 2)
+                'price': round(predictions[-1], 2)
             })
         
         return {
