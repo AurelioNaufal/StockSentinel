@@ -308,18 +308,13 @@ function stockApp() {
             const upper = stock.prediction_graph.map(d => d.upper || d.price);
             const lower = stock.prediction_graph.map(d => d.lower || d.price);
             
-            // Calculate Y-axis range based on current price with fixed percentage
+            // FORCE fixed Y-axis range based ONLY on current price (ignore prediction data)
+            // This prevents any scaling issues from bad prediction values
             const currentPrice = stock.current_price;
-            const allPrices = [...predictions, ...upper, ...lower];
-            const minPrice = Math.min(...allPrices, currentPrice);
-            const maxPrice = Math.max(...allPrices, currentPrice);
             
-            // Use 10% range around the actual min/max to prevent squishing
-            const range = maxPrice - minPrice;
-            const padding = Math.max(range * 0.15, currentPrice * 0.02); // At least 2% of price
-            
-            const finalMin = minPrice - padding;
-            const finalMax = maxPrice + padding;
+            // Fixed 20% range above and below current price
+            const finalMin = currentPrice * 0.80;  // -20%
+            const finalMax = currentPrice * 1.20;  // +20%
             
             this.predictionChart = new Chart(ctx, {
                 type: 'line',
