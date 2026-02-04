@@ -365,38 +365,32 @@ def predict_price_trend(ticker, stock_data):
             X_future = scaler.transform([agg_features])
             pred_price = model.predict(X_future)[0]
             
-            # Apply soft constraint to prevent exponential growth
-            # Allow max ±25% deviation from base price over 6 months
-            max_deviation = base_price * 0.25
-            time_factor = (i + 1) / 126  # 0 to 1 over 6 months
+            # STRICT constraint to prevent exponential growth - max ±15% over 3 months
+            max_deviation = base_price * 0.15  # 15% max deviation
+            time_factor = (i + 1) / 63  # 0 to 1 over 3 months
             max_price = base_price + (max_deviation * time_factor)
             min_price = base_price - (max_deviation * time_factor)
             
-            # Apply constraint with smoothing
-            if pred_price > max_price:
-                pred_price = max_price - (max_price - pred_price) * 0.1  # Soft cap
-            elif pred_price < min_price:
-                pred_price = min_price + (pred_price - min_price) * 0.1  # Soft floor
+            # HARD cap - enforce strict limits
+            pred_price = np.clip(pred_price, min_price, max_price)
             
             predictions.append(pred_price)
             
-            # FIXED uncertainty band - does NOT grow over time to prevent Y-axis expansion
-            # Use a constant 3% band around predictions
-            uncertainty = base_price * 0.03  # Fixed 3% of base price
+            # FIXED uncertainty band - constant 2% (reduced from 3%)
+            uncertainty = base_price * 0.02
             
-            # Apply bounds to BOTH prediction and uncertainty
+            # Calculate bounds
             upper_bound = pred_price + uncertainty
             lower_bound = pred_price - uncertainty
             
-            # CRITICAL: Enforce absolute bounds to prevent exponential growth
-            # Bounds should never exceed ±20% from base price at any point
-            max_allowed = base_price * 1.20  # +20% max
-            min_allowed = base_price * 0.80  # -20% min
+            # ABSOLUTE hard limits - never exceed ±15% from base
+            absolute_max = base_price * 1.15
+            absolute_min = base_price * 0.85
             
-            upper_bound = min(upper_bound, max_allowed)
-            lower_bound = max(lower_bound, min_allowed)
+            upper_bound = min(upper_bound, absolute_max)
+            lower_bound = max(lower_bound, absolute_min)
             
-            # Ensure bounds don't cross or get inverted
+            # Ensure bounds are valid
             if upper_bound < lower_bound:
                 upper_bound = lower_bound = pred_price
             
