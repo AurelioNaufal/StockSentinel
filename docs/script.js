@@ -380,13 +380,19 @@ function stockApp() {
                             }
                         },
                         y: {
+                            type: 'linear',
                             display: true,
                             min: finalMin,
                             max: finalMax,
                             beginAtZero: false,
                             grace: 0,
+                            afterDataLimits: (scale) => {
+                                scale.min = finalMin;
+                                scale.max = finalMax;
+                            },
                             ticks: {
                                 maxTicksLimit: 8,
+                                stepSize: (finalMax - finalMin) / 8,
                                 callback: function(value) {
                                     return stock.currency === 'IDR' ? 
                                         'Rp ' + value.toLocaleString() : 
@@ -394,7 +400,12 @@ function stockApp() {
                                 }
                             }
                         }
-                    }
+                    },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    animation: false
                 }
             });
         },
