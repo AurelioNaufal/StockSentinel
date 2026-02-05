@@ -303,18 +303,16 @@ function stockApp() {
                 this.predictionChart.destroy();
             }
             
-            const dates = stock.prediction_graph.map(d => d.date);
-            const predictions = stock.prediction_graph.map(d => d.price);
-            const upper = stock.prediction_graph.map(d => d.upper || d.price);
-            const lower = stock.prediction_graph.map(d => d.lower || d.price);
-            
             // FORCE fixed Y-axis range based ONLY on current price (ignore prediction data)
-            // This prevents any scaling issues from bad prediction values
             const currentPrice = stock.current_price;
-            
-            // Fixed 20% range above and below current price
             const finalMin = currentPrice * 0.80;  // -20%
             const finalMax = currentPrice * 1.20;  // +20%
+            
+            // CLIP all data values to prevent overflow beyond Y-axis range
+            const dates = stock.prediction_graph.map(d => d.date);
+            const predictions = stock.prediction_graph.map(d => Math.max(finalMin, Math.min(finalMax, d.price)));
+            const upper = stock.prediction_graph.map(d => Math.max(finalMin, Math.min(finalMax, d.upper || d.price)));
+            const lower = stock.prediction_graph.map(d => Math.max(finalMin, Math.min(finalMax, d.lower || d.price)));
             
             this.predictionChart = new Chart(ctx, {
                 type: 'line',
