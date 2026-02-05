@@ -349,7 +349,7 @@ def predict_price_trend(ticker, stock_data):
         # Start with last known features
         current_features = features_df.tail(sequence_length).copy()
         
-        for i in range(126):
+        for i in range(63):  # 3 months = 63 trading days
             # Prepare sequence features
             sequence = current_features.tail(sequence_length)
             agg_features = []
