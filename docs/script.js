@@ -303,16 +303,25 @@ function stockApp() {
                 this.predictionChart.destroy();
             }
             
-            // FORCE fixed Y-axis range based ONLY on current price (ignore prediction data)
+            // ABSOLUTE fixed Y-axis based on current price - no dynamic calculation
             const currentPrice = stock.current_price;
-            const finalMin = currentPrice * 0.80;  // -20%
-            const finalMax = currentPrice * 1.20;  // +20%
+            const yAxisMin = currentPrice * 0.85;  // -15%
+            const yAxisMax = currentPrice * 1.15;  // +15%
             
-            // CLIP all data values to prevent overflow beyond Y-axis range
+            // HARD CLIP all values - any value outside range will be forced to boundary
             const dates = stock.prediction_graph.map(d => d.date);
-            const predictions = stock.prediction_graph.map(d => Math.max(finalMin, Math.min(finalMax, d.price)));
-            const upper = stock.prediction_graph.map(d => Math.max(finalMin, Math.min(finalMax, d.upper || d.price)));
-            const lower = stock.prediction_graph.map(d => Math.max(finalMin, Math.min(finalMax, d.lower || d.price)));
+            const predictions = stock.prediction_graph.map(d => {
+                const val = d.price;
+                return val < yAxisMin ? yAxisMin : (val > yAxisMax ? yAxisMax : val);
+            });
+            const upper = stock.prediction_graph.map(d => {
+                const val = d.upper || d.price;
+                return val < yAxisMin ? yAxisMin : (val > yAxisMax ? yAxisMax : val);
+            });
+            const lower = stock.prediction_graph.map(d => {
+                const val = d.lower || d.price;
+                return val < yAxisMin ? yAxisMin : (val > yAxisMax ? yAxisMax : val);
+            });
             
             this.predictionChart = new Chart(ctx, {
                 type: 'line',
@@ -382,20 +391,20 @@ function stockApp() {
                         y: {
                             type: 'linear',
                             display: true,
-                            min: finalMin,
-                            max: finalMax,
+                            min: yAxisMin,
+                            max: yAxisMax,
                             beginAtZero: false,
-                            grace: 0,
+                            grace: '0%',
+                            bounds: 'data',
                             afterDataLimits: (scale) => {
-                                scale.min = finalMin;
-                                scale.max = finalMax;
+                                scale.min = yAxisMin;
+                                scale.max = yAxisMax;
                             },
                             ticks: {
-                                maxTicksLimit: 8,
-                                stepSize: (finalMax - finalMin) / 8,
+                                count: 6,
                                 callback: function(value) {
                                     return stock.currency === 'IDR' ? 
-                                        'Rp ' + value.toLocaleString() : 
+                                        'Rp ' + Math.round(value).toLocaleString() : 
                                         '$' + value.toFixed(2);
                                 }
                             }
