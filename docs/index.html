@@ -465,18 +465,6 @@
                             <div>
                                 <h3 class="font-bold text-lg mb-2">🔮 3-Month Price Prediction</h3>
                                 
-                                <!-- Prediction Graph -->
-                                <template x-if="selectedStock.prediction_graph && selectedStock.prediction_graph.length > 0">
-                                    <div class="bg-gray-50 rounded-lg p-4 mb-4">
-                                        <p class="text-xs text-gray-600 mb-2">
-                                            📈 3-month forecast (weekly samples). Shaded area shows expected price range with ±2% confidence band.
-                                        </p>
-                                        <canvas :id="'prediction-chart-' + selectedStock.ticker" 
-                                                x-init="$nextTick(() => renderPredictionChart(selectedStock))"
-                                                height="200"></canvas>
-                                    </div>
-                                </template>
-                                
                                 <!-- Summary Stats -->
                                 <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4 mb-4">
                                     <div class="grid grid-cols-2 gap-4">
@@ -485,7 +473,7 @@
                                             <p class="text-2xl font-bold" x-text="formatPrice(selectedStock.current_price, selectedStock.currency)"></p>
                                         </div>
                                         <div>
-                                            <p class="text-sm text-gray-600">Predicted Price (6M)</p>
+                                            <p class="text-sm text-gray-600">Predicted Price (3M)</p>
                                             <p class="text-2xl font-bold" x-text="formatPrice(selectedStock.predicted_6m_price, selectedStock.currency)"></p>
                                         </div>
                                     </div>
